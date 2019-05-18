@@ -1,7 +1,7 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  app.get("/api/matches", function(req, res) {
+  app.get("/api/match", function(req, res) {
     db.Users.findAll({}).then(function(dbMatches) {
       res.json(dbMatches);
     });
