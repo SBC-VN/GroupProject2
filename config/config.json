@@ -1,6 +1,6 @@
 {
   "development": {
-    "username": "",
+    "username": "root",
     "password": "",
     "database": "matcherdb_dev",
     "host": "127.0.0.1",
@@ -9,7 +9,7 @@
   },
   "test": {
     "username": "",
-    "password": ,
+    "password": "",
     "database": "matcherdb_test",
     "host": "127.0.0.1",
     "port": 3306,
