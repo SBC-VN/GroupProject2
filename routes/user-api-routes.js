@@ -3,6 +3,9 @@ var db = require("../models");
 module.exports = function(app) {
   app.get("/api/users", function(req, res) {
     db.User.findAll({}).then(function(dbUsers) {
+      dbUsers.forEach(element => {
+        element.password = "****";
+      });
       res.json(dbUsers);
     });
   });
@@ -14,6 +17,7 @@ module.exports = function(app) {
       },
       include: [db.Match]
     }).then(function(dbUser) {
+      dbUser.password = "****";
       res.json(dbUser);
     });
   });

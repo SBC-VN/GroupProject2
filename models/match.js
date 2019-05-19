@@ -1,9 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Match = sequelize.define("Match", {
       // A match is 'owned' by one user, but has an association to another.
-        userid1: 
-          { type: DataTypes.INTEGER,
-            allowNull: false},
         userid2:  
         { type: DataTypes.INTEGER,
           allowNull: false},
