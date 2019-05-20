@@ -1,12 +1,152 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<meta http-equiv="X-UA-Compatible" content="ie=edge">
-	<title>Document</title>
-</head>
-<body>
-	
-</body>
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <title>Step Match</title>
+  </head>
+  <body>
+        <header>
+            <div class= "container">
+                <!-------- Main title ------------------------------------------------------------------------------------------------------------------------------>
+                          <div class="row">
+                            <div class="col-6">
+                              <h1 id="mainTitle">
+                                <span class="highlighter">Syndir Match</span>
+                              </h1>
+                            </div>
+                <!----------- navs -------------------------------------------------------------------------------------------------------------------------------->
+                            <div class="col-6">
+                              <div class="navItems">
+                                <ul class="nav">
+                                  <li class="nav-item">
+                                    <a class="nav-link active" href="#">HOME</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="about.html">ABOUT</a>
+                                  </li>
+                                  <li class="nav-item">
+                                    <a class="nav-link" href="contact.html">CONTACT</a>
+                                  </li>
+                                </ul>
+                <!-------- login/sign up buttons ------------------------------------------------------------------------------------------------------------------->
+                                <div class="row">
+                                  <div class="col-md-12" id="buttonList">
+                                    <!-- Button trigger modal -->
+                                    <div id="welcome">
+                                      <button data-toggle="modal" data-target="#loginModal" style="display:show"
+                                        id="loginButton">
+                                        Login
+                                      </button>
+                    
+                <!----------------- Modals --------------------------------------------------------------------------------------------------------------------------->
+                                      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
+                                        aria-labelledby="myLargeModalLabel" aria-hidden="true" id="loginModal">
+                                        <div class="modal-dialog modal-lg">
+                                          <div class="modal-content">
+                                            <div class="modal-header">
+                                              <h1 id="mainTitle"><span class="highlighter">Syndir Match</span>
+                                              </h1>
+                                            </div>
+                                            <div class="modal-body">
+                                              <h3>User Login</h3>
+                                              <label for="searchTerm">Email Adress</label>
+                                              <input type="text" class="form-control" id="emailInputLogin"
+                                                placeholder="ex. jsmith@example.com">
+                                              <label for="searchTerm">Password</label>
+                                              <input type="password" class="form-control" id="passwordLogin">
+                    
+                                            </div>
+                                            <div class="modal-footer">
+                                              <button type="button" class="hot" data-toggle="modal" data-target="#loginModal"
+                                                id="login">Login</button>
+                                              <button class="button cancel" data-dismiss="modal">Cancel</button>
+                                            </div>
+                                          </div>
+                                        </div>
+                                      </div>
+                <!-- ------------------------Sign-up link---------------------------------------------------------------------------------------------------------- -->
+                                      <button type="button" class="hot"
+                                        id="signUpButton">
+                                        Sign-Up
+                                      </button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                        </header>
+
+
+    <div class="container" id= "mainContainer">   
+<!-- This will be the main body of the page
+        this will be split into two sections 1/3 & 2/3 sections ------------------------------------------------------------------------------------------------------->
+        <div class="row showcase">
+            <div class ="col-4-md">
+                    <div class="card" id="showcaseCard1">
+                            <div class="card-body showcaseCardBody">
+                              <h2>Syndir Match</h2>
+                              <p>A new way to network online.</p>
+                            </div>
+                    </div>
+            </div>
+            <div class ="col-8-md">
+                    <div class="wrapper">
+                        <div class="bg">
+                            <div class="text">
+                              <h3>HOW IT WORKS</h3>
+                              <p>Lorem ipsum dolor amet next level yuccie lo-fi squid trust fund, meggings kinfolk unicorn aesthetic poke disrupt. Tbh offal marfa craft beer, vaporware vape godard.</p>
+                              <p>Distillery iceland waistcoat XOXO viral thundercats, polaroid succulents farm-to-table unicorn blue bottle. Pug mumblecore typewriter, synth blog iceland tote bag YOLO plaid. Humblebrag pinterest kale chips glossier hell of semiotics, messenger bag +1 williamsburg meggings pok pok tbh organic skateboard.</p>
+                              <p>Lorem ipsum dolor amet next level yuccie lo-fi squid trust fund, meggings kinfolk unicorn aesthetic poke disrupt. Tbh offal marfa craft beer, vaporware vape godard.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+<!----- end of row 1 ---------------------------------------------------------------------------------------------------------------------------------------------->
+<div class="row showcase">
+        <div class ="col-4-md">
+                <div class="card" id="showcaseCard2">
+                        <div class="card-body showcaseCardBody">
+                          <h2>Syndir Match</h2>
+                          <p>A new way to network online.</p>
+                        </div>
+                </div>
+        </div>
+        <div class ="col-8-md">
+                <div class="wrapper">
+                    <div class="bg">
+                        <div class="text">
+                          <h3>HOW IT WORKS</h3>
+                          <p>Lorem ipsum dolor amet next level yuccie lo-fi squid trust fund, meggings kinfolk unicorn aesthetic poke disrupt. Tbh offal marfa craft beer, vaporware vape godard.</p>
+                          <p>Distillery iceland waistcoat XOXO viral thundercats, polaroid succulents farm-to-table unicorn blue bottle. Pug mumblecore typewriter, synth blog iceland tote bag YOLO plaid. Humblebrag pinterest kale chips glossier hell of semiotics, messenger bag +1 williamsburg meggings pok pok tbh organic skateboard.</p>
+                          <p>Lorem ipsum dolor amet next level yuccie lo-fi squid trust fund, meggings kinfolk unicorn aesthetic poke disrupt. Tbh offal marfa craft beer, vaporware vape godard.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+
+<!-- ---------this is the end of the fluid container------------------------------------------------------------------------------------------------------------------------------ -->
+    </div>
+        <footer>
+            <h4>Step Match &copy; 2019</h4>
+        </footer>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="style.js"></script>
+  </body>
 </html>
