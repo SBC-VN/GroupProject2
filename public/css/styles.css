@@ -4,9 +4,9 @@ body {
 
 #mainContainer {
     min-height: calc(100vh - 170px);
-
-
+    position:relative;
 }
+
 footer {
     background: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
     color: white;
@@ -16,9 +16,13 @@ footer {
     height: 55px;            /* Footer height */
     border-top: 10px solid ;
     border-color: #FF670F;
-    position: fixed;
+    position:absolute; /*Here's what sticks it*/        /*to the bottom of the body/page*/
+    left:0;            /*and to the left of the body/page.*/
 }
 
+a:link {
+    text-decoration: none;
+}
 /*------- header css -------------------------------------------------------------------*/
 
 header {
@@ -42,6 +46,10 @@ header h1 {
     padding-left: 3px;
     padding-right: 3px;
     border-radius: .5ex;
+}
+
+.navItems{
+    float: right;
 }
 
 .nav-link {
@@ -320,4 +328,26 @@ body::-webkit-scrollbar-thumb {
 
 .contactCard p {
     margin: 0;
+}
+
+/*--- sign-up page is here ------------------------------------------------------------------*/
+
+.surveyBlock {
+    margin-top: 35px;
+}
+
+#sentimentForm {
+    margin-bottom: 25px;
+}
+
+#submitButton {
+    background-color: #ff9345;
+    border: none;
+    color: white;
+    padding: 5px 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin-bottom: 2px;
 }
