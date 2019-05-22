@@ -103,7 +103,7 @@ header h1 {
 #signUpButton:hover {
     background: #353232;
 }
-/*---- showcase elements ---------------------------------------------------------------*/
+/*---- showcase elements index.html--------------------------------------------------------------*/
 
 
 #showcaseCard1 {
@@ -350,4 +350,58 @@ body::-webkit-scrollbar-thumb {
     display: inline-block;
     font-size: 16px;
     margin-bottom: 2px;
+}
+
+textarea {
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    width: 100%;
+}
+/* --- this is the profile/match css ------------------------------------------------------------------*/
+
+#profileCard {
+    display: block;
+    min-width: 30%;
+    background: rgb(192, 185, 185);
+    text-align: center;
+    
+}
+
+#matchCard {
+    min-width: 35%;
+    background: rgb(192, 185, 185);
+}
+
+#profilePic {
+    text-align: center;
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+}
+
+#profilePicContainer {
+    width: 350px;
+    height: 350px;
+    border-radius: 50%;
+    margin: 0 auto;
+    position: relative;
+    overflow: hidden;
+}
+
+#profilePicContainer::after {
+    content: attr(data-text);
+    font-size: 3em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    color: white;
+    background: #ff9345;
+    text-align: center;
+    display: block;
+}
+
+#profileInfoCard {
+    text-align: left;
 }

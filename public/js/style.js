@@ -1,5 +1,7 @@
 
 var signedIn = false;
+var userProfilePic = "img/b-ghosncharge-a-20181211-870x580.jpg";
+var userFirstName= "SC: 70";
 
 
 $(document).ready(function () {
@@ -8,7 +10,7 @@ $(document).ready(function () {
     }
 });
 
-
+// This function will check to see if the user is signed in
 function signinCheck(signedIn) {
     if (signedIn === false) {
         $("#buttonList").append().html(
@@ -26,4 +28,13 @@ function signinCheck(signedIn) {
     }
 }
 
+
+// This function will pull data and populate their profile page
+function updateUserProfile(userProfilePic) {
+    $('#profilePic').attr({ src: userProfilePic, alt: 'User Profile' });
+    $('#profilePicContainer').attr({ "data-text": userFirstName});
+}
+
+
+updateUserProfile(userProfilePic);
 signinCheck(signedIn);
