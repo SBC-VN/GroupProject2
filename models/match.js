@@ -6,7 +6,23 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false},
         deltascore:  
         { type: DataTypes.INTEGER,
-          allowNull: false}        
+          allowNull: false},
+        user1: 
+        {
+            type: DataTypes.INTEGER,
+            references: {
+              model: User,
+              key: 'id'
+            }
+          },
+        user2: 
+        {
+            type: DataTypes.INTEGER,
+            references: {
+              model: User,
+              key: 'id'
+            }
+          } 
     });
   
     Match.associate = function(models) {
