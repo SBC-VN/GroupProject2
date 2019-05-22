@@ -1,7 +1,7 @@
 
-var signedIn = false;
 var userProfilePic = "img/b-ghosncharge-a-20181211-870x580.jpg";
 var userFirstName= "SC: 70";
+var signedIn = true;
 
 
 $(document).ready(function () {

@@ -103,7 +103,22 @@ header h1 {
 #signUpButton:hover {
     background: #353232;
 }
-/*---- showcase elements index.html--------------------------------------------------------------*/
+#chat-icon {
+    background: none;
+    border: none;
+   
+}
+#match-icon {
+    background: none;
+    border: none;
+    
+}
+#profile-icon {
+    background: none;
+    border: none;
+
+}
+/*---- showcase elements ---------------------------------------------------------------*/
 
 
 #showcaseCard1 {
