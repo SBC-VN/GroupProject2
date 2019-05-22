@@ -1,5 +1,5 @@
 
-var signedIn = false;
+var signedIn = true;
 
 
 $(document).ready(function () {
