@@ -383,10 +383,6 @@ textarea {
     
 }
 
-#matchCard {
-    min-width: 35%;
-    background: rgb(192, 185, 185);
-}
 
 #profilePic {
     text-align: center;
@@ -406,7 +402,7 @@ textarea {
 
 #profilePicContainer::after {
     content: attr(data-text);
-    font-size: 3em;
+    font-size: 2.5em;
     position: absolute;
     left: 0;
     right: 0;
@@ -419,4 +415,50 @@ textarea {
 
 #profileInfoCard {
     text-align: left;
+}
+
+.matchPicContainer {
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin: 0 auto;
+    float: left;
+    position: relative;
+    overflow: hidden;
+    margin-top: 0;
+}
+
+.matchPic {
+    float: left;
+    width: 175px;
+    height: 175px;
+    border-radius: 50%;
+    margin-top: 0;
+}
+
+.matchPicContainer::after {
+    content: "yoooo";
+    font-size: 1em;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 10px;
+    color: white;
+    background: #ff9345;
+    text-align: center;
+    display: block;
+    margin-top: 0;
+}
+
+.matchCard {
+    min-width: 35%;
+    background: rgb(192, 185, 185);
+    max-height: 200px;
+
+}
+
+
+
+.matchInfo {
+    margin-left: 20px;
 }
