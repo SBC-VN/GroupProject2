@@ -405,6 +405,7 @@ textarea {
 }
 
 #profileInfoCard {
+<<<<<<< HEAD
   text-align: left;
 }
 
@@ -483,3 +484,34 @@ textarea {
   margin-left: 2px;
   margin-top: 2px;
 }
+=======
+    text-align: left;
+}
+
+/* -------------------------chat page----------------------------- */
+
+#chat-container {
+    min-width: 90%;
+    min-height: 500px;
+    background: rgb(194, 194, 194);
+    border-radius: 5px;
+
+}
+
+#chat-header {
+    text-align: center;
+    margin: 10px;
+}
+
+#chat-mate {
+    margin: 10px;
+}
+
+#chat-box {
+    margin: 10px;
+    min-width: 90%;
+    min-height: 500px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+>>>>>>> b54acfcdb886ea4200580fbfcafd8594eeddd2c4
