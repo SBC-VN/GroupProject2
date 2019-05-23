@@ -32,6 +32,6 @@ require("./routes/userinfo-api-routes.js")(app);
 // =============================================================
 db.sequelize.sync().then(function() {
   app.listen(PORT, function() {
-    console.log("Match App listening on PORT " + PORT);
+    console.log("Match App listening on http://localhost:" + PORT);
   });
 });
