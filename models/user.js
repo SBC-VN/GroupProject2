@@ -29,6 +29,13 @@ module.exports = function(sequelize, DataTypes) {
               len: [6]
               }
             },
+        email: 
+          { type: DataTypes.STRING,
+            allowNull: false,
+            validate: {
+              len: [6]
+              }
+            },
         score: DataTypes.INTEGER,
     });
  
