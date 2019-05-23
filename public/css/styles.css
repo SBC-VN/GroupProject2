@@ -420,3 +420,30 @@ textarea {
 #profileInfoCard {
     text-align: left;
 }
+
+/* -------------------------chat page----------------------------- */
+
+#chat-container {
+    min-width: 90%;
+    min-height: 500px;
+    background: rgb(194, 194, 194);
+    border-radius: 5px;
+
+}
+
+#chat-header {
+    text-align: center;
+    margin: 10px;
+}
+
+#chat-mate {
+    margin: 10px;
+}
+
+#chat-box {
+    margin: 10px;
+    min-width: 90%;
+    min-height: 500px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+}
