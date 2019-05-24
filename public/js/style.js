@@ -11,6 +11,14 @@ var profileFirstName = "Herbs";
 var profileSentScore = 82;
 // -----------------------------------------------
 
+// match data---------------------------------------
+var matchPic = "";
+var matchFirstName = "";
+var matchAge = "";
+var matchLocation = "";
+
+// ---------------------------------------------------
+
 $(document).ready(function() {
   // if (!$.browser.webkit) {
   //     $('.wrapper').html('<p>Sorry! Non webkit users. :(</p>');
@@ -61,6 +69,14 @@ function updateUserProfile(
         <p></p>`
     );
 }
+
+// this function will update the matches
+function updateMatches() {}
+
+// This function will create the match box with profile data
+function createMatchBox() {}
+
+// declaring functions
 
 updateUserProfile(
   profilePic,
