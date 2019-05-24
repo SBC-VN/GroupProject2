@@ -29,6 +29,10 @@ module.exports = function(sequelize, DataTypes) {
               len: [6]
               }
             },
+<<<<<<< HEAD
+        score: {type:DataTypes.INTEGER},
+        matches: {type:DataTypes.JSON},
+=======
         email: 
           { type: DataTypes.STRING,
             allowNull: false,
@@ -37,6 +41,7 @@ module.exports = function(sequelize, DataTypes) {
               }
             },
         score: DataTypes.INTEGER,
+>>>>>>> 61d72e91d6b2a099393d960b2dffc75cdb70916e
     });
  
     return User;

@@ -61,3 +61,5 @@ typings/
 .next
 
 unused/
+a.sh
+b.sh
