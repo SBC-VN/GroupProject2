@@ -20,8 +20,9 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
               len: [6]
-              }
-            },
+              },
+            unique: true
+          },
         password:  
           { type: DataTypes.STRING,
             allowNull: false,
@@ -30,16 +31,15 @@ module.exports = function(sequelize, DataTypes) {
               }
             },
         score: {type:DataTypes.INTEGER},
-        matches: {type:DataTypes.JSON},
         email: 
           { type: DataTypes.STRING,
             allowNull: false,
             validate: {
               len: [6]
-              }
-            },
-        score: DataTypes.INTEGER,
-    });
+              },
+            unique: true
+          }             
+      });
  
     return User;
   };

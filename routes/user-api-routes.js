@@ -21,7 +21,7 @@ module.exports = function(app) {
       populateScores();
       for (var x=0;x<dbUsers.length;x++) {
         console.log(
-          "First Name: " + dbUsers[x].firstname + " Score:" + dbUsers[x].score
+          "First Name: " +   " ".repeat(colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].score
         ); //+"\n")
         // friendScores.push(dbUsers[x].score);
         // calculateUser(dbUsers[x]);
@@ -48,7 +48,7 @@ module.exports = function(app) {
   function calculateMatches(newfriend) {
     var copyScores = friendScores;
     var goal = newfriend.score;
-    console.log("Current User's Score: " + goal); //+"\n");
+    // console.log("Current User's Score: " + goal); //+"\n");
     // var currIndex=copyScores.indexOf(newfriend.score);
     //FILTER
     //use goal
@@ -89,7 +89,6 @@ module.exports = function(app) {
           closestMatches[x].score
       );
 
-      // console.log(colSpacer(closestMatches[x].firstname))
     }
     console.log(matchLabels);
     console.log("\n");
@@ -123,7 +122,6 @@ module.exports = function(app) {
 
 
 app.put("/api/login/:email", function(req, res) {
-    console.log("Login attempt",req.params.email);
     db.User.findOne({
       where: {
         email: req.params.email
@@ -179,7 +177,7 @@ app.put("/api/login/:email", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
       //just working with score
       console.log(req.body);
-      // dbUser=req.body;
+      dbUser=req.body;
       
 
       

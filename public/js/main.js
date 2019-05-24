@@ -20,12 +20,14 @@ $(".modal").on("click","button",function(event) {
           // Successful login.   User info is in 'res'.  Except for password.
           setupUser(res.screenname);
           // Reload the page to get the updated list
-          location.reload();
+          // 5/24 VN - Don't reload.  This resets connection to firebase.
+          //location.reload();
         }
       )
       .catch(
         function(res,info,code) {
           console.log("error status",res.status);
+          // 5/24 VN - Don't reload.  This resets connection to firebase.
           //location.reload();
         });
 
