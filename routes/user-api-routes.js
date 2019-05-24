@@ -101,6 +101,27 @@ module.exports = function(app) {
     return parseInt(20 - word.length);
   }
 
+  app.put("/api/login/:email", function(req, res) {
+    db.User.findOne({
+      where: {
+        email: req.params.email
+      }
+    }).then(function(dbUser) {
+       console.log(req.body);
+       console.log(dbUser);
+      if (dbUser == null) {
+        res.send("404 - User Not Found");
+      }
+      else if (req.body.password === dbUser.password) {
+        dbUser.password = "****";    
+        res.json(dbUser);
+      }
+      else {
+        res.send("401 - Access denied");
+      }
+    });
+  });
+
   app.get("/api/user/:id", function(req, res) {
     db.User.findOne({
       where: {
