@@ -29,7 +29,8 @@ module.exports = function(sequelize, DataTypes) {
               len: [6]
               }
             },
-        score: DataTypes.INTEGER,
+        score: {type:DataTypes.INTEGER},
+        matches: {type:DataTypes.JSON},
     });
  
     return User;
