@@ -1,15 +1,11 @@
 var db = require("../models");
-var friendScores=[];
-var scoreArr=[];
-var scoreTotal=0;
-var users=[];
-
-
-
+var friendScores = [];
+var scoreArr = [];
+var scoreTotal = 0;
+var users = [];
 
 module.exports = function(app) {
   app.get("/api/users", function(req, res) {
-
     //   db.User.findAll({}).then(function(dbUsers) {
     //   dbUsers.forEach(element => {
     //   element.password = "****";
@@ -18,106 +14,115 @@ module.exports = function(app) {
     //   res.json(dbUsers);
     //   });
 
-    db.User.findAll({}).then(function(dbUsers){
-      users=dbUsers;
-      
+    db.User.findAll({}).then(function(dbUsers) {
       //initialize scores
+      // console.log({dbUsers});
+      users = dbUsers;
       populateScores();
-      
-      
-      for (x in users)
-      {
-        console.log("First Name: "+users[x].firstname+" Score:"+users[x].score)//+"\n")
-      // friendScores.push(users[x].score);    
-      // calculateUser(users[x]);
-      var closeArr=calculateMatches(users[x]);
-      var matches=getMatches(closeArr);
+      for (var x=0;x<dbUsers.length;x++) {
+        console.log(
+          "First Name: " + dbUsers[x].firstname + " Score:" + dbUsers[x].score
+        ); //+"\n")
+        // friendScores.push(dbUsers[x].score);
+        // calculateUser(dbUsers[x]);
+        var closeArr = calculateMatches(dbUsers[x]);
+        var matches = getMatches(closeArr);
         // console.log(matches);
+        tempMatches = JSON.stringify(matches);
+        dbUsers[x].matches = JSON.parse(tempMatches);
+        // console.log("Matches: ");
+        // console.log(dbUsers[x].matches);
+        // dbUsers[x].matches=users[x].matches;
+      }
 
-    }
+      res.json(dbUsers);
     });
   });
-  
-function populateScores(){
-  for (x in users)
-  {
-    friendScores.push(users[x].score);
+
+  function populateScores() {
+    for (x in users) {
+      friendScores.push(users[x].score);
+    }
   }
-}
 
-function calculateMatches(newfriend){
-var copyScores=friendScores;
-var goal=newfriend.score;
-console.log("Current User's Score: "+goal)//+"\n");
-var currIndex=copyScores.indexOf(newfriend.score);
-//FILTER
-//use goal
-//percentages too imprecise without empirical statistics 
-// var point20=parseInt(goal*.20);
-var lowCheck=parseInt(goal-25);
-var highCheck=parseInt(goal+25);
-function checkDelta(value){
-  return ((value>lowCheck)&&(value<highCheck));
-}
-// var closestArr=parseInt(copyScores.filter(checkDelta));
-var closestArr=copyScores.filter(checkDelta);
-// console.log("Closest Scores: "+closestArr)
-delete closestArr[closestArr.indexOf(goal)];
-// console.log("Closest Scores: "+closestArr)
-closestArr=closestArr.filter(Number);
-console.log("Closest Scores: "+closestArr)
-return closestArr;
-}
+  function calculateMatches(newfriend) {
+    var copyScores = friendScores;
+    var goal = newfriend.score;
+    console.log("Current User's Score: " + goal); //+"\n");
+    // var currIndex=copyScores.indexOf(newfriend.score);
+    //FILTER
+    //use goal
+    //percentages too imprecise without empirical statistics
+    // var point20=parseInt(goal*.20);
+    var lowCheck = parseInt(goal - 25);
+    var highCheck = parseInt(goal + 25);
+    function checkDelta(value) {
+      return value > lowCheck && value < highCheck;
+    }
+    // var closestArr=parseInt(copyScores.filter(checkDelta));
+    var closestArr = copyScores.filter(checkDelta);
+    // console.log("Closest Scores: "+closestArr)
+    delete closestArr[closestArr.indexOf(goal)];
+    // console.log("Closest Scores: "+closestArr)
+    closestArr = closestArr.filter(Number);
+    console.log("Closest Scores: " + closestArr);
+    return closestArr;
+  }
 
+  function getMatches(closestArr) {
+    var closestMatches = [];
+    // console.log(users);
+    closestMatches = users.filter(function(item) {
+      return closestArr.includes(item.score);
+    });
+    //WORKS -Filters ENTIRE USER
+    // console.log(closestMatches);
 
-function getMatches(closestArr){
-var closestMatches=[]; 
-// console.log(users);
-closestMatches = users.filter(function(item) {
-return closestArr.includes(item.score); 
-})
-//WORKS -Filters ENTIRE USER
-// console.log(closestMatches);
+    var matchLabels = [];
+    for (x in closestMatches) {
+      //  console.log(closestMatches[x].firstname);
+      matchLabels.push(
+        "Match Name: " +
+          closestMatches[x].firstname +
+          " ".repeat(colSpacer(closestMatches[x].firstname)) +
+          "Score:" +
+          closestMatches[x].score
+      );
 
-var matchLabels=[];
-for (x in closestMatches)
-{
-  //  console.log(closestMatches[x].firstname);
-  matchLabels.push("Match Name: "+closestMatches[x].firstname+" ".repeat(colSpacer(closestMatches[x].firstname))+"Score:"+closestMatches[x].score);
-  
-// console.log(colSpacer(closestMatches[x].firstname)) 
-}
-console.log(matchLabels);
-console.log("\n");
-return closestMatches;
-}
+      // console.log(colSpacer(closestMatches[x].firstname))
+    }
+    console.log(matchLabels);
+    console.log("\n");
+    closestMatches.matches = "[]";
+    return closestMatches;
+  }
 
+  function colSpacer(word) {
+    return parseInt(20 - word.length);
+  }
 
-function colSpacer(word) {
-  // console.log(word);
-  // console.log(word);
-  // console.log(parseInt(20 - word.length));
-  return parseInt(20 - word.length);
-}
-
-
-  app.put("/api/login/:email", function(req, res) {
+app.put("/api/login/:email", function(req, res) {
+    console.log("Login attempt",req.params.email);
     db.User.findOne({
       where: {
         email: req.params.email
       }
     }).then(function(dbUser) {
-       console.log(req.body);
-       console.log(dbUser);
+
       if (dbUser == null) {
-        res.send("404 - User Not Found");
+        console.log("User not found");
+        res.status(404).json("User not found");
+        //res.send("404 - User Not Found");
       }
       else if (req.body.password === dbUser.password) {
-        dbUser.password = "****";    
+        console.log("User login ",dbUser.screenname);
+        dbUser.password = "****";
+        res.status(200);
         res.json(dbUser);
       }
       else {
-        res.send("401 - Access denied");
+        console.log("Bad password");
+        res.status(401).json("Access denied");
       }
     });
   });
@@ -149,9 +154,7 @@ function colSpacer(word) {
       res.json(dbUser);
     });
   });
-
 };
-
 
 //********************************************************* */
 // console.log(array1); // [ 'a', 'c', 'e' ]
@@ -169,37 +172,33 @@ function colSpacer(word) {
 //    closestMatches.push(friendMatch.firstname);
 //     }
 // }
-  // return closestMatches;
-    //  return matches;
-  //SEND MATCHES BACK 
-      // res.json(friendMatch);
-            // scoreFriend(newfriend);
-      // var closest=logScores(newfriend);
-      // var friendMatch=getMatch(closest);
+// return closestMatches;
+//  return matches;
+//SEND MATCHES BACK
+// res.json(friendMatch);
+// scoreFriend(newfriend);
+// var closest=logScores(newfriend);
+// var friendMatch=getMatch(closest);
 
-
-  // req.body  is equal to the JSON post sent from the user
-  //JUST AN EXAMPLE OF WHERE WE ARE GRABBING ...    
+// req.body  is equal to the JSON post sent from the user
+//JUST AN EXAMPLE OF WHERE WE ARE GRABBING ...
 //  ;
-      // Using a RegEx Pattern to remove spaces from newfriend
-      // You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
-      // newfriend.routeName = newfriend.name.replace(/\s+/g, '').toLowerCase();
-      // console.log(newfriend.firstname+newfriend.score);
-      
-
-
+// Using a RegEx Pattern to remove spaces from newfriend
+// You can read more about RegEx Patterns later https://www.regexbuddy.com/regex.html
+// newfriend.routeName = newfriend.name.replace(/\s+/g, '').toLowerCase();
+// console.log(newfriend.firstname+newfriend.score);
 
 // for(x=0;x<5;x++)
-// {    
+// {
 
 // var closest = copyScores.reduce(function(prev, curr) {
 //     return (Math.abs(curr - goal) < Math.abs(prev - goal) ? curr : prev);
 //   });
-//   console.log("Nearest Match's Score: "+closest);    
+//   console.log("Nearest Match's Score: "+closest);
 //   closestArr.push(closest);
 //   // copyScores.pop(copyScores.indexOf(closest));
 // }
-// //add it back to not mess up count? 
+// //add it back to not mess up count?
 // // copyScores.push(newfriend.score);
 // function scoreFriend(newfriend){
 
@@ -218,8 +217,6 @@ function colSpacer(word) {
 // friends.push(newfriend);
 
 // }
-
-
 
 // function logScores(){
 
@@ -244,7 +241,7 @@ function colSpacer(word) {
 // function getMatch(closest){
 
 // var friendMatch;
-  
+
 // for(x in friends)
 // {
 //    if(friends[x].score===closest)
@@ -257,5 +254,3 @@ function colSpacer(word) {
 
 // return friendMatch;
 // }
-
-

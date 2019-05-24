@@ -1,13 +1,13 @@
 
 var userProfilePic = "img/b-ghosncharge-a-20181211-870x580.jpg";
 var userFirstName= "SC: 70";
-var signedIn = true;
+var signedIn = false;
 
 
 $(document).ready(function () {
-    if (!$.browser.webkit) {
-        $('.wrapper').html('<p>Sorry! Non webkit users. :(</p>');
-    }
+    // if (!$.browser.webkit) {
+    //     $('.wrapper').html('<p>Sorry! Non webkit users. :(</p>');
+    // }
 });
 
 // This function will check to see if the user is signed in
