@@ -1,8 +1,8 @@
 var db = require("../models");
 var friendScores = [];
-var scoreArr = [];
-var scoreTotal = 0;
 var users = [];
+var Sentiment = require('sentiment');
+var sentiment = new Sentiment();
 
 module.exports = function(app) {
   app.get("/api/users", function(req, res) {
@@ -101,6 +101,27 @@ module.exports = function(app) {
     return parseInt(20 - word.length);
   }
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 app.put("/api/login/:email", function(req, res) {
     db.User.findOne({
       where: {
@@ -126,6 +147,11 @@ app.put("/api/login/:email", function(req, res) {
     });
   });
 
+
+
+
+
+
   app.get("/api/user/:id", function(req, res) {
     db.User.findOne({
       where: {
@@ -138,11 +164,38 @@ app.put("/api/login/:email", function(req, res) {
     });
   });
 
+
+
+
+
+
+
+
+
+
+
   app.post("/api/user", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
+      //just working with score
+      console.log(req.body);
+      // dbUser=req.body;
+      
+
+      
       res.json(dbUser);
     });
   });
+
+
+
+
+
+
+
+
+
+
+
 
   app.delete("/api/user/:id", function(req, res) {
     db.User.destroy({
