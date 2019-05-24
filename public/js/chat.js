@@ -29,7 +29,7 @@ dbIsConnected.on("value", function(snap) {
 // screenName variable is defined in main.js
 function setupUser(loginScreenName) {
     screenName = loginScreenName;
-    console.log("setting up chat");
+    console.log("setting up chat",screenName);
     dbConnectionObject.set(screenName);
     dbRefMessages = database.ref("/chats/" + screenName);
     dbRefMessages.on("child_changed",function(snap) {

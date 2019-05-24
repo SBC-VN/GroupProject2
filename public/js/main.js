@@ -8,6 +8,7 @@ $(".modal").on("click","button",function(event) {
     var email = $("#emailInputLogin").val();
     var password = $("#passwordLogin").val();
     
+    console.log("api call");
     $.ajax("/api/login/" + email, {
         type: "PUT",
         data: { password : password }
@@ -25,7 +26,7 @@ $(".modal").on("click","button",function(event) {
       .catch(
         function(res,info,code) {
           console.log("error status",res.status);
-          location.reload();
+          //location.reload();
         });
 
     // Call the login api
