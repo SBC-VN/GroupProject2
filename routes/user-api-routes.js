@@ -101,23 +101,27 @@ function colSpacer(word) {
 }
 
 
-  app.put("/api/login/:email", function(req, res) {
+app.put("/api/login/:email", function(req, res) {
     db.User.findOne({
       where: {
         email: req.params.email
       }
     }).then(function(dbUser) {
-       console.log(req.body);
-       console.log(dbUser);
+
       if (dbUser == null) {
-        res.send("404 - User Not Found");
+        console.log("User not found");
+        res.status(404).json("User not found");
+        //res.send("404 - User Not Found");
       }
       else if (req.body.password === dbUser.password) {
-        dbUser.password = "****";    
+        console.log("User login ",dbUser.screenname);
+        dbUser.password = "****";
+        res.status(200);
         res.json(dbUser);
       }
       else {
-        res.send("401 - Access denied");
+        console.log("Bad password");
+        res.status(401).json("Access denied");
       }
     });
   });
