@@ -9,7 +9,7 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="css/styles.css">
 
-    <title>Step Match</title>
+    <title>Syndir</title>
   </head>
   <body>
         <header>
@@ -337,7 +337,7 @@
 <!-- ---------this is the end of the fluid container------------------------------------------------------------------------------------------------------------------------------ -->
     </div>
     <footer>
-        <h4>Step Match &copy; 2019</h4>
+        <h4>Syndir &copy; 2019</h4>
     </footer>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
@@ -359,21 +359,29 @@
          var textArr=[];
          $(".form-control").each(function(){
            var tempString=$(this).val().trim();
-           if (tempString === undefined) {tempString = "strawberry";}
+           if (tempString === undefined) {tempString = "really good";}
            textArr.push(tempString);
          })
-         var name= textArr[0]
-         var imageURL=textArr[1];
-         textArr=textArr.slice(2);
- 
+        //  var fname= textArr[0]
+        //  var lname=textArr[1]
+        //  var age=textArr[2]
+        //  var location=textArr[3]
+        //  var uname=textArr[4]
+        //  var email=textArr[5]
+        //  var password=textArr[7]
+        //  var userimage
+        //  var imageURL=textArr[1];
+
+        //  textArr=textArr.slice(2);
+         
          
          console.log(textArr);
          
-         var newFriend={
-           name:name,
-           image:imageURL,
-           textArr:textArr
-         }
+        //  var newFriend={
+        //    name:name,
+        //    image:imageURL,
+        //    textArr:textArr
+        //  }
  
          $.ajax({
            method: 'POST',
@@ -383,11 +391,11 @@
            console.log(data);
            alert('Adding friend...');
  
-            // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-            $("#matchName").text(data.name);
-                     $('#matchImg').attr("src", data.photo);
-                     // Show the modal with the best match 
-                     $("#resultsModal").modal('toggle');
+            // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+            // $("#matchName").text(data.name);
+            //          $('#matchImg').attr("src", data.photo);
+            //          // Show the modal with the best match 
+            //          $("#resultsModal").modal('toggle');
          });
          
          //empties fields after submission
