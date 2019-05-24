@@ -8,6 +8,7 @@ var firebaseConfig = {
     appId: "1:486622634071:web:7b8197cc3bb0d255"
   };
 
+console.log("firebase init");
 firebase.initializeApp(firebaseConfig);
 
 // Create a variable to reference the database.
@@ -16,7 +17,6 @@ var database = firebase.database();
 var dbIsConnected = database.ref(".info/connected");
 var dbRefUsersList = database.ref("/users");
 var dbConnectionObject = null;
-var myScreenName = null;
 var dbRefUserChats = null;
 
 dbIsConnected.on("value", function(snap) {
@@ -26,9 +26,12 @@ dbIsConnected.on("value", function(snap) {
     }
 });
 
-function setupUser() {
-    dbConnectionObject.set(myScreenName);
-    dbRefMessages = database.ref("/chats/" + myScreenName);
+// screenName variable is defined in main.js
+function setupUser(loginScreenName) {
+    screenName = loginScreenName;
+    console.log("setting up chat",screenName);
+    dbConnectionObject.set(screenName);
+    dbRefMessages = database.ref("/chats/" + screenName);
     dbRefMessages.on("child_changed",function(snap) {
         if (snap.val()) {
             // Incoming message.
@@ -43,18 +46,9 @@ function sendChatMessage(sender,reciever,message) {
 }
    
 
-function dbSetChatName(screenName) {
-    myScreenName = screenName;
-    setTimeout(setupUser, 1000) //wait ten seconds before continuing  
-}
-
-
-
 $("#msg-submit-btn").on("click",function(event) {
     event.preventDefault();
     if ($("#msg-text").val()) {
-        sendChatMessage(myScreenName,myScreenName,$("#msg-text").val());
+        sendChatMessage(screenName,screenName,$("#msg-text").val());
     }
 });
-
-dbSetChatName("tester");

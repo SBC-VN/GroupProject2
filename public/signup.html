@@ -112,8 +112,24 @@
     </div>
   </div>
   <br>
-    <!-- Username/password -->
+  <!-- Age and location -->
   <h4>User Info</h4>
+  <div class="row">
+    <div class="col-6"><h6>Age</h6></div>
+    <div class="col-6"> <h6>Location (city)</h6></div>
+  </div>
+  <div class="row">
+      <div class="col-6">
+          <input id = "formFirstName" class="form-control" type="text" name="name" placeholder="25">
+          <span class="input-group-addon"></span>
+      </div>
+      <div class="col-6">
+          <input id = "formLastName" class="form-control" type="text" name="name" placeholder="San Francisco">
+          <span class="input-group-addon"></span>
+      </div>
+    </div>
+    <br>
+    <!-- Username/password -->
     <div class="row">
       <div class="col-6"><h6>Username</h6></div>
       <div class="col-6"> <h6>Email</h6></div>
@@ -145,13 +161,21 @@
     </div>
   </div>
   <br>
+  <!-- this is the profile pic -->
  <h4>Profile Image Upload</h4>
  <div class="input-group">
    <input id = "formImage" class="form-control" type="text" name="image" placeholder="Upload an image from your desktop">
-   <span class="input-group-addon">(Required)</span>
+   <span class="input-group-addon"></span>
  </div>
+ <br>
+<!-- Bio section -->
+<h4>Bio</h4>
+<textarea rows="4" cols="">
+    Write a brief bio about yourself. 
+  </textarea>
     </div>
   </div>
+ 
 
 
 
@@ -315,10 +339,13 @@
     <footer>
         <h4>Step Match &copy; 2019</h4>
     </footer>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <script src="js/style.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/main.js"></script>
     <script>
         //CANT CALL CLIENT SIDE NPM!!!
  //        var Sentiment = require('sentiment');

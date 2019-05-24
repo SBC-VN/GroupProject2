@@ -1,368 +1,517 @@
+* {
+  box-sizing: border-box;
+}
+
 body {
-    background-image: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
+  background-image: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
 }
 
 #mainContainer {
-    min-height: calc(100vh - 170px);
-    position:relative;
+  min-height: calc(100vh - 170px);
+  position: relative;
 }
 
 footer {
-    background: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
-    color: white;
-    text-align: center;
-    padding: 2px;
-    width: 100%;
-    height: 55px;            /* Footer height */
-    border-top: 10px solid ;
-    border-color: #FF670F;
-    position:absolute; /*Here's what sticks it*/        /*to the bottom of the body/page*/
-    left:0;            /*and to the left of the body/page.*/
+  background: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
+  color: white;
+  text-align: center;
+  padding: 2px;
+  width: 100%;
+  height: 55px; /* Footer height */
+  border-top: 10px solid;
+  border-color: #ff670f;
+  position: absolute; /*Here's what sticks it*/ /*to the bottom of the body/page*/
+  left: 0; /*and to the left of the body/page.*/
 }
 
 a:link {
-    text-decoration: none;
+  text-decoration: none;
 }
 /*------- header css -------------------------------------------------------------------*/
 
 header {
-    background-image: linear-gradient(-90deg, rgb(1, 1, 1), rgb(138, 66, 25));
-    padding-top: 30;
-    padding-bottom: 30;
-    border-bottom: #ff9345 10px solid;
-    width: 100%;
-    margin-bottom: 20px;
+  background-image: linear-gradient(-90deg, rgb(1, 1, 1), rgb(138, 66, 25));
+  padding-top: 30;
+  padding-bottom: 30;
+  border-bottom: #ff9345 10px solid;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 header h1 {
-    color: white;
-    margin-top: 15px;
+  color: white;
+  margin-top: 15px;
 }
 
 .highlighter {
-    background: #ff9345;
-    width: auto;
-    padding-bottom: 3px;
-    padding-left: 3px;
-    padding-right: 3px;
-    border-radius: .5ex;
+  background: #ff9345;
+  width: auto;
+  padding-bottom: 3px;
+  padding-left: 3px;
+  padding-right: 3px;
+  border-radius: 0.5ex;
 }
 
-.navItems{
-    float: right;
+.navItems {
+  float: right;
 }
 
 .nav-link {
-    text-decoration: none;
-    font-size: 22px;
-    font-family: 'Lato', sans-serif;
-    font-weight: bold;
-    color: #ff9345;
+  text-decoration: none;
+  font-size: 22px;
+  font-family: "Lato", sans-serif;
+  font-weight: bold;
+  color: #ff9345;
 }
 
 .nav-link:hover {
-    color: rgb(189, 194, 189);
-    font-weight: bolder;
-  }
+  color: rgb(189, 194, 189);
+  font-weight: bolder;
+}
 
 .active {
-    color: rgb(189, 194, 189);
-    font-weight: bolder;
+  color: rgb(189, 194, 189);
+  font-weight: bolder;
 }
 
 #buttonList {
-    left: 185px;
+  left: 185px;
 }
 
 #loginButton {
-    background-color: rgb(189, 194, 189);
-    border: none;
-    color: black;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-bottom: 2px;
+  background-color: rgb(189, 194, 189);
+  border: none;
+  color: black;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 2px;
 }
 #loginButton:hover {
-    background: #353232;
+  background: #353232;
 }
 #signUpButton {
-    background-color: #ff9345;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-bottom: 2px;
-
+  background-color: #ff9345;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 2px;
 }
 #signUpButton:hover {
-    background: #353232;
+  background: #353232;
 }
 #chat-icon {
-    background: none;
-    border: none;
-   
+  background: none;
+  border: none;
 }
 #match-icon {
-    background: none;
-    border: none;
-    
+  background: none;
+  border: none;
 }
 #profile-icon {
-    background: none;
-    border: none;
-
+  background: none;
+  border: none;
 }
 /*---- showcase elements ---------------------------------------------------------------*/
 
-
 #showcaseCard1 {
-    background: url(../img/friends1.jpg);
-    background-size: 400px auto;
-    background-position: 0;
-    background-repeat: none;
-    margin: 15px;
-    width: 250px;
-    height: 250px;
-    border-radius: 1.5em;
+  background: url(../img/friends1.jpg);
+  background-size: 400px auto;
+  background-position: 0;
+  background-repeat: none;
+  margin: 15px;
+  width: 250px;
+  height: 250px;
+  border-radius: 1.5em;
 }
 
 #showcaseCard1 h2 {
-    color: white;
-    font-weight: bolder;
-    text-shadow: 2px 2px 4px #030303;
-    
+  color: white;
+  font-weight: bolder;
+  text-shadow: 2px 2px 4px #030303;
 }
 
 #showcaseCard1 p {
-    font-size: 20px;
-    color:  white;
-    position: relative;
-    width: 250px;
-    right: 21px;
-    padding-left: 5px;
-    top: 100px;
-    background: linear-gradient(-90deg, rgb(1, 1, 1), #FF670F);
-   
+  font-size: 20px;
+  color: white;
+  position: relative;
+  width: 250px;
+  right: 21px;
+  padding-left: 5px;
+  top: 100px;
+  background: linear-gradient(-90deg, rgb(1, 1, 1), #ff670f);
 }
 
 #showcaseCard2 {
-    background: url(../img/friends4.jpg);
-    background-size: 400px auto;
-    background-position: -65px;
-    background-repeat: none;
-    margin: 15px;
-    width: 250px;
-    height: 250px;
-    border-radius: 1.5em;
+  background: url(../img/friends4.jpg);
+  background-size: 400px auto;
+  background-position: -65px;
+  background-repeat: none;
+  margin: 15px;
+  width: 250px;
+  height: 250px;
+  border-radius: 1.5em;
 }
 #showcaseCard2 h2 {
-    color: rgb(224, 222, 218);
-    font-weight: bolder;
-    text-shadow: 2px 2px 2px #030303;
-    stroke: 1px;
+  color: rgb(224, 222, 218);
+  font-weight: bolder;
+  text-shadow: 2px 2px 2px #030303;
+  stroke: 1px;
 }
 
 #showcaseCard2 p {
-    font-size: 20px;
-    color: white;
-    position: relative;
-    width: 250px;
-    right: 21px;
-    padding-left: 5px;
-    top: 100px;
-    background: linear-gradient(-90deg, rgb(1, 1, 1), #FF670F);
-   
+  font-size: 20px;
+  color: white;
+  position: relative;
+  width: 250px;
+  right: 21px;
+  padding-left: 5px;
+  top: 100px;
+  background: linear-gradient(-90deg, rgb(1, 1, 1), #ff670f);
 }
 .text {
-    color: rgb(204, 191, 191);
-    mix-blend-mode: difference;
+  color: rgb(204, 191, 191);
+  mix-blend-mode: difference;
 }
 .wrapper {
-    width:800px;          /*These values will need to be changed with media queries */
-    word-break:break-all;
+  width: 800px; /*These values will need to be changed with media queries */
+  word-break: break-all;
 }
 
 /* -----scrollbar ----------------------------------------------------------*/
 body::-webkit-scrollbar {
-    width: 1em;
-    background-color: #FF670F;
+  width: 1em;
+  background-color: #ff670f;
 }
 body::-webkit-scrollbar-track {
-    -webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);
-    background-color: #F5F5F5;
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
 }
 body::-webkit-scrollbar-thumb {
-    background-color: #FF670F;
+  background-color: #ff670f;
 }
 
 /* ----About page css--------------------------------------------------------- */
 
 #infoHeading {
-    color: white;
+  color: white;
 }
 
 .aboutModal {
-    position: fixed;
-    width: 1000px;
-    left: 400px;
-
+  position: fixed;
+  width: 1000px;
+  left: 400px;
 }
 
 .aboutModalContent {
-    background: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
+  background: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
 }
 
 .modal-header {
-    background-image: linear-gradient(-90deg, rgb(1, 1, 1), rgb(138, 66, 25));
-    padding-top: 30;
-    padding-bottom: 30;
-    border-bottom: #ff9345 10px solid;
-    width: 100%;
-    margin-bottom: 20px;
+  background-image: linear-gradient(-90deg, rgb(1, 1, 1), rgb(138, 66, 25));
+  padding-top: 30;
+  padding-bottom: 30;
+  border-bottom: #ff9345 10px solid;
+  width: 100%;
+  margin-bottom: 20px;
 }
 
 #aboutCard1 {
-    background : url(../img/match1.jpg);
-    background-size: 400px auto;
-    background-position: -25px;
-    background-repeat: none;
-    margin: 15px;
-    width: 300px;
-    height: 300px;
+  background: url(../img/match1.jpg);
+  background-size: 400px auto;
+  background-position: -25px;
+  background-repeat: none;
+  margin: 15px;
+  width: 300px;
+  height: 300px;
 }
 
 #aboutCard2 {
-    background : url(../img/date1.jpg);
-    background-size: 500px auto;
-    background-position: -115px;
-    background-repeat: none;
-    margin: 15px;
-    width: 300px;
-    height: 300px;
+  background: url(../img/date1.jpg);
+  background-size: 500px auto;
+  background-position: -115px;
+  background-repeat: none;
+  margin: 15px;
+  width: 300px;
+  height: 300px;
 }
 
 #aboutCard3 {
-    background : url(../img/friends3.jpg);
-    background-size: 400px auto;
-    background-position: -35px;;
-    background-repeat: none;
-    margin: 15px;
-    width: 300px;
-    height: 300px;
-
+  background: url(../img/friends3.jpg);
+  background-size: 400px auto;
+  background-position: -35px;
+  background-repeat: none;
+  margin: 15px;
+  width: 300px;
+  height: 300px;
 }
 
-
 #aboutCard1:hover {
-    opacity: 0.5;
-    cursor: pointer;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 #aboutCard2:hover {
-    opacity: 0.5;
-    cursor: pointer;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 #aboutCard3:hover {
-    opacity: 0.5;
-    cursor: pointer;
+  opacity: 0.5;
+  cursor: pointer;
 }
 
 .textBlock {
-    background: linear-gradient(-90deg, rgb(1, 1, 1), #FF670F);
-    color: white;
-    position: relative;
-    width: 300px;
-    height: 40px;
-    right: 21px;
-    padding-left: 5px;
-    top: 25px;
+  background: linear-gradient(-90deg, rgb(1, 1, 1), #ff670f);
+  color: white;
+  position: relative;
+  width: 300px;
+  height: 40px;
+  right: 21px;
+  padding-left: 5px;
+  top: 25px;
 }
 
 #poweredBy {
-    margin-top: 100px;
+  margin-top: 100px;
 }
 
 .poweredByCard {
-    height: 150px;
-    width: 150px;
-    margin: 15px;
+  height: 150px;
+  width: 150px;
+  margin: 15px;
 }
 
 #poweredByCard1 {
-    background: url(../img/boostrap-logo.png);
-    background-color:rgba(209, 203, 203, 0.205);
-    background-size: 150px auto;
-    background-position: 0;
-    background-repeat: none;
+  background: url(../img/boostrap-logo.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 150px auto;
+  background-position: 0;
+  background-repeat: none;
 }
 
 #poweredByCard2 {
-    background: url(../img/html-logo.png);
-    background-color:rgba(209, 203, 203, 0.205);
-    background-size: 150px auto;
-    background-position: 0;
-    background-repeat: none;
+  background: url(../img/html-logo.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 150px auto;
+  background-position: 0;
+  background-repeat: none;
 }
 
 #poweredByCard3 {
-    background: url(../img//css-logo.png);
-    background-color:rgba(209, 203, 203, 0.205);
-    background-size: 150px auto;
-    background-position: 0;
-    background-repeat: none;
+  background: url(../img//css-logo.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 150px auto;
+  background-position: 0;
+  background-repeat: none;
 }
 
 #poweredByCard4 {
-    background: url(../img/javascript-logo.png);
-    background-color:rgba(209, 203, 203, 0.205);
-    background-size: 150px auto;
-    background-position: 0;
-    background-repeat: none;
+  background: url(../img/javascript-logo.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 150px auto;
+  background-position: 0;
+  background-repeat: none;
 }
 
 #poweredByCard5 {
-    background: url(../img/node-logo.png);
-    background-color:rgba(209, 203, 203, 0.205);
-    background-size: 150px auto;
-    background-position: 0;
-    background-repeat: none;
+  background: url(../img/node-logo.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 150px auto;
+  background-position: 0;
+  background-repeat: none;
 }
 
 /*--- contact page css ------------------------------------------------------------------*/
 
 .contactCard {
-    background: rgba(226, 223, 226, 0.795);
+  background: rgba(226, 223, 226, 0.795);
 }
 
 .contactCard p {
-    margin: 0;
+  margin: 0;
 }
 
 /*--- sign-up page is here ------------------------------------------------------------------*/
 
 .surveyBlock {
-    margin-top: 35px;
+  margin-top: 35px;
 }
 
 #sentimentForm {
-    margin-bottom: 25px;
+  margin-bottom: 25px;
 }
 
 #submitButton {
-    background-color: #ff9345;
-    border: none;
-    color: white;
-    padding: 5px 10px;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    font-size: 16px;
-    margin-bottom: 2px;
+  background-color: #ff9345;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 2px;
 }
+
+textarea {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  width: 100%;
+}
+/* --- this is the profile/match css ------------------------------------------------------------------*/
+
+#profileCard {
+  display: block;
+  min-width: 30%;
+  background: rgb(192, 185, 185);
+  text-align: center;
+}
+
+#profilePic {
+  text-align: center;
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+}
+
+#profilePicContainer {
+  width: 350px;
+  height: 350px;
+  border-radius: 50%;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+#profilePicContainer::after {
+  content: attr(data-text);
+  font-size: 2.5em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  color: white;
+  background: #ff9345;
+  text-align: center;
+  display: block;
+}
+
+#profileInfoCard {
+<<<<<<< HEAD
+  text-align: left;
+}
+
+#matchColumn {
+  margin: 0;
+}
+
+#matchPost {
+  margin: 0;
+}
+
+.matchPicContainer {
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  margin: 0 auto;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.matchPic {
+  float: left;
+  width: 185px;
+  height: 185px;
+  border-radius: 50%;
+  margin-top: 0;
+}
+
+.matchPicContainer::after {
+  content: "yoooo";
+  font-size: 1em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  color: white;
+  background: #ff9345;
+  text-align: center;
+  display: block;
+  margin-top: 0;
+}
+
+.matchCard {
+  width: 100%;
+  background: rgb(192, 185, 185);
+  height: 220px;
+  margin: 0;
+  margin-bottom: 5px;
+  border-radius: 0 0 10px 10px;
+}
+
+.matchHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  border: 2px black solid;
+  border-radius: 10px 10px 0 0;
+}
+
+.matchInfo {
+  margin-right: 0px;
+  float: left;
+}
+
+.matchInfo.profile,
+.matchInfo.age {
+  margin-left: 2px;
+  width: 25%;
+  border-right: 2px black solid;
+}
+
+.location.matchInfo {
+  width: 50%;
+  margin-left: 2px;
+  margin-top: 2px;
+}
+=======
+    text-align: left;
+}
+
+/* -------------------------chat page----------------------------- */
+
+#chat-container {
+    min-width: 90%;
+    min-height: 500px;
+    background: rgb(194, 194, 194);
+    border-radius: 5px;
+
+}
+
+#chat-header {
+    text-align: center;
+    margin: 10px;
+}
+
+#chat-mate {
+    margin: 10px;
+}
+
+#chat-box {
+    margin: 10px;
+    min-width: 90%;
+    min-height: 500px;
+    background: rgb(255, 255, 255);
+    border-radius: 5px;
+}
+>>>>>>> b54acfcdb886ea4200580fbfcafd8594eeddd2c4
