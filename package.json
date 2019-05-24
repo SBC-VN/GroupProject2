@@ -12,8 +12,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "express": "^4.16.3",
-    "mysql2": "^1.6.4",
-    "sequelize": "^4.41.2"
+    "express": "^4.17.0",
+    "mysql2": "^1.6.5",
+    "sentiment": "^5.0.1",
+    "sequelize": "^5.8.6"
   }
 }
