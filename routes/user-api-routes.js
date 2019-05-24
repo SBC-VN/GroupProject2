@@ -123,6 +123,7 @@ module.exports = function(app) {
 
 
 app.put("/api/login/:email", function(req, res) {
+    console.log("Login attempt",req.params.email);
     db.User.findOne({
       where: {
         email: req.params.email
