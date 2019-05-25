@@ -10,6 +10,7 @@ screenname VARCHAR(255) NOT NULL,
 password VARCHAR(255) NOT NULL,
 score INTEGER NOT NULL,
 matches JSON,
+email VARCHAR(255) NOT NULL,
 createdAt Date,
 updatedAt Date,
 	PRIMARY KEY (id) 

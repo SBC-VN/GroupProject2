@@ -5,7 +5,8 @@ var Sentiment = require('sentiment');
 var sentiment = new Sentiment();
 
 module.exports = function(app) {
-  app.get("/api/users", function(req, res) {
+  app.get("/api/Users", function(req, res) {
+       
     //   db.User.findAll({}).then(function(dbUsers) {
     //   dbUsers.forEach(element => {
     //   element.password = "****";
