@@ -2,15 +2,14 @@ var Sentiment = require('sentiment');
 var sentiment = new Sentiment();
 
 
-function scoreFriend(friend){
 
+function scoreFriend(newFriend){
     for(x in newfriend.textArr)
     {
         textScore=sentiment.analyze(newfriend.textArr[x]);
         console.log(textScore);
         scoreArr.push([newfriend.textArr[x],textScore.score]);
         scoreTotal+=parseInt(textScore.score);
-  
     }
     // console.log(scoreTotal);
     

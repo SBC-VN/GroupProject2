@@ -109,10 +109,10 @@ app.put("/api/login/:email", function(req, res) {
     db.User.create(req.body).then(function(dbUser) {
       //just working with score
       console.log(req.body);
-      dbUser=req.body;
-      
+      // dbUser=req.body;
 
       
+
       res.json(dbUser);
     });
   });
