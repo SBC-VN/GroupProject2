@@ -37,9 +37,13 @@ module.exports = function(app) {
           //console.log(Object.keys(element.dataValues.userInfo2.dataValues));
           matchData.firstname = element.dataValues.userInfo2.dataValues.firstname;
           matchData.screenname = element.dataValues.userInfo2.dataValues.screenname;
+          matchData.age = element.dataValues.userInfo2.dataValues.age;
+          matchData.location = element.dataValues.userInfo2.dataValues.location;
+          matchData.profilepic = element.dataValues.userInfo2.dataValues.profilepic;
           matchDataArray.push(matchData);
         });
 
+        console.log("Records found",matchDataArray);
         var hbsObject = {
           matches: matchDataArray
           };
