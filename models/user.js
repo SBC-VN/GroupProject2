@@ -31,6 +31,7 @@ module.exports = function(sequelize, DataTypes) {
               }
             },
         score: {type:DataTypes.INTEGER},
+        
         email: 
           { type: DataTypes.STRING,
             allowNull: false,

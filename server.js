@@ -36,11 +36,7 @@ require("./routes/userinfo-api-routes.js")(app);
 
 // Syncing our sequelize models and then starting our Express app
 // =============================================================
-<<<<<<< HEAD
 db.sequelize.sync().then(function() {
-=======
-db.sequelize.sync({force=true}).then(function() {
->>>>>>> 18c8c60ee80916e7bc5b5c4457c862df45096220
   app.listen(PORT, function() {
     console.log("Match App listening on http://localhost:" + PORT);
   });

@@ -1,107 +1,40 @@
 var db = require("../models");
-var friendScores = [];
-var users = [];
-var Sentiment = require('sentiment');
-var sentiment = new Sentiment();
+var mLogic=require("../routes/match-logic.js");
+var users=[];
+
 
 module.exports = function(app) {
-  app.get("/api/Users", function(req, res) {
+  app.get("/api/users", function(req, res) {
        
+    //WHAT SECURITY / LOGIN STUFF DO WE NEED TO BE MINDFUL OF ON THE BACKEND? 
     //   db.User.findAll({}).then(function(dbUsers) {
     //   dbUsers.forEach(element => {
     //   element.password = "****";
     //   });
-    //   populateScores(dbUsers);
-    //   res.json(dbUsers);
-    //   });
 
     db.User.findAll({}).then(function(dbUsers) {
       //initialize scores
+      users=dbUsers;
       // console.log({dbUsers});
-      users = dbUsers;
-      populateScores();
+      mLogic.populateScores(dbUsers);
+
       for (var x=0;x<dbUsers.length;x++) {
         console.log(
-          "First Name: " +   " ".repeat(colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].score
+          "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].score
         ); //+"\n")
-        var closeArr = calculateMatches(dbUsers[x]);
-        var matches = getMatches(closeArr);
+        var closeArr = mLogic.calculateMatches(dbUsers[x]);
+        var matches = mLogic.getMatches(closeArr);
         // console.log(matches);
         tempMatches = JSON.stringify(matches);
         dbUsers[x].matches = JSON.parse(tempMatches);
-        // console.log("Matches: ");
         // console.log(dbUsers[x].matches);
         // dbUsers[x].matches=users[x].matches;
       }
-
       res.json(dbUsers);
     });
   });
 
-  function populateScores() {
-    for (x in users) {
-      friendScores.push(users[x].score);
-    }
-  }
-
-  function calculateMatches(newfriend) {
-    var copyScores = friendScores;
-    var goal = newfriend.score;
-    // console.log("Current User's Score: " + goal); //+"\n");
-    // var currIndex=copyScores.indexOf(newfriend.score);
-    //FILTER
-    //use goal
-    //percentages too imprecise without empirical statistics
-    // var point20=parseInt(goal*.20);
-    var lowCheck = parseInt(goal - 25);
-    var highCheck = parseInt(goal + 25);
-    function checkDelta(value) {
-      return value > lowCheck && value < highCheck;
-    }
-    // var closestArr=parseInt(copyScores.filter(checkDelta));
-    var closestArr = copyScores.filter(checkDelta);
-    // console.log("Closest Scores: "+closestArr)
-    delete closestArr[closestArr.indexOf(goal)];
-    // console.log("Closest Scores: "+closestArr)
-    closestArr = closestArr.filter(Number);
-    console.log("Closest Scores: " + closestArr);
-    return closestArr;
-  }
-
-  function getMatches(closestArr) {
-    var closestMatches = [];
-    // console.log(users);
-    closestMatches = users.filter(function(item) {
-      return closestArr.includes(item.score);
-    });
-    //WORKS -Filters ENTIRE USER
-    // console.log(closestMatches);
-
-    var matchLabels = [];
-    for (x in closestMatches) {
-      //  console.log(closestMatches[x].firstname);
-      matchLabels.push(
-        "Match Name: " +
-          closestMatches[x].firstname +
-          " ".repeat(colSpacer(closestMatches[x].firstname)) +
-          "Score:" +
-          closestMatches[x].score
-      );
-
-    }
-    console.log(matchLabels);
-    console.log("\n");
-    closestMatches.matches = "[]";
-    return closestMatches;
-  }
-
-  function colSpacer(word) {
-    return parseInt(20 - word.length);
-  }
-
-
-
-
+module.exports={users}
 
 
 
