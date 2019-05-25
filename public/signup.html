@@ -103,7 +103,7 @@
 </div>
 <div class="row">
     <div class="col-6">
-        <input id = "formFirstName" class="form-control" type="text" name="name" placeholder="Joseph">
+        <input id = "formFirstName" class="form-control" type="text" name="name" placeholder="John">
         <span class="input-group-addon"></span>
     </div>
     <div class="col-6">
@@ -170,8 +170,8 @@
  <br>
 <!-- Bio section -->
 <h4>Bio</h4>
-<textarea rows="4" cols="">
-    Write a brief bio about yourself. 
+<textarea rows="4" cols=""  placeholder="Write a brief bio about yourself.">
+  Write a brief bio about yourself.
   </textarea>
     </div>
   </div>
@@ -359,23 +359,48 @@
          var textArr=[];
          $(".form-control").each(function(){
            var tempString=$(this).val().trim();
-           if (tempString === undefined) {tempString = "really good";}
+           if (tempString === undefined||""||null) {tempString = "good";}
            textArr.push(tempString);
          })
-        //  var fname= textArr[0]
-        //  var lname=textArr[1]
-        //  var age=textArr[2]
-        //  var location=textArr[3]
-        //  var uname=textArr[4]
-        //  var email=textArr[5]
-        //  var password=textArr[7]
-        //  var userimage
-        //  var imageURL=textArr[1];
 
-        //  textArr=textArr.slice(2);
-         
-         
+
          console.log(textArr);
+
+
+         var fname= textArr[0]
+         var lname=textArr[1]
+         var age=textArr[2]
+         var location=textArr[3]
+         var uname=textArr[4]
+         var email=textArr[5]
+         var password=textArr[7]
+         var userimage=textArr[8]
+         var biotext=textArr[9]
+
+        var userInput=
+        {
+          fname:fname,
+          lname:lname,
+          age:age,
+          location:location,
+          uname:uname,
+          email:email,
+          //transporting password in plaintext ??
+          password:password,
+          userimage:userimage,
+          biotext:biotext
+        } 
+
+       textArr=textArr.slice(10);
+
+       console.log(textArr);
+
+       userSample={}
+
+
+
+
+         
          
         //  var newFriend={
         //    name:name,
