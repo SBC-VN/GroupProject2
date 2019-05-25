@@ -19,6 +19,7 @@ $(document).ready(function() {
 
 // This function will check to see if the user is signed in
 function signinCheck(signedIn) {
+  console.log("signinCheck",signedIn);
   if (signedIn === false) {
     $("#buttonList")
       .append()
@@ -45,6 +46,7 @@ function updateUserProfile(
   profileAge,
   profileLocation
 ) {
+  console.log("updateUserProfile");
   $("#profilePic").attr({ src: profilePic, alt: "User Profile" });
   $("#profilePicContainer").attr({ "data-text": profileSentScore });
   $("#profileInfoCard")

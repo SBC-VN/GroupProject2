@@ -1,6 +1,7 @@
 // Dependencies
 // =============================================================
 var path = require("path");
+var db = require("../models");
 
 // Routes
 // =============================================================
@@ -11,5 +12,16 @@ module.exports = function(app) {
   // index route loads view.html
   app.get("/", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
-  });  
+  });
+
+  app.get("/matches", function(req, res) {
+    console.log("/matches");
+    db.Match.findAll({}).then(function(dbMatches) {
+      var hbsObject = {
+        matches: dbMatches
+      };
+      console.log(hbsObject);
+      res.render("matches", hbsObject);
+    });
+  });
 };
