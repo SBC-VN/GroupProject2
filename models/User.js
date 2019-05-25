@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var user = sequelize.define("user", {
+    var User = sequelize.define("User", {
       // Information about the user.
         firstname: 
           { type: DataTypes.STRING,
@@ -31,6 +31,9 @@ module.exports = function(sequelize, DataTypes) {
               }
             },
         score: {type:DataTypes.INTEGER},
+        matches:{
+            type:DataTypes.JSON
+        },
         email: 
           { type: DataTypes.STRING,
             allowNull: false,

@@ -23,8 +23,6 @@ module.exports = function(app) {
         console.log(
           "First Name: " +   " ".repeat(colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].score
         ); //+"\n")
-        // friendScores.push(dbUsers[x].score);
-        // calculateUser(dbUsers[x]);
         var closeArr = calculateMatches(dbUsers[x]);
         var matches = getMatches(closeArr);
         // console.log(matches);
@@ -208,6 +206,10 @@ app.put("/api/login/:email", function(req, res) {
 };
 
 //********************************************************* */
+
+
+        // friendScores.push(dbUsers[x].score);
+        // calculateUser(dbUsers[x]);
 // console.log(array1); // [ 'a', 'c', 'e' ]
 // console.log(array2); // [ 'b', 'd', 'f' ]
 

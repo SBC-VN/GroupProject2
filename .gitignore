@@ -63,3 +63,4 @@ typings/
 unused/
 a.sh
 b.sh
+.DS_Store
