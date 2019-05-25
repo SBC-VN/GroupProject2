@@ -4,6 +4,14 @@ module.exports = function(sequelize, DataTypes) {
         deltascore:  
         { type: DataTypes.INTEGER,
           allowNull: false}
+    },
+    {
+      indexes: [
+          {
+              unique: true,
+              fields: ['user1', 'user2']
+          }
+      ]
     });
   
     Match.associate = function(models) {
@@ -20,15 +28,6 @@ module.exports = function(sequelize, DataTypes) {
          }
       });
     }
-
-    // Match.associate = function(models) {
-    //   Match.belongsTo(models.User, {
-    //     foreignKey: {
-    //        name: 'user2',
-    //        allowNull: false
-    //      }
-    //   });
-  //  };
 
     return Match;
   };

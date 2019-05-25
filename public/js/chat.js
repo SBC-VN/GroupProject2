@@ -28,6 +28,7 @@ dbIsConnected.on("value", function(snap) {
 
 // screenName variable is defined in main.js
 function setupUser(loginScreenName) {
+    signedIn = true;  // variable from 'style.js'
     screenName = loginScreenName;
     console.log("setting up chat",screenName);
     dbConnectionObject.set(screenName);
