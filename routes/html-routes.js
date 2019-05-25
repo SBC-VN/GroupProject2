@@ -16,11 +16,34 @@ module.exports = function(app) {
 
   app.get("/matches", function(req, res) {
     console.log("/matches");
-    db.Match.findAll({}).then(function(dbMatches) {
-      var hbsObject = {
-        matches: dbMatches
-      };
-      console.log(hbsObject);
+    var myId = 1;
+    db.Match.findAll({
+                      where: {
+                        user1: myId},
+                      include: [ {model: db.User, as: 'userInfo2'} ]
+                    }
+                    ).then(function(dbMatches) {
+
+        // We must extract/convert the data from the sequelize model to what 
+        //   handlebars needs.
+        var matchDataArray = [];
+        var matchData;
+        dbMatches.forEach(element => {
+          //console.log(element.dataValues);
+          matchData = new Object;
+          matchData.id = element.dataValues.id;
+          matchData.userid = element.dataValues.user2;
+          //console.log(element.dataValues.userInfo2.dataValues);
+          //console.log(Object.keys(element.dataValues.userInfo2.dataValues));
+          matchData.firstname = element.dataValues.userInfo2.dataValues.firstname;
+          matchData.screenname = element.dataValues.userInfo2.dataValues.screenname;
+          matchDataArray.push(matchData);
+        });
+
+        var hbsObject = {
+          matches: matchDataArray
+          };
+      //console.log(hbsObject);
       res.render("matches", hbsObject);
     });
   });
