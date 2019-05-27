@@ -16,12 +16,14 @@ module.exports = function(sequelize, DataTypes) {
   
     Match.associate = function(models) {
       Match.belongsTo(models.User, {
+        as: 'userInfo1',
         foreignKey: {
           name: 'user1',
           allowNull: false
          }
       });
       Match.belongsTo(models.User, {
+        as: 'userInfo2',
         foreignKey: {
           name: 'user2',
           allowNull: false
