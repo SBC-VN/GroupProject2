@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var user = sequelize.define("user", {
+    var user = sequelize.define("User", {
       // Information about the user.
         firstname: 
           { type: DataTypes.STRING,
@@ -48,7 +48,7 @@ module.exports = function(sequelize, DataTypes) {
               max: 116
               },
           },
-        location: 
+        locale: 
           { type: DataTypes.STRING,
             allowNull: false,
             validate: {
