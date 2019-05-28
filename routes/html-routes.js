@@ -14,6 +14,10 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
+  app.get("/profpage", function(req, res) {
+    res.sendFile(path.join(__dirname, "../private/profilePage.html"));
+  });
+
   app.get("/matches", function(req, res) {
     console.log("/matches");
     var myId = 1;
