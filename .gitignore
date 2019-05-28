@@ -66,3 +66,5 @@ b.sh
 .DS_Store
 /a.sh
 /b.sh
+/public/.DS_Store
+/package-lock.json
