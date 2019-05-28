@@ -30,7 +30,7 @@ module.exports = function(sequelize, DataTypes) {
               len: [6]
               }
             },
-        score: {type:DataTypes.INTEGER},
+        sentimentScore: {type:DataTypes.INTEGER},
         
         email: 
           { type: DataTypes.STRING,
@@ -50,7 +50,7 @@ module.exports = function(sequelize, DataTypes) {
           },
         locale: 
           { type: DataTypes.STRING,
-            allowNull: false,
+           
             validate: {
               len: [6]
               },
@@ -58,7 +58,17 @@ module.exports = function(sequelize, DataTypes) {
         profilepic: 
           { type: DataTypes.STRING,
             allowNull: true
-          }         
+          }   ,      
+        
+          bio: 
+          { type: DataTypes.STRING,
+            allowNull: true,
+            validate: {
+              len: [1]
+              },
+
+
+          }        
       });
  
     return user;
