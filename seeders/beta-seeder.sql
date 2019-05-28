@@ -1,6 +1,7 @@
-DROP DATABASE IF EXISTS matcherdb_dev;
-CREATE DATABASE matcherdb_dev;
+-- DROP DATABASE IF EXISTS matcherdb_dev;
+-- CREATE DATABASE matcherdb_dev;
 USE matcherdb_dev;
+DROP TABLE Users;
 
 CREATE TABLE Users (
 	id Int AUTO_INCREMENT NOT NULL,

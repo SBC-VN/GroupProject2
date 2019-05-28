@@ -55,7 +55,7 @@ module.exports = function(sequelize, DataTypes) {
               max: 116
               },
           },
-        location: 
+        locale: 
           { type: DataTypes.STRING,
             // allowNull: false,
             // validate: {
@@ -66,6 +66,8 @@ module.exports = function(sequelize, DataTypes) {
           { type: DataTypes.STRING,
             allowNull: true
           }         
+          
+
       });
  
     return User;
