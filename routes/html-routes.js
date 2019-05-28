@@ -21,10 +21,10 @@ module.exports = function(app) {
   app.get("/matches", function(req, res) {
     console.log("/matches");
     var myId = 1;
-    db.Match.findAll({
+    db.match.findAll({
                       where: {
                         user1: myId},
-                      include: [ {model: db.User, as: 'userInfo2'} ]
+                      include: [ {model: db.user, as: 'userInfo2'} ]
                     }
                     ).then(function(dbMatches) {
 

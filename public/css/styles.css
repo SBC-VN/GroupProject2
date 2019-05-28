@@ -2,13 +2,22 @@
   box-sizing: border-box;
 }
 
+html,
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  overflow-x: hidden;
+}
+
 body {
   background-image: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
 }
 
-#mainContainer {
-  min-height: calc(100vh - 170px);
-  position: relative;
+#pageContainer {
+  min-height: 90%;
+  padding-bottom: 10px;
 }
 
 footer {
@@ -16,17 +25,30 @@ footer {
   color: white;
   text-align: center;
   padding: 2px;
-  width: 100%;
-  height: 55px; /* Footer height */
+  height: 35px; /* Footer height */
   border-top: 10px solid;
   border-color: #ff670f;
-  position: absolute; /*Here's what sticks it*/ /*to the bottom of the body/page*/
-  left: 0; /*and to the left of the body/page.*/
+  height: 10%;
+  overflow: auto;
 }
 
 a:link {
   text-decoration: none;
 }
+
+/* -----scrollbar ----------------------------------------------------------*/
+body::-webkit-scrollbar {
+  width: 1em;
+  background-color: #ff670f;
+}
+body::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+body::-webkit-scrollbar-thumb {
+  background-color: #ff670f;
+}
+
 /*------- header css -------------------------------------------------------------------*/
 
 header {
@@ -34,13 +56,13 @@ header {
   padding-top: 30;
   padding-bottom: 30;
   border-bottom: #ff9345 10px solid;
-  width: 100%;
   margin-bottom: 20px;
 }
 
 header h1 {
   color: white;
   margin-top: 15px;
+  text-align: center;
 }
 
 .highlighter {
@@ -53,7 +75,8 @@ header h1 {
 }
 
 .navItems {
-  float: right;
+  float: none;
+  margin: 0 auto;
 }
 
 .nav-link {
@@ -63,19 +86,14 @@ header h1 {
   font-weight: bold;
   color: #ff9345;
 }
-
 .nav-link:hover {
   color: rgb(189, 194, 189);
   font-weight: bolder;
 }
 
-.active {
-  color: rgb(189, 194, 189);
-  font-weight: bolder;
-}
-
-#buttonList {
-  left: 185px;
+.buttonList {
+  float: none;
+  margin: 0 auto;
 }
 
 #loginButton {
@@ -118,7 +136,8 @@ header h1 {
   background: none;
   border: none;
 }
-/*---- showcase elements ---------------------------------------------------------------*/
+
+/* ---- showcase elements ---------------------------------------------------------------*/
 
 #showcaseCard1 {
   background: url(../img/friends1.jpg);
@@ -178,23 +197,6 @@ header h1 {
 .text {
   color: rgb(204, 191, 191);
   mix-blend-mode: difference;
-}
-.wrapper {
-  width: 800px; /*These values will need to be changed with media queries */
-  word-break: break-all;
-}
-
-/* -----scrollbar ----------------------------------------------------------*/
-body::-webkit-scrollbar {
-  width: 1em;
-  background-color: #ff670f;
-}
-body::-webkit-scrollbar-track {
-  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
-  background-color: #f5f5f5;
-}
-body::-webkit-scrollbar-thumb {
-  background-color: #ff670f;
 }
 
 /* ----About page css--------------------------------------------------------- */
@@ -371,8 +373,8 @@ textarea {
 #profileCard {
   display: block;
   min-width: 30%;
-  background: rgb(192, 185, 185);
   text-align: center;
+  background: black;
 }
 
 #profileCard h4 {
@@ -381,14 +383,14 @@ textarea {
 
 #profilePic {
   text-align: center;
-  width: 350px;
-  height: 350px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
 }
 
 #profilePicContainer {
-  width: 350px;
-  height: 350px;
+  width: 220px;
+  height: 220px;
   border-radius: 50%;
   margin: 0 auto;
   position: relative;
@@ -397,33 +399,69 @@ textarea {
 
 #profilePicContainer::after {
   content: attr(data-text);
-  font-size: 2.5em;
+  font-size: 1.5em;
   position: absolute;
   left: 0;
   right: 0;
   bottom: 10px;
   color: white;
-  background: #ff9345;
+  background-image: linear-gradient(#df7b35, #ff9345);
   text-align: center;
   display: block;
 }
+#profilePicCard {
+  background-image: linear-gradient(
+    to right,
+    rgb(247, 247, 247),
+    rgb(209, 209, 204)
+  );
+}
 
 #profileInfoCard {
+  background-image: linear-gradient(
+    to right,
+    rgb(247, 247, 247),
+    rgb(209, 209, 204)
+  );
   text-align: left;
+}
+
+#profileBioCard {
+  background-image: linear-gradient(
+    to right,
+    rgb(247, 247, 247),
+    rgb(209, 209, 204)
+  );
 }
 
 /* ----the match info goes here--------------------------- */
 #matchColumn {
   margin: 0;
+  background: black;
 }
 
 #matchPost {
   margin: 0;
+  background: rgb(0, 0, 0);
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+#matchPost::-webkit-scrollbar {
+  width: 1em;
+  background-color: #ff670f;
+}
+#matchPost::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
+}
+#matchPost::-webkit-scrollbar-thumb {
+  background-color: #ff670f;
 }
 
 .matchPicContainer {
-  width: 185px;
-  height: 185px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin: 0 auto;
   float: left;
@@ -434,8 +472,8 @@ textarea {
 
 .matchPic {
   float: left;
-  width: 185px;
-  height: 185px;
+  width: 150px;
+  height: 150px;
   border-radius: 50%;
   margin-top: 0;
 }
@@ -448,7 +486,7 @@ textarea {
   right: 0;
   bottom: 10px;
   color: white;
-  background: #ff9345;
+  background-image: linear-gradient(#df7b35, #ff9345);
   text-align: center;
   display: block;
   margin-top: 0;
@@ -457,10 +495,16 @@ textarea {
 .matchCard {
   width: 100%;
   background: rgb(192, 185, 185);
-  height: 220px;
+  height: 180px;
   margin: 0;
   margin-bottom: 5px;
+  border: 2px black solid;
   border-radius: 0 0 10px 10px;
+  background-image: linear-gradient(
+    to right,
+    rgb(247, 247, 247),
+    rgb(209, 209, 204)
+  );
 }
 
 .matchHeader {
@@ -469,6 +513,14 @@ textarea {
   justify-content: start;
   border: 2px black solid;
   border-radius: 10px 10px 0 0;
+  background-image: linear-gradient(#df7b35, #ff9345);
+  color: black;
+  font-size: 22px;
+}
+
+.matchHeader img {
+  height: 22px;
+  width: 22px;
 }
 
 .matchInfo {
@@ -487,6 +539,24 @@ textarea {
   width: 50%;
   margin-left: 2px;
   margin-top: 2px;
+}
+
+.chatBody {
+  position: relative;
+  bottom: 25px;
+  margin-top: 0;
+}
+
+.chatBody p {
+  font-size: 12px;
+  margin-top: 0;
+}
+
+.chatBody h3 {
+  margin-bottom: 0;
+}
+
+#matchColumn {
 }
 /* -------------------------chat page----------------------------- */
 
@@ -512,4 +582,24 @@ textarea {
   min-height: 500px;
   background: rgb(255, 255, 255);
   border-radius: 5px;
+}
+
+/* *******Media Queries************************************ */
+/* ************************************************************ */
+@media (min-width: 992px) {
+  .navItems {
+    margin: 0;
+    padding: 0;
+    margin-right: 0;
+    margin-left: 0;
+    float: right;
+  }
+  .buttonList {
+    left: 175px;
+    margin-bottom: 2px;
+  }
+  header h1 {
+    text-align: none;
+    float: left;
+  }
 }

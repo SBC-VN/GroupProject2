@@ -9,21 +9,21 @@ module.exports = function(app) {
   app.get("/api/match", function(req, res) {
     db.User.findAll({}).then(function(dbMatches) {
 
-      users=dbMatches;
-      // console.log(dbUsers);
-      mLogic.populateScores(dbMatches);
+      // users=dbMatches;
+      // // console.log(dbUsers);
+      // mLogic.populateScores(dbMatches);
 
-      for (var x=0;x<dbMatches.length;x++) {
-        mLogic.matchUser(dbMatches[x]);
+      // for (var x=0;x<dbMatches.length;x++) {
+      //   mLogic.matchUser(dbMatches[x]);
 
-      }
+      // }
 
       res.json(dbMatches);
     });
   });
 
   app.post("/api/match", function(req, res) {
-    db.Matches.create(req.body).then(function(dbMatch) {
+    db.Matchs.create(req.body).then(function(dbMatch) {
       res.json(dbMatch);
     });
   });

@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Match = sequelize.define("match", {
-      // A match is 'owned' by one user, but has an association to another.
+       // A match is 'owned' by one user, but has an association to another.
         deltascore:  
         { type: DataTypes.INTEGER,
           allowNull: false}
@@ -20,14 +20,14 @@ module.exports = function(sequelize, DataTypes) {
         foreignKey: {
           name: 'user1',
           allowNull: false
-         }
+          }
       });
       Match.belongsTo(models.user, {
         as: 'userInfo2',
         foreignKey: {
           name: 'user2',
           allowNull: false
-         }
+          }
       });
     }
 

@@ -1,15 +1,21 @@
-var userProfilePic = "img/b-ghosncharge-a-20181211-870x580.jpg";
-var userFirstName = "SC: 70";
 var signedIn = false;
 
 // profile data--------------------------------
-var profilePic = "img/b-ghosncharge-a-20181211-870x580.jpg";
+var profilePic = "http://localhost:8080/api/users/profilepic/burgerpic";
 var profileAge = 25;
 var profileLocation = "Austin";
 var profileBio = "insert weird bio here";
-var profileFirstName = "Herbs";
+var profileFirstName = "Herbert";
 var profileSentScore = 82;
 // -----------------------------------------------
+
+// match data---------------------------------------
+var matchPic = "";
+var matchFirstName = "";
+var matchAge = "";
+var matchLocation = "";
+
+// ---------------------------------------------------
 
 $(document).ready(function() {
   // if (!$.browser.webkit) {
@@ -19,7 +25,7 @@ $(document).ready(function() {
 
 // This function will check to see if the user is signed in
 function signinCheck(signedIn) {
-  console.log("signinCheck",signedIn);
+  console.log("signinCheck", signedIn);
   if (signedIn === false) {
     $("#buttonList")
       .append()
@@ -63,6 +69,14 @@ function updateUserProfile(
         <p></p>`
     );
 }
+
+// this function will update the matches
+function updateMatches() {}
+
+// This function will create the match box with profile data
+function createMatchBox() {}
+
+// declaring functions
 
 updateUserProfile(
   profilePic,
