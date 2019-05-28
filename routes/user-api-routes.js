@@ -20,7 +20,7 @@ module.exports = function(app) {
 
       for (var x=0;x<dbUsers.length;x++) {
         console.log(
-          "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].score
+          "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].sentimentScore
         ); //+"\n")
         var closeArr = mLogic.calculateMatches(dbUsers[x]);
         var matches = mLogic.getMatches(closeArr);
@@ -111,7 +111,10 @@ app.put("/api/login/:email", function(req, res) {
       console.log(req.body);
       // dbUser=req.body;
 
-      
+      //call sentiment on userSample
+      //set sentimentScore on 
+
+
 
       res.json(dbUser);
     });

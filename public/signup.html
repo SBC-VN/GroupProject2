@@ -335,7 +335,7 @@
          var textArr=[];
          $(".form-control").each(function(){
            var tempString=$(this).val().trim();
-           if (tempString === "") {tempString = "good";}
+           if (tempString === "") {tempString = "terrific";}
            textArr.push(tempString);
          });
 
@@ -350,8 +350,11 @@
          var password=textArr[7]
          var userimage=textArr[8]
          var biotext=textArr[9]
-
-        var userInput=
+         textArr=textArr.slice(10);
+         console.log(textArr);
+  
+         
+        var newUser=
         {
           firstname:fname,
           lastname:lname,
@@ -362,12 +365,11 @@
           //transporting password in plaintext ??
           password:password,
           profilepic:userimage,
-          bio:biotext
+          bio:biotext,
+          userSample:textArr
         } 
 
-       textArr=textArr.slice(10);
-
-       console.log(textArr);
+       
   
         //  var newFriend={
         //    name:name,
@@ -382,7 +384,10 @@
          }).then(function(data) {
            console.log(data);
            alert('Adding user...');
- 
+          //redirect to profile
+          //how to make sure correct user is displayed? 
+
+
             // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
             // $("#matchName").text(data.name);
             //          $('#matchImg').attr("src", data.photo);
@@ -395,7 +400,9 @@
            $(this).val("");
          })        
  
- 
+           //redirect to profile page
+          //  window.location= "profilePage.html";
+
  
        });
      });

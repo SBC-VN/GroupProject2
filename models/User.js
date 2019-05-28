@@ -30,7 +30,14 @@ module.exports = function(sequelize, DataTypes) {
               len: [6]
               }
             },
-        sentimentScore: {type:DataTypes.INTEGER},
+        sentimentScore: {
+          type:DataTypes.INTEGER,
+          allowNull: false,
+          defaultValue: 0,
+        },
+        matches:{
+          type:DataTypes.JSON,
+        },
         
         email: 
           { type: DataTypes.STRING,
