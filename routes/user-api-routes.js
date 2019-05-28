@@ -9,7 +9,7 @@ module.exports = function(app) {
 
   app.get("/api/users", function(req, res) {
       
-    db.User.findAll({}).then(function(dbUsers) {
+    db.user.findAll({}).then(function(dbUsers) {
       //initialize scores
       
       // console.log({dbUsers});
@@ -90,7 +90,7 @@ app.put("/api/login/:email", function(req, res) {
 
 
 
-  app.post("/api/user", function(req, res) {
+  app.post("/api/users", function(req, res) {
 
     console.log(req.body);
     var newUser=req.body;
