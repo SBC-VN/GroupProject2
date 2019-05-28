@@ -2,6 +2,32 @@ var friendScores = [];
 var users=[];
 // require("../routes/user-api-routes.js");
 
+
+function matchUser(theUser){
+
+  console.log(
+    "First Name: "+theUser.firstname +   " ".repeat(colSpacer(theUser.firstname))  + " Score:" + theUser.sentimentScore
+  ); //+"\n")
+  var closeArr = calculateMatches(theUser);
+  var matches = getMatches(closeArr);
+  // console.log(matches);
+  tempMatches = JSON.stringify(matches);
+  theUser.matches = JSON.parse(tempMatches);
+  // console.log(dbUsers[x].matches);
+  // dbUsers[x].matches=users[x].matches;
+
+  return theUser;
+}
+
+
+
+
+
+
+
+
+
+
 function populateScores(dbUsers) 
 {
 users=dbUsers; 
@@ -9,13 +35,13 @@ friendScores=[];
   for (var x=0;x<dbUsers.length;x++) 
   {
     // console.log(dbUsers[x].score);
-  friendScores.push(dbUsers[x].score);
+  friendScores.push(dbUsers[x].sentimentScore);
   }
 }
 
 function calculateMatches(newfriend) {
   var copyScores = friendScores;
-  var goal = newfriend.score;
+  var goal = newfriend.sentimentScore;
   // console.log("Current User's Score: " + goal); //+"\n");
   // var currIndex=copyScores.indexOf(newfriend.score);
   //FILTER
@@ -41,7 +67,7 @@ function getMatches(closestArr) {
   var closestMatches = [];
   // console.log(users);
   closestMatches = users.filter(function(item) {
-    return closestArr.includes(item.score);
+    return closestArr.includes(item.sentimentScore);
   });
   //WORKS -Filters ENTIRE USER
   // console.log(closestMatches);
@@ -54,13 +80,13 @@ function getMatches(closestArr) {
         closestMatches[x].firstname +
         " ".repeat(colSpacer(closestMatches[x].firstname)) +
         "Score:" +
-        closestMatches[x].score
+        closestMatches[x].sentimentScore
     );
 
   }
   console.log(matchLabels);
   console.log("\n");
-  closestMatches.matches = "[]";
+  // closestMatches.matches = "[]";
   return closestMatches;
 }
 
@@ -69,7 +95,7 @@ function colSpacer(word) {
 }
 
 
-module.exports= {populateScores, calculateMatches, getMatches, colSpacer}
+module.exports= {populateScores, calculateMatches, getMatches, colSpacer,matchUser}
 
 
 
