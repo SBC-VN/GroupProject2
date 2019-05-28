@@ -15,7 +15,7 @@ module.exports = function(sequelize, DataTypes) {
     UserInfo.associate = function(models) {
       // We're saying that a Match should belong to an User
       // A Match can't be created without an User due to the foreign key constraint
-      UserInfo.belongsTo(models.User, {
+      UserInfo.belongsTo(models.user, {
         foreignKey: {
           allowNull: false
         }
