@@ -2,6 +2,32 @@ var friendScores = [];
 var users=[];
 // require("../routes/user-api-routes.js");
 
+
+function matchUser(theUser){
+
+  console.log(
+    "First Name: "+theUser.firstname +   " ".repeat(colSpacer(theUser.firstname))  + " Score:" + theUser.sentimentScore
+  ); //+"\n")
+  var closeArr = calculateMatches(theUser);
+  var matches = getMatches(closeArr);
+  // console.log(matches);
+  tempMatches = JSON.stringify(matches);
+  theUser.matches = JSON.parse(tempMatches);
+  // console.log(dbUsers[x].matches);
+  // dbUsers[x].matches=users[x].matches;
+
+  return theUser;
+}
+
+
+
+
+
+
+
+
+
+
 function populateScores(dbUsers) 
 {
 users=dbUsers; 
@@ -60,7 +86,7 @@ function getMatches(closestArr) {
   }
   console.log(matchLabels);
   console.log("\n");
-  closestMatches.matches = "[]";
+  // closestMatches.matches = "[]";
   return closestMatches;
 }
 
@@ -69,7 +95,7 @@ function colSpacer(word) {
 }
 
 
-module.exports= {populateScores, calculateMatches, getMatches, colSpacer}
+module.exports= {populateScores, calculateMatches, getMatches, colSpacer,matchUser}
 
 
 

@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var user = sequelize.define("user", {
+    var User = sequelize.define("User", {
       // Information about the user.
         firstname: 
           { type: DataTypes.STRING,
@@ -30,7 +30,6 @@ module.exports = function(sequelize, DataTypes) {
               len: [6]
               }
             },
-<<<<<<< HEAD
         sentimentScore: {
           type:DataTypes.INTEGER,
           allowNull: false,
@@ -39,9 +38,6 @@ module.exports = function(sequelize, DataTypes) {
         matches:{
           type:DataTypes.JSON,
         },
-=======
-        score: {type:DataTypes.INTEGER},
->>>>>>> 6015762aabaae8638ee9d7ef7873aab59759efbd
         
         email: 
           { type: DataTypes.STRING,
@@ -61,10 +57,10 @@ module.exports = function(sequelize, DataTypes) {
           },
         location: 
           { type: DataTypes.STRING,
-            allowNull: false,
-            validate: {
-              len: [6]
-              },
+            // allowNull: false,
+            // validate: {
+            //   len: [6]
+            //   },
           },
         profilepic: 
           { type: DataTypes.STRING,
@@ -72,7 +68,7 @@ module.exports = function(sequelize, DataTypes) {
           }         
       });
  
-    return user;
+    return User;
   };
 
 

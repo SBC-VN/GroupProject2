@@ -1,26 +1,34 @@
+//SIMPLE FOR NOW BUT COULD BE EXPANDED UPON!!!
+
 var Sentiment = require('sentiment');
 var sentiment = new Sentiment();
 
 
+//pass in entire object or just sample
 
-function scoreFriend(newFriend){
-    for(x in newfriend.textArr)
+function scoreSample(usersample){
+  var scoreArr=[];
+  var scoreTotal=0;
+  
+  for(var x=0;x<usersample.length;x++)
     {
-        textScore=sentiment.analyze(newfriend.textArr[x]);
+        textScore=sentiment.analyze(usersample[x]);
         console.log(textScore);
-        scoreArr.push([newfriend.textArr[x],textScore.score]);
+        scoreArr.push([usersample[x],textScore.score]);
         scoreTotal+=parseInt(textScore.score);
     }
-    // console.log(scoreTotal);
     
-    newfriend.scoreArr=scoreArr;
-    newfriend.score=scoreTotal;
-    friends.push(newfriend);
+  return scoreTotal;
   
-  }
+}
   
 
+module.exports={scoreSample}
+
+//***********************************************************************************************************************
+
   // function logScores(){
+    //would have to log after matching
 //   console.log("All Scores: "+friendScores);
 //   var copyScores=friendScores;
 //   var goal=newfriend.score;
@@ -35,8 +43,3 @@ function scoreFriend(newFriend){
 //     friendScores.push(goal);
 //     return closest;
 // }
-
-
-module.exports={scoreFriend}
-
-

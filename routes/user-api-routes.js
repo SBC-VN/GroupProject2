@@ -1,5 +1,6 @@
 var db = require("../models");
 var mLogic=require("../routes/match-logic.js");
+var sLogic=require("../routes/score-logic.js");
 var users=[];
 var path = require('path');
 
@@ -8,14 +9,7 @@ module.exports = function(app) {
   //  so that anyone calling the API will NOT get to see the user's passwords.
   // In fact, this API might not even be needed.
   app.get("/api/users", function(req, res) {
-<<<<<<< HEAD
-       
-    //WHAT SECURITY / LOGIN STUFF DO WE NEED TO BE MINDFUL OF ON THE BACKEND? 
-    //   db.User.findAll({}).then(function(dbUsers) {
-    //   dbUsers.forEach(element => {
-    //   element.password = "****";
-    //   });
-
+      
     db.User.findAll({}).then(function(dbUsers) {
       //initialize scores
       users=dbUsers;
@@ -23,27 +17,22 @@ module.exports = function(app) {
       mLogic.populateScores(dbUsers);
 
       for (var x=0;x<dbUsers.length;x++) {
-        console.log(
-          "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].sentimentScore
-        ); //+"\n")
-        var closeArr = mLogic.calculateMatches(dbUsers[x]);
-        var matches = mLogic.getMatches(closeArr);
-        // console.log(matches);
-        tempMatches = JSON.stringify(matches);
-        dbUsers[x].matches = JSON.parse(tempMatches);
-        // console.log(dbUsers[x].matches);
-        // dbUsers[x].matches=users[x].matches;
+        mLogic.matchUser(dbUsers[x]);
+        //   console.log(
+      //     "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].sentimentScore
+      //   ); //+"\n")
+      //   var closeArr = mLogic.calculateMatches(dbUsers[x]);
+      //   var matches = mLogic.getMatches(closeArr);
+      //   // console.log(matches);
+      //   tempMatches = JSON.stringify(matches);
+      //   dbUsers[x].matches = JSON.parse(tempMatches);
+      //   // console.log(dbUsers[x].matches);
+      //   // dbUsers[x].matches=users[x].matches;
       }
       res.json(dbUsers);
-=======
-    db.user.findAll({}).then(function(dbUsers) {
-       dbUsers.forEach(element => {
-       element.password = "****";
->>>>>>> 6015762aabaae8638ee9d7ef7873aab59759efbd
     });
-    res.json(dbUsers);
-  });
 
+    });
   // Returns the profile picture - when given the 'correct' file name (id) - from 
   // the non-public storage location.    
   // This should prevent a random user from navigating to /public/images and see ALL
@@ -56,11 +45,11 @@ module.exports = function(app) {
     res.sendFile(fpath);
   });
 
-  // Add a new user.
-  app.put("/api/users", function(req, res) {
-    console.log("New User:",req.body);
-  });
-});
+  // // Add a new user.
+  // app.put("/api/users", function(req, res) {
+  //   console.log("New User:",req.body);
+  // });
+
 
 
     // Matches should be computed when a user is added, and maybe updated.  
@@ -90,23 +79,6 @@ module.exports = function(app) {
     //   }
     //   res.json(dbUsers);
     // });
-
-
-module.exports={users}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
@@ -164,16 +136,16 @@ app.put("/api/login/:email", function(req, res) {
 
 
   app.post("/api/user", function(req, res) {
-    db.User.create(req.body).then(function(dbUser) {
-      //just working with score
-      console.log(req.body);
-      // dbUser=req.body;
 
+    console.log(req.body);
+    var newUser=req.body;
       //call sentiment on userSample
-      //set sentimentScore on 
+    newUser.sentimentScore=sLogic.scoreSample(req.body.userSample);
+    newUser=mLogic.matchUser(newUser);
 
-
-
+    db.User.create(newUser).then(function(dbUser) {
+      console.log(dbUser.sentimentScore);
+      console.log(dbUser.matches);
       res.json(dbUser);
     });
   });
@@ -198,7 +170,8 @@ app.put("/api/login/:email", function(req, res) {
       res.json(dbUser);
     });
   });
-};
+}
+
 
 //********************************************************* */
 
