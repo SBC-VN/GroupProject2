@@ -3,8 +3,17 @@ module.exports = function(sequelize, DataTypes) {
       // A match is 'owned' by one user, but has an association to another.
         deltascore:  
         { type: DataTypes.INTEGER,
-          allowNull: false}
+          allowNull: false},
+          user1:
+          {
+          type: DataTypes.STRING,
+          allowNull:false
+          },
+          user2:
+          {type: DataTypes.STRING,
+            allowNull:false},
     },
+
     {
       indexes: [
           {
@@ -14,22 +23,22 @@ module.exports = function(sequelize, DataTypes) {
       ]
     });
   
-    // Match.associate = function(models) {
-    //   Match.belongsTo(models.user, {
-    //     as: 'userInfo1',
-    //     foreignKey: {
-    //       name: 'user1',
-    //       allowNull: false
-    //      }
-    //   });
-    //   Match.belongsTo(models.user, {
-    //     as: 'userInfo2',
-    //     foreignKey: {
-    //       name: 'user2',
-    //       allowNull: false
-    //      }
-    //   });
-    // }
+    Match.associate = function(models) {
+      Match.belongsTo(models.user, {
+        as: 'userInfo1',
+        foreignKey: {
+          name: 'user1',
+          allowNull: false
+         }
+      });
+      Match.belongsTo(models.user, {
+        as: 'userInfo2',
+        foreignKey: {
+          name: 'user2',
+          allowNull: false
+         }
+      });
+    }
 
     return Match;
   };

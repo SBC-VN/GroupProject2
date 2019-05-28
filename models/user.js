@@ -65,8 +65,16 @@ module.exports = function(sequelize, DataTypes) {
         profilepic: 
           { type: DataTypes.STRING,
             allowNull: true
-          }         
-          
+          },
+          createdAt:
+        {
+          type: DataTypes.DATE,
+          allowNull:true},
+        updatedAt:
+      {
+        type: DataTypes.DATE,
+        allowNull:true
+      }
 
       });
  
