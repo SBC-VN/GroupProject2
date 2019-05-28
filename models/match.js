@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Match = sequelize.define("Match", {
+    var Match = sequelize.define("match", {
       // A match is 'owned' by one user, but has an association to another.
         deltascore:  
         { type: DataTypes.INTEGER,
