@@ -2,6 +2,16 @@ var friendScores = [];
 var users=[];
 // require("../routes/user-api-routes.js");
 
+function createMatchObj(user1,user2){
+
+  var matchDelta=parseInt(user1.sentimentScore-user2.sentimentScore);
+
+
+}
+
+
+
+
 
 function matchUser(theUser){
 

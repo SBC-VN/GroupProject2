@@ -5,30 +5,21 @@ var users=[];
 var path = require('path');
 
 module.exports = function(app) {
-  // Returns a list of all the registered users.  Blanks out the passwords - 
-  //  so that anyone calling the API will NOT get to see the user's passwords.
-  // In fact, this API might not even be needed.
+  
+
   app.get("/api/users", function(req, res) {
       
     db.User.findAll({}).then(function(dbUsers) {
       //initialize scores
-      users=dbUsers;
+      
       // console.log({dbUsers});
       mLogic.populateScores(dbUsers);
 
       for (var x=0;x<dbUsers.length;x++) {
         mLogic.matchUser(dbUsers[x]);
-        //   console.log(
-      //     "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].sentimentScore
-      //   ); //+"\n")
-      //   var closeArr = mLogic.calculateMatches(dbUsers[x]);
-      //   var matches = mLogic.getMatches(closeArr);
-      //   // console.log(matches);
-      //   tempMatches = JSON.stringify(matches);
-      //   dbUsers[x].matches = JSON.parse(tempMatches);
-      //   // console.log(dbUsers[x].matches);
-      //   // dbUsers[x].matches=users[x].matches;
+
       }
+
       res.json(dbUsers);
     });
 
@@ -44,42 +35,6 @@ module.exports = function(app) {
     console.log(fpath);
     res.sendFile(fpath);
   });
-
-  // // Add a new user.
-  // app.put("/api/users", function(req, res) {
-  //   console.log("New User:",req.body);
-  // });
-
-
-
-    // Matches should be computed when a user is added, and maybe updated.  
-
-    // db.User.findAll({}).then(function(dbUsers) {
-    //   //initialize scores
-    //   users=dbUsers;
-    //   // console.log({dbUsers});
-    //   mLogic.populateScores(dbUsers);
-
-    //   // This is the wrong place to do this: 
-    //   //  1. This API is just returning user info, like for the user's profile page.
-    //   //  2. The matches should be *stored* in the database - not computed every time a 
-    //   //     user's information is provided.
-
-    //   for (var x=0;x<dbUsers.length;x++) {
-    //     console.log(
-    //       "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].score
-    //     ); //+"\n")
-    //     var closeArr = mLogic.calculateMatches(dbUsers[x]);
-    //     var matches = mLogic.getMatches(closeArr);
-    //     // console.log(matches);
-    //     tempMatches = JSON.stringify(matches);
-    //     dbUsers[x].matches = JSON.parse(tempMatches);
-    //     // console.log(dbUsers[x].matches);
-    //     // dbUsers[x].matches=users[x].matches;
-    //   }
-    //   res.json(dbUsers);
-    // });
-
 
 
 
@@ -173,7 +128,60 @@ app.put("/api/login/:email", function(req, res) {
 }
 
 
-//********************************************************* */
+//**************************************************************************************************** */
+        //   console.log(
+      //     "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].sentimentScore
+      //   ); //+"\n")
+      //   var closeArr = mLogic.calculateMatches(dbUsers[x]);
+      //   var matches = mLogic.getMatches(closeArr);
+      //   // console.log(matches);
+      //   tempMatches = JSON.stringify(matches);
+      //   dbUsers[x].matches = JSON.parse(tempMatches);
+      //   // console.log(dbUsers[x].matches);
+      //   // dbUsers[x].matches=users[x].matches;
+
+
+  // Returns a list of all the registered users.  Blanks out the passwords - 
+  //  so that anyone calling the API will NOT get to see the user's passwords.
+  // In fact, this API might not even be needed.
+
+
+  // // Add a new user.
+  // app.put("/api/users", function(req, res) {
+  //   console.log("New User:",req.body);
+  // });
+
+
+
+    // Matches should be computed when a user is added, and maybe updated.  
+
+    // db.User.findAll({}).then(function(dbUsers) {
+    //   //initialize scores
+    //   users=dbUsers;
+    //   // console.log({dbUsers});
+    //   mLogic.populateScores(dbUsers);
+
+    //   // This is the wrong place to do this: 
+    //   //  1. This API is just returning user info, like for the user's profile page.
+    //   //  2. The matches should be *stored* in the database - not computed every time a 
+    //   //     user's information is provided.
+
+    //   for (var x=0;x<dbUsers.length;x++) {
+    //     console.log(
+    //       "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].score
+    //     ); //+"\n")
+    //     var closeArr = mLogic.calculateMatches(dbUsers[x]);
+    //     var matches = mLogic.getMatches(closeArr);
+    //     // console.log(matches);
+    //     tempMatches = JSON.stringify(matches);
+    //     dbUsers[x].matches = JSON.parse(tempMatches);
+    //     // console.log(dbUsers[x].matches);
+    //     // dbUsers[x].matches=users[x].matches;
+    //   }
+    //   res.json(dbUsers);
+    // });
+
+
 
 
         // friendScores.push(dbUsers[x].score);
