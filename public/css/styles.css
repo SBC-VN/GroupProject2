@@ -370,8 +370,12 @@ textarea {
 }
 /* --- this is the profile/match css ------------------------------------------------------------------*/
 
+#profileColumn {
+  margin: 0 auto;
+}
+
 #profileCard {
-  display: block;
+  /* display: block; */
   min-width: 30%;
   text-align: center;
   background: black;
@@ -386,13 +390,15 @@ textarea {
   width: 220px;
   height: 220px;
   border-radius: 50%;
+  display: inline-block;
+  float: left;
 }
 
 #profilePicContainer {
   width: 220px;
   height: 220px;
   border-radius: 50%;
-  margin: 0 auto;
+  /* margin: 0 auto; */
   position: relative;
   overflow: hidden;
 }
@@ -418,12 +424,10 @@ textarea {
 }
 
 #profileInfoCard {
-  background-image: linear-gradient(
-    to right,
-    rgb(247, 247, 247),
-    rgb(209, 209, 204)
-  );
-  text-align: left;
+  position: absolute;
+  top: 25%;
+  margin-left: 25px;
+  display: inline-block;
 }
 
 #profileBioCard {
