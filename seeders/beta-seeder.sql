@@ -16,7 +16,7 @@ age INTEGER ,
 locale VARCHAR(255) ,
 profilepic VARCHAR(3000),
 bio VARCHAR(3000),
-createdAt Date,
+createdAt Date
 updatedAt Date,
 	PRIMARY KEY (id) 
     );
