@@ -1,9 +1,9 @@
 -- DROP DATABASE IF EXISTS matcherdb_dev;
 -- CREATE DATABASE matcherdb_dev;
 USE matcherdb_dev;
-DROP TABLE Users;
+DROP TABLE users;
 
-CREATE TABLE Users (
+CREATE TABLE users (
 	id Int AUTO_INCREMENT NOT NULL,
 	firstname VARCHAR(255) NOT NULL,
 lastname VARCHAR(255) NOT NULL,
@@ -21,18 +21,18 @@ updatedAt Date,
 	PRIMARY KEY (id) 
     );
     
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Burger',"Whiffle", "juice","***",12, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Bud',"Little", "user1","***",1, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Steve',"Derp", "user2","***",-18, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Leif',"Nurr", "juice","***",-100, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Fred',"Scott", "juice","***",300, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Chad',"Dibbit", "juice","***",50, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Beb',"Deedo", "juice","***",-4, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Nike',"Shox", "juice","***",150, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Honda',"Element", "juice","***",-177, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Buck',"Dasher", "user1","***",47, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Steven',"Dork", "user2","***",6, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Wargon',"Nurple", "juice","***",-45, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Joey',"Joedel", "juice","***",-2, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Chad',"Ralph", "juice","***",3, "email@email.com", 109, "Newfoundland");
-INSERT INTO Users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Kawasaki',"Ninja", "juice","***",322, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Burger',"Whiffle", "juice","***",12, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Bud',"Little", "user1","***",1, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Steve',"Derp", "user2","***",-18, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Leif',"Nurr", "juice","***",-100, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Fred',"Scott", "juice","***",300, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Chad',"Dibbit", "juice","***",50, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Beb',"Deedo", "juice","***",-4, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Nike',"Shox", "juice","***",150, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Honda',"Element", "juice","***",-177, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Buck',"Dasher", "user1","***",47, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Steven',"Dork", "user2","***",6, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Wargon',"Nurple", "juice","***",-45, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Joey',"Joedel", "juice","***",-2, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Chad',"Ralph", "juice","***",3, "email@email.com", 109, "Newfoundland");
+INSERT INTO users (firstname, lastname, screenname, password, sentimentScore, email, age, locale) VALUES ('Kawasaki',"Ninja", "juice","***",322, "email@email.com", 109, "Newfoundland");
