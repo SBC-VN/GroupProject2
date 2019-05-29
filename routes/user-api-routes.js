@@ -12,7 +12,7 @@ module.exports = function(app) {
     db.user.findAll({}).then(function(dbUsers) {
       //initialize scores
       
-      // console.log({dbUsers});
+      // console.log(dbUsers);
       mLogic.populateScores(dbUsers);
 
       for (var x=0;x<dbUsers.length;x++) {
@@ -96,9 +96,10 @@ app.put("/api/login/:email", function(req, res) {
     var newUser=req.body;
       //call sentiment on userSample
     newUser.sentimentScore=sLogic.scoreSample(req.body.userSample);
+    
     newUser=mLogic.matchUser(newUser);
 
-    db.User.create(newUser).then(function(dbUser) {
+    db.user.create(newUser).then(function(dbUser) {
       console.log(dbUser.sentimentScore);
       console.log(dbUser.matches);
       res.json(dbUser);

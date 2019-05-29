@@ -2,41 +2,41 @@ var friendScores = [];
 var users=[];
 // require("../routes/user-api-routes.js");
 
-// function createMatchObj(user1,user2){
+function createMatchObj(user1,user2){
 
-//   var matchDelta=Math.abs(user1.sentimentScore-user2.sentimentScore);
-//   console.log(matchDelta);
+  var matchDelta=Math.abs(user1.sentimentScore-user2.sentimentScore);
+  console.log(matchDelta);
 
-//   var newMatch={
-//     deltascore:matchDelta,
-//     // indexes.fields[0]:
-
-
-//   }
+  var newMatch={
+    deltascore:matchDelta,
+    // indexes.fields[0]:
 
 
-
-//   $.ajax({
-//     method: 'POST',
-//     url: '/api/match',
-//     data: newMatch
-//   }).then(function(data) {
-//     console.log("adding match");
-//     console.log(data);
-
-//    //redirect to profile
-//    //how to make sure correct user is displayed? 
+  }
 
 
-//      // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-//      // $("#matchName").text(data.name);
-//      //          $('#matchImg').attr("src", data.photo);
-//      //          // Show the modal with the best match 
-//      //          $("#resultsModal").modal('toggle');
-//   });
+
+  $.ajax({
+    method: 'POST',
+    url: '/api/match',
+    data: newMatch
+  }).then(function(data) {
+    console.log("adding match");
+    console.log(data);
+
+   //redirect to profile
+   //how to make sure correct user is displayed? 
 
 
-// }
+     // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+     // $("#matchName").text(data.name);
+     //          $('#matchImg').attr("src", data.photo);
+     //          // Show the modal with the best match 
+     //          $("#resultsModal").modal('toggle');
+  });
+
+
+}
 
 
 
