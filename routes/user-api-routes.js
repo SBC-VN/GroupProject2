@@ -102,6 +102,13 @@ app.put("/api/login/:email", function(req, res) {
     db.user.create(newUser).then(function(dbUser) {
       console.log(dbUser.sentimentScore);
       console.log(dbUser.matches);
+
+      for(var x=0;x<dbUser.matches.length;x++)
+      {
+        mLogic.createMatchObj(dbUser,dbUser.matches[x]);
+      }
+
+
       res.json(dbUser);
     });
   });

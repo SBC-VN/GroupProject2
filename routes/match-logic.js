@@ -1,28 +1,34 @@
 var friendScores = [];
 var users=[];
-// require("../routes/user-api-routes.js");
+
+//need it to create match obj
+var db = require("../models");
+
+
+// function createMatchObjS(){
+// }
 
 function createMatchObj(user1,user2){
-
   var matchDelta=Math.abs(user1.sentimentScore-user2.sentimentScore);
-  console.log(matchDelta);
+  // console.log(matchDelta);
 
   var newMatch={
     deltascore:matchDelta,
-    // indexes.fields[0]:
-
-
+    user1:user1.id,
+    user2:user2.id    
   }
 
+  db.match.create(newMatch).then(function(dbMatch){});
 
+}
 
-  $.ajax({
-    method: 'POST',
-    url: '/api/match',
-    data: newMatch
-  }).then(function(data) {
-    console.log("adding match");
-    console.log(data);
+  // $.ajax({
+  //   method: 'POST',
+  //   url: '/api/match',
+  //   data: newMatch
+  // }).then(function(data) {
+  //   console.log("adding match");
+  //   console.log(data);
 
    //redirect to profile
    //how to make sure correct user is displayed? 
@@ -33,10 +39,9 @@ function createMatchObj(user1,user2){
      //          $('#matchImg').attr("src", data.photo);
      //          // Show the modal with the best match 
      //          $("#resultsModal").modal('toggle');
-  });
+  // });
 
 
-}
 
 
 
@@ -111,6 +116,8 @@ function getMatches(closestArr) {
   //WORKS -Filters ENTIRE USER
   // console.log(closestMatches);
 
+
+
   var matchLabels = [];
   for (x in closestMatches) {
     //  console.log(closestMatches[x].firstname);
@@ -134,7 +141,7 @@ function colSpacer(word) {
 }
 
 
-module.exports= {populateScores, calculateMatches, getMatches, colSpacer,matchUser}
+module.exports= {populateScores, calculateMatches, getMatches, colSpacer,matchUser, createMatchObj}
 
 
 

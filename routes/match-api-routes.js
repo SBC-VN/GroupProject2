@@ -23,13 +23,13 @@ module.exports = function(app) {
   });
 
   app.post("/api/match", function(req, res) {
-    db.Matchs.create(req.body).then(function(dbMatch) {
+    db.match.create(req.body).then(function(dbMatch) {
       res.json(dbMatch);
     });
   });
 
   app.delete("/api/match/:id", function(req, res) {
-    db.Match.destroy({
+    db.match.destroy({
       where: {
         id: req.params.id
       }
