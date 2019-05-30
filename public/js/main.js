@@ -17,6 +17,7 @@ $(".modal").on("click","button",function(event) {
           console.log("logged in");
           loggedIn = true;
           userInfo = res;
+          console.log(res);
           // Successful login.   User info is in 'res'.  Except for password.
           setupUser(res.screenname);          
           // Reload the page to get the updated list
