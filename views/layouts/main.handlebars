@@ -9,7 +9,7 @@
 	<!-- Bootstrap CSS -->
 	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
 		integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-	<link rel="stylesheet" href="css/style.css" />
+	<link rel="stylesheet" href="/css/styles.css" />
 
 	<title>Syndir</title>
 </head>
@@ -72,14 +72,14 @@
 
 			<!-- This header is only visibile on large screens -->
 			<div class="container d-none d-lg-block">
-				<!-- Main title -->
+				<!--Main title -->
 				<div class="row">
 					<div class="col-6">
 						<h1 id="mainTitle">
 							<span class="highlighter">Syndir Match</span>
 						</h1>
 					</div>
-					<!--- navs -->
+					<!--- navs-->
 					<div class="col-6">
 						<div class="navItems">
 							<ul class="nav">
@@ -94,7 +94,7 @@
 								</li>
 							</ul>
 
-							<!--login/sign up buttons --->
+							<!--login/sign up buttons -->
 							<div class="row">
 								<div class="col-md-12 buttonList">
 									<!--New Nav Icons-->
@@ -119,7 +119,7 @@
 				</div>
 			</div>
 
-			<!--Modals--->
+			<!--- Modals --->
 			<div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
 				aria-hidden="true" id="loginModal">
 				<div class="modal-dialog modal-lg">
@@ -153,24 +153,28 @@
 		<!-- Main match screen -->
 		{{{ body }}}
 
-		<!-- Footer section -->
-		<footer>
-			<h4>Synder Match &copy; 2019</h4>
-		</footer>
 
-		<!-- Optional JavaScript -->
-		<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-		<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
-			integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
-			crossorigin="anonymous"></script>
-		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
-			integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
-			crossorigin="anonymous"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
-		<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
-		<script src="js/chat.js"></script>
-		<script src="js/main.js"></script>
+
+		{{!-- This is part of the wrapper (to preserve the footer) --}}
+	</div>
+	<!-- Footer section -->
+	<footer>
+		<h4>Synder Match &copy; 2019</h4>
+	</footer>
+
+	<!-- Optional JavaScript -->
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+		integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+		crossorigin="anonymous"></script>
+	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+		integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+		crossorigin="anonymous"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-app.js"></script>
+	<script src="https://www.gstatic.com/firebasejs/5.9.1/firebase-database.js"></script>
+	<script src="js/chat.js"></script>
+	<script src="js/main.js"></script>
 </body>
 
 </html>
