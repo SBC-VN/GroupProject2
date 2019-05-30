@@ -6,30 +6,26 @@ var path = require('path');
 
 
 module.exports = function(app) {
-  app.get("/api/match", function(req, res) {
-    db.User.findAll({}).then(function(dbMatches) {
-
-      // users=dbMatches;
-      // // console.log(dbUsers);
-      // mLogic.populateScores(dbMatches);
-
-      // for (var x=0;x<dbMatches.length;x++) {
-      //   mLogic.matchUser(dbMatches[x]);
-
-      // }
-
+  app.get("/api/matches", function(req, res) {
+    db.match.findAll({
+      
+    }).then(function(dbMatches) {
       res.json(dbMatches);
     });
   });
 
+
+
+  //    where: user1===req.body.user1
+   
   app.post("/api/match", function(req, res) {
-    db.Matchs.create(req.body).then(function(dbMatch) {
+    db.match.create(req.body).then(function(dbMatch) {
       res.json(dbMatch);
     });
   });
 
   app.delete("/api/match/:id", function(req, res) {
-    db.Match.destroy({
+    db.match.destroy({
       where: {
         id: req.params.id
       }
