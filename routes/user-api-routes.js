@@ -30,7 +30,7 @@ module.exports = function(app) {
   // the profile pictures.
   app.get("/api/users/profilepic/:fileid", function(req, res) {
     console.log("get picture API call");
-    var fname = "../private/profpics/" + req.params.fileid + ".jpg"
+    var fname = "../private/profpics/" + req.params.fileid;
     var fpath = path.join(__dirname,fname);
     console.log(fpath);
     res.sendFile(fpath);
