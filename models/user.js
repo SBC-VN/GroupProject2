@@ -57,7 +57,7 @@ module.exports = function(sequelize, DataTypes) {
           },
         locale: 
           { type: DataTypes.STRING,
-            // allowNull: false,
+            allowNull: true,
             // validate: {
             //   len: [6]
             //   },

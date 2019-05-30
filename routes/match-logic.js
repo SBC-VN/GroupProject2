@@ -1,44 +1,29 @@
 var friendScores = [];
 var users=[];
-// require("../routes/user-api-routes.js");
-
-// function createMatchObj(user1,user2){
-
-//   var matchDelta=Math.abs(user1.sentimentScore-user2.sentimentScore);
-//   console.log(matchDelta);
-
-//   var newMatch={
-//     deltascore:matchDelta,
-//     // indexes.fields[0]:
+var db = require("../models");
 
 
-//   }
+function createMatchObj(user1,user2){
+
+  var matchDelta=Math.abs(user1.sentimentScore-user2.sentimentScore);
+  console.log(matchDelta);
+
+  var newMatch={
+    deltascore:matchDelta,
+    user1:user1.id,
+    user2:user2.id
+  }
+
+
+  db.match.create(newMatch).then(function(dbMatch){
+    console.log("A new match was created between user ID#:"+user1+
+    " and user ID#:"+user2);
+  });
 
 
 
-//   $.ajax({
-//     method: 'POST',
-//     url: '/api/match',
-//     data: newMatch
-//   }).then(function(data) {
-//     console.log("adding match");
-//     console.log(data);
 
-//    //redirect to profile
-//    //how to make sure correct user is displayed? 
-
-
-//      // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
-//      // $("#matchName").text(data.name);
-//      //          $('#matchImg').attr("src", data.photo);
-//      //          // Show the modal with the best match 
-//      //          $("#resultsModal").modal('toggle');
-//   });
-
-
-// }
-
-
+}
 
 
 
@@ -259,3 +244,35 @@ module.exports= {populateScores, calculateMatches, getMatches, colSpacer,matchUs
       //need to locate friend with that score
      //put that in response
      //display with modal
+
+
+     //     // indexes.fields[0]:
+
+
+//   }
+
+
+
+//   $.ajax({
+//     method: 'POST',
+//     url: '/api/match',
+//     data: newMatch
+//   }).then(function(data) {
+//     console.log("adding match");
+//     console.log(data);
+
+//    //redirect to profile
+//    //how to make sure correct user is displayed? 
+
+
+//      // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+//      // $("#matchName").text(data.name);
+//      //          $('#matchImg').attr("src", data.photo);
+//      //          // Show the modal with the best match 
+//      //          $("#resultsModal").modal('toggle');
+//   });
+
+
+// }
+
+
