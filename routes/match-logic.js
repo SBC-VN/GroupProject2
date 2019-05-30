@@ -8,6 +8,10 @@ function createMatchObj(user1,user2){
   var matchDelta=Math.abs(user1.sentimentScore-user2.sentimentScore);
   console.log(matchDelta);
 
+  console.log(user1.id);
+  console.log(user2.id);
+  
+
   var newMatch={
     deltascore:matchDelta,
     user1:user1.id,
@@ -16,8 +20,8 @@ function createMatchObj(user1,user2){
 
 
   db.match.create(newMatch).then(function(dbMatch){
-    console.log("A new match was created between user ID#:"+user1+
-    " and user ID#:"+user2);
+    console.log("A new match was created between user ID#:"+dbMatch.user1+
+    " and user ID#:"+dbMatch.user2);
   });
 
 
@@ -36,6 +40,8 @@ function matchUser(theUser){
   // console.log(matches);
   tempMatches = JSON.stringify(matches);
   theUser.matches = JSON.parse(tempMatches);
+
+  
   // console.log(dbUsers[x].matches);
   // dbUsers[x].matches=users[x].matches;
 

@@ -9,15 +9,22 @@ var sentiment = new Sentiment();
 function scoreSample(usersample){
   var scoreArr=[];
   var scoreTotal=0;
-  
+
+          console.log("*".repeat(process.stdout.columns));
+        console.log("SENTIMENT SCORING ANALYSIS")
+        console.log("*".repeat(process.stdout.columns));
+
   for(var x=0;x<usersample.length;x++)
     {
         textScore=sentiment.analyze(usersample[x]);
+
         console.log(textScore);
+   
         scoreArr.push([usersample[x],textScore.score]);
         scoreTotal+=parseInt(textScore.score);
     }
-    
+    console.log("*".repeat(process.stdout.columns));
+ 
   return scoreTotal;
   
 }
