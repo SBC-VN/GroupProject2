@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
               len: [6]
               },
-            unique: true
+            // unique: true
           },
         password:  
           { type: DataTypes.STRING,
@@ -45,7 +45,7 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
               len: [6]
               },
-            unique: true
+            // unique: true
           }, 
         age: 
           { type: DataTypes.INTEGER,
@@ -63,6 +63,10 @@ module.exports = function(sequelize, DataTypes) {
             //   },
           },
         profilepic: 
+          { type: DataTypes.STRING,
+            allowNull: true
+          },
+          bio: 
           { type: DataTypes.STRING,
             allowNull: true
           },
