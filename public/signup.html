@@ -1,430 +1,675 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
     <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <link rel="stylesheet" href="css/styles.css">
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
 
     <title>Syndir</title>
   </head>
   <body>
-        <header>
-            <div class= "container">
-                <!-------- Main title ------------------------------------------------------------------------------------------------------------------------------>
-                          <div class="row">
-                            <div class="col-6">
-                              <h1 id="mainTitle">
-                                <span class="highlighter">Syndir Match</span>
-                              </h1>
-                            </div>
-                <!----------- navs -------------------------------------------------------------------------------------------------------------------------------->
-                            <div class="col-6">
-                              <div class="navItems">
-                                <ul class="nav">
-                                  <li class="nav-item">
-                                    <a class="nav-link active" href="#">HOME</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="about.html">ABOUT</a>
-                                  </li>
-                                  <li class="nav-item">
-                                    <a class="nav-link" href="contact.html">CONTACT</a>
-                                  </li>
-                                </ul>
-                <!-------- login/sign up buttons ------------------------------------------------------------------------------------------------------------------->
-                                <div class="row">
-                                  <div class="col-md-12" id="buttonList">
-                                    <!-- Button trigger modal -->
-                                    <div id="welcome">
-                                      <button data-toggle="modal" data-target="#loginModal" style="display:show"
-                                        id="loginButton">
-                                        Login
-                                      </button>
-                    
-                <!----------------- Modals --------------------------------------------------------------------------------------------------------------------------->
-                                      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog"
-                                        aria-labelledby="myLargeModalLabel" aria-hidden="true" id="loginModal">
-                                        <div class="modal-dialog modal-lg">
-                                          <div class="modal-content">
-                                            <div class="modal-header">
-                                              <h1 id="mainTitle"><span class="highlighter">Syndir Match</span>
-                                              </h1>
-                                            </div>
-                                            <div class="modal-body">
-                                              <h3>User Login</h3>
-                                              <label for="searchTerm">Email Adress</label>
-                                              <input type="text" class="form-control" id="emailInputLogin"
-                                                placeholder="ex. jsmith@example.com">
-                                              <label for="searchTerm">Password</label>
-                                              <input type="password" class="form-control" id="passwordLogin">
-                    
-                                            </div>
-                                            <div class="modal-footer">
-                                              <button type="button" class="hot" data-toggle="modal" data-target="#loginModal"
-                                                id="login">Login</button>
-                                              <button class="button cancel" data-dismiss="modal">Cancel</button>
-                                            </div>
-                                          </div>
-                                        </div>
-                                      </div>
-                <!-- ------------------------Sign-up link---------------------------------------------------------------------------------------------------------- -->
-                                      <button type="button" class="hot"
-                                        id="signUpButton">
-                                        Sign-Up
-                                      </button>
-                                    </div>
-                                  </div>
-                                </div>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                        </header>
-
-
-    <div class="container" id= "mainContainer">   
-<!-- This will be the main body of the page------------------------------------------------------------------------------------------------------>
-<div class= "row">
-    <h2 id="infoHeading">Sign-Up Form</h2>
- </div>
-<div class="card surveyBlock">
-    <h5 class="card-header">User Information</h5>
-    <div class="card-body">
- <!-- User inputs go here----------------------------->
-  <!-- first name and last name -->
- <h4>Full Name</h4>
-<div class="row">
-  <div class="col-6"><h6>First Name</h6></div>
-  <div class="col-6"> <h6>Last Name</h6></div>
-</div>
-<div class="row">
-    <div class="col-6">
-        <input id = "formFirstName" class="form-control" type="text" name="name" placeholder="John">
-        <span class="input-group-addon"></span>
-    </div>
-    <div class="col-6">
-        <input id = "formLastName" class="form-control" type="text" name="name" placeholder="Smith">
-        <span class="input-group-addon"></span>
-    </div>
-  </div>
-  <br>
-  <!-- Age and location -->
-  <h4>User Info</h4>
-  <div class="row">
-    <div class="col-6"><h6>Age</h6></div>
-    <div class="col-6"> <h6>Location (city)</h6></div>
-  </div>
-  <div class="row">
-      <div class="col-6">
-          <input id = "formFirstName" class="form-control" type="text" name="name" placeholder="25">
-          <span class="input-group-addon"></span>
-      </div>
-      <div class="col-6">
-          <input id = "formLastName" class="form-control" type="text" name="name" placeholder="San Francisco">
-          <span class="input-group-addon"></span>
-      </div>
-    </div>
-    <br>
-    <!-- Username/password -->
-    <div class="row">
-      <div class="col-6"><h6>Username</h6></div>
-      <div class="col-6"> <h6>Email</h6></div>
-    </div>
-    <div class="row">
-        <div class="col-6">
-            <input id = "formFirstName" class="form-control" type="text" name="name" placeholder="Username">
-            <span class="input-group-addon"></span>
-        </div>
-        <div class="col-6">
-            <input id = "formLastName" class="form-control" type="text" name="name" placeholder="john@mymail.com">
-            <span class="input-group-addon"></span>
-        </div>
-      </div>
-      <br>
- <h4>Password</h4>
-<div class="row">
-  <div class="col-6"><h6>Type Once</h6></div>
-  <div class="col-6"> <h6>Re-Type</h6></div>
-</div>
-<div class="row">
-    <div class="col-6">
-        <input id = "formPassword1" class="form-control" type="password" name="name" placeholder="">
-        <span class="input-group-addon"></span>
-    </div>
-    <div class="col-6">
-        <input id = "formPassword2" class="form-control" type="password" name="name" placeholder="">
-        <span class="input-group-addon"></span>
-    </div>
-  </div>
-  <br>
-  <!-- this is the profile pic -->
- <h4>Profile Image Upload</h4>
- <div class="input-group">
-   <input id = "formImage" class="form-control" type="text" name="image" placeholder="Upload an image from your desktop">
-   <span class="input-group-addon"></span>
- </div>
- <br>
-<!-- Bio section -->
-<h4>Bio</h4>
-<textarea rows="4" cols=""  placeholder="Write a brief bio about yourself.">
-  Write a brief bio about yourself.
-  </textarea>
-    </div>
-  </div>
- 
-
-
-
-  <!-------- This will be where the sentiment survey will be -------------------------------------------------------------->
-  <div class="card surveyBlock" id="sentimentForm">
-    <h5 class="card-header">Survey</h5>
-    <div class="card-body">
-    <br>
-
-        <!-- Q1 -->
-      <h4>1. Is there such a thing as ESP?</h4>
-        <div class="row">
-            <div class="col-12">
-                <div class="input-group">
-                    <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                    <!-- <span class="input-group-addon"></span> -->
-                  </div>
+    <div class="wrapper" id="pageContainer">
+      <header>
+        <!-- This header is only visibile on mobile -->
+        <div class="wrapper d-lg-none">
+          <!-- This is the syndir match title -->
+          <div class="row">
+            <div class="col-12 ">
+              <h1 id="mainTitle">
+                <span class="highlighter">Syndir Match</span>
+              </h1>
             </div>
           </div>
-          <br>
+          <!-- These are the nav items -->
+          <div class="row">
+            <div class="col-12-s navItems">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link active" href="#">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">CONTACT</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- These are the buttons -->
+          <div class="row ">
+            <div class="col-s-12 buttonList">
+              <a href="chat.html">
+                <button
+                  type="button"
+                  class="icons"
+                  data-toggle="modal"
+                  data-target="#"
+                  id="chat-icon"
+                >
+                  <img src="./img/icons/chatIconGrey.png" />
+                </button>
+              </a>
+              <button
+                type="button"
+                class="icons"
+                data-toggle="modal"
+                data-target="#"
+                id="match-icon"
+              >
+                <img src="./img/icons/matchIconGrey.png" />
+              </button>
+              <button
+                type="button"
+                class="icons"
+                data-toggle="modal"
+                data-target="#"
+                id="profile-icon"
+              >
+                <img src="./img/icons/profileIconGrey.png" />
+              </button>
+              -->
+              <!-- login and sign-up buttons -->
 
-        <!-- Q2 -->
-        <h4>2. Why do we dream?</h4>
-              <div class="row">
-                  <div class="col-12">
-                      <div class="input-group">
-                          <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                          <!-- <span class="input-group-addon"></span> -->
-                        </div>
-                  </div>
-                </div>
-                <br>
-
-      <!-- Q3 -->
-      <h4>3. How can we motivate ourselves more effectively through reinforcement?</h4>
-      <div class="row">
-          <div class="col-12">
-              <div class="input-group">
-                  <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                  <!-- <span class="input-group-addon"></span> -->
-                </div>
+              <button
+                type="button"
+                class="hot"
+                data-toggle="modal"
+                data-target="#loginModal"
+                id="login"
+              >
+                Login
+              </button>
+              <button class="button cancel" data-dismiss="modal">
+                Cancel
+              </button>
+            </div>
           </div>
         </div>
-        <br>
+
+        <!-- This header is only visibile on large screens -->
+        <div class="container d-none d-lg-block">
+          <!-------- Main title ------------------------------------------------------------------------------------------------------------------------------>
+          <div class="row">
+            <div class="col-6">
+              <h1 id="mainTitle">
+                <span class="highlighter">Syndir Match</span>
+              </h1>
+            </div>
+            <!----------- navs -------------------------------------------------------------------------------------------------------------------------------->
+            <div class="col-6">
+              <div class="navItems">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="#">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">ABOUT</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">CONTACT</a>
+                  </li>
+                </ul>
+
+                <!-------- login/sign up buttons ------------------------------------------------------------------------------------------------------------------->
+                <div class="row">
+                  <div class="col-md-12 buttonList">
+                    <!--New Nav Icons-->
+                    <a href="chat.html">
+                      <button
+                        type="button"
+                        class="icons"
+                        data-toggle="modal"
+                        data-target="#"
+                        id="chat-icon"
+                      >
+                        <img src="./img/icons/chatIconGrey.png" />
+                      </button>
+                    </a>
+                    <button
+                      type="button"
+                      class="icons"
+                      data-toggle="modal"
+                      data-target="#"
+                      id="match-icon"
+                    >
+                      <img src="./img/icons/matchIconGrey.png" />
+                    </button>
+                    <button
+                      type="button"
+                      class="icons"
+                      data-toggle="modal"
+                      data-target="#"
+                      id="profile-icon"
+                    >
+                      <img src="./img/icons/profileIconGrey.png" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ------------- Modals --------------------------------------------------------------------------------------------------------------------------->
+        <div
+          class="modal fade bd-example-modal-lg"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myLargeModalLabel"
+          aria-hidden="true"
+          id="loginModal"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 id="mainTitle">
+                  <span class="highlighter">Syndir Match</span>
+                </h1>
+              </div>
+              <div class="modal-body">
+                <h3>User Login</h3>
+                <label for="searchTerm">Email Adress</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="emailInputLogin"
+                  placeholder="ex. jsmith@example.com"
+                />
+                <label for="searchTerm">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passwordLogin"
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="hot"
+                  data-toggle="modal"
+                  data-target="#loginModal"
+                  id="login"
+                >
+                  Login
+                </button>
+                <button class="button cancel" data-dismiss="modal">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="container" id="mainContainer">
+        <!-- This will be the main body of the page------------------------------------------------------------------------------------------------------>
+        <div class="row">
+          <h2 id="infoHeading">Sign-Up Form</h2>
+        </div>
+        <div class="card surveyBlock">
+          <h5 class="card-header">User Information</h5>
+          <div class="card-body">
+            <!-- User inputs go here----------------------------->
+            <!-- first name and last name -->
+            <h4>Full Name</h4>
+            <div class="row">
+              <div class="col-6"><h6>First Name</h6></div>
+              <div class="col-6"><h6>Last Name</h6></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  id="formFirstName"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="John"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+              <div class="col-6">
+                <input
+                  id="formLastName"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="Smith"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <br />
+            <!-- Age and location -->
+            <h4>User Info</h4>
+            <div class="row">
+              <div class="col-6"><h6>Age</h6></div>
+              <div class="col-6"><h6>Location (city)</h6></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  id="formFirstName"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="25"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+              <div class="col-6">
+                <input
+                  id="formLastName"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="San Francisco"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <br />
+            <!-- Username/password -->
+            <div class="row">
+              <div class="col-6"><h6>Username</h6></div>
+              <div class="col-6"><h6>Email</h6></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  id="formFirstName"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="Username"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+              <div class="col-6">
+                <input
+                  id="formLastName"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="john@mymail.com"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <br />
+            <h4>Password</h4>
+            <div class="row">
+              <div class="col-6"><h6>Type Once</h6></div>
+              <div class="col-6"><h6>Re-Type</h6></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  id="formPassword1"
+                  class="form-control"
+                  type="password"
+                  name="name"
+                  placeholder=""
+                />
+                <span class="input-group-addon"></span>
+              </div>
+              <div class="col-6">
+                <input
+                  id="formPassword2"
+                  class="form-control"
+                  type="password"
+                  name="name"
+                  placeholder=""
+                />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <br />
+            <!-- this is the profile pic -->
+            <h4>Profile Image Upload</h4>
+            <div class="input-group">
+              <input
+                id="formImage"
+                class="form-control"
+                type="text"
+                name="image"
+                placeholder="Upload an image from your desktop"
+              />
+              <span class="input-group-addon"></span>
+            </div>
+            <br />
+            <!-- Bio section -->
+            <h4>Bio</h4>
+            <textarea
+              rows="4"
+              cols=""
+              placeholder="Write a brief bio about yourself."
+            >
+  Write a brief bio about yourself.
+  </textarea
+            >
+          </div>
+        </div>
+
+        <!-------- This will be where the sentiment survey will be -------------------------------------------------------------->
+        <div class="card surveyBlock" id="sentimentForm">
+          <h5 class="card-header">Survey</h5>
+          <div class="card-body">
+            <br />
+
+            <!-- Q1 -->
+            <h4>1. Is there such a thing as ESP?</h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <!-- Q2 -->
+            <h4>2. Why do we dream?</h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <!-- Q3 -->
+            <h4>
+              3. How can we motivate ourselves more effectively through
+              reinforcement?
+            </h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
+              </div>
+            </div>
+            <br />
 
             <!-- Q4 -->
-       <h4>4.  How can we get our working memory to work for us?</h4>
-       <div class="row">
-           <div class="col-12">
-               <div class="input-group">
-                   <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                   <!-- <span class="input-group-addon"></span> -->
-                 </div>
-           </div>
-         </div>
-         <br>
-
-          <!-- Q5 -->
-          <h4>5. What’s the key to solving life’s problems?</h4>
-          <div class="row">
-              <div class="col-12">
-                  <div class="input-group">
-                      <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                      <!-- <span class="input-group-addon"></span> -->
-                    </div>
-              </div>
-            </div>
-            <br>
-
-        <!-- Q6 -->
-        <h4>6.  How can we communicate more effectively?</h4>
-       <div class="row">
-           <div class="col-12">
-              <div class="input-group">
-                  <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                  <!-- <span class="input-group-addon"></span> -->
-                </div>
-           </div>
-         </div>
-         <br>
-
-          <!-- Q7 -->
-          <h4>7.  What is intelligence (and why should we care)?</h4>
-          <div class="row">
-              <div class="col-12">
-                  <div class="input-group">
-                      <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                      <!-- <span class="input-group-addon"></span> -->
-                    </div>
-              </div>
-            </div>
-            <br>
-
-          <!-- Q8 -->
-          <h4>8.  What does it mean to be self-actualized?</h4>
-          <div class="row">
-              <div class="col-12">
-            <div class="input-group">
-            <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-            <!-- <span class="input-group-addon"></span> -->
-          </div>
-              </div>
-            </div>
-            <br>
-
-            <!-- Q9 -->
-            <h4>9.  How does the mind-body connection affect our emotions?</h4>
-          <div class="row">
+            <h4>4. How can we get our working memory to work for us?</h4>
+            <div class="row">
               <div class="col-12">
                 <div class="input-group">
-                      <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                      <!-- <span class="input-group-addon"></span> -->
-                    </div>
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
               </div>
             </div>
-            <br>
+            <br />
+
+            <!-- Q5 -->
+            <h4>5. What’s the key to solving life’s problems?</h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <!-- Q6 -->
+            <h4>6. How can we communicate more effectively?</h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <!-- Q7 -->
+            <h4>7. What is intelligence (and why should we care)?</h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <!-- Q8 -->
+            <h4>8. What does it mean to be self-actualized?</h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
+              </div>
+            </div>
+            <br />
+
+            <!-- Q9 -->
+            <h4>9. How does the mind-body connection affect our emotions?</h4>
+            <div class="row">
+              <div class="col-12">
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
+              </div>
+            </div>
+            <br />
 
             <!-- Q10 -->
-            <h4>10.  Which is more important, nature or nurture?</h4>
-          <div class="row">
+            <h4>10. Which is more important, nature or nurture?</h4>
+            <div class="row">
               <div class="col-12">
-                  <div class="input-group">
-                      <input id = "formName" class="form-control input-lg" type="text" name="questionnaire" placeholder="Write Something!">
-                      <!-- <span class="input-group-addon"></span> -->
-                    </div>
+                <div class="input-group">
+                  <input
+                    id="formName"
+                    class="form-control input-lg"
+                    type="text"
+                    name="questionnaire"
+                    placeholder="Write Something!"
+                  />
+                  <!-- <span class="input-group-addon"></span> -->
+                </div>
               </div>
             </div>
-            <br>
+            <br />
 
-        <button type="button" id="submitButton">Submit</button>
-    </div>
-  </div>
+            <button type="button" id="submitButton">Submit</button>
+          </div>
+        </div>
 
-
-<!-- ---------this is the end of the fluid container------------------------------------------------------------------------------------------------------------------------------ -->
+        <!-- ---------this is the end of the fluid container------------------------------------------------------------------------------------------------------------------------------ -->
+      </div>
+      <!-- end of wrapper -->
     </div>
     <footer>
-        <h4>Syndir &copy; 2019</h4>
+      <h4>Syndir &copy; 2019</h4>
     </footer>
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
     <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
     <script src="js/style.js"></script>
     <script src="js/chat.js"></script>
     <script src="js/main.js"></script>
     <script>
- //CANT CALL CLIENT SIDE NPM!!!
- //        var Sentiment = require('sentiment');
- // var sentiment = new Sentiment();
- 
-        // Global Variable Declaration (scoping fix)
-        var allFieldsCompleted;
- 
-        $(document).ready(function() {
-       $("#submitButton").on('click', function(event) {
-         var textArr=[];
-         $(".form-control").each(function(){
-           var tempString=$(this).val().trim();
-           if (tempString === "") {tempString = "terrific";}
-           textArr.push(tempString);
-         });
+      //CANT CALL CLIENT SIDE NPM!!!
+      //        var Sentiment = require('sentiment');
+      // var sentiment = new Sentiment();
 
-         console.log(textArr);
+      // Global Variable Declaration (scoping fix)
+      var allFieldsCompleted;
 
-         var fname= textArr[0]
-         var lname=textArr[1]
-         var age=textArr[2]
-         if (age === "terrific") {age = "30";}
-        
-         var location=textArr[3]
-         var uname=textArr[4]
-         var email=textArr[5]
-         var password=textArr[7]
-         var userimage=textArr[8]
-         var biotext=textArr[9]
-         textArr=textArr.slice(10);
-         console.log(textArr);
-  
-         
-        var newUser=
-        {
-          firstname:fname,
-          lastname:lname,
-          age:age,
-          locale:location,
-          screenname:uname,
-          email:email,
-          //transporting password in plaintext ??
-          password:password,
-          profilepic:userimage,
-          bio:biotext,
-          userSample:textArr
-        } 
+      $(document).ready(function() {
+        $("#submitButton").on("click", function(event) {
+          var textArr = [];
+          $(".form-control").each(function() {
+            var tempString = $(this)
+              .val()
+              .trim();
+            if (tempString === "") {
+              tempString = "terrific";
+            }
+            textArr.push(tempString);
+          });
 
-    
- 
-         $.ajax({
-           method: 'POST',
-           url: '/api/users',
-           data: newUser
-         }).then(function(data) {
-           console.log(data);
-           alert('Adding user...');
-          //redirect to profile
-          //how to make sure correct user is displayed? 
+          console.log(textArr);
 
+          var fname = textArr[0];
+          var lname = textArr[1];
+          var age = textArr[2];
+          var location = textArr[3];
+          var uname = textArr[4];
+          var email = textArr[5];
+          var password = textArr[7];
+          var userimage = textArr[8];
+          var biotext = textArr[9];
+          textArr = textArr.slice(10);
+          console.log(textArr);
+
+          var newUser = {
+            firstname: fname,
+            lastname: lname,
+            age: age,
+            locale: location,
+            screenname: uname,
+            email: email,
+            //transporting password in plaintext ??
+            password: password,
+            profilepic: userimage,
+            bio: biotext,
+            userSample: textArr
+          };
+
+          $.ajax({
+            method: "POST",
+            url: "/api/users",
+            data: newUser
+          }).then(function(data) {
+            console.log(data);
+            alert("Adding user...");
+            //redirect to profile
+            //how to make sure correct user is displayed?
 
             // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
             // $("#matchName").text(data.name);
             //          $('#matchImg').attr("src", data.photo);
-            //          // Show the modal with the best match 
+            //          // Show the modal with the best match
             //          $("#resultsModal").modal('toggle');
-         });
-         
-         //empties fields after submission
-         $(".form-control").each(function(){
-           $(this).val("");
-         })        
- 
-           //redirect to profile page
-           //JAVASCRITP IS ASYNCRHOINUOUS 
-          //  window.location= "profilePage.html";
+          });
 
- 
-       });
-     });
- 
- 
- 
-  // Form validation
-  function validateForm() {
-                 var isValid = true;
-                 $('.form-control').each(function() {
-                     if ($(this).val() === '')
-                         isValid = false;
-                 });
-                 // $('.chosen-select').each(function() {
-                 //     if ($(this).val() === "")
-                 //         isValid = false
-                 // })
-                 return isValid;
-             }
- 
- 
-      </script>
-  
+          //empties fields after submission
+          $(".form-control").each(function() {
+            $(this).val("");
+          });
+
+          //redirect to profile page
+          //JAVASCRITP IS ASYNCRHOINUOUS
+          //  window.location= "profilePage.html";
+        });
+      });
+
+      // Form validation
+      function validateForm() {
+        var isValid = true;
+        $(".form-control").each(function() {
+          if ($(this).val() === "") isValid = false;
+        });
+        // $('.chosen-select').each(function() {
+        //     if ($(this).val() === "")
+        //         isValid = false
+        // })
+        return isValid;
+      }
+    </script>
+
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-
   </body>
 </html>

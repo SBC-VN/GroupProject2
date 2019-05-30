@@ -12,7 +12,7 @@ module.exports = function(app) {
     db.user.findAll({}).then(function(dbUsers) {
       //initialize scores
       
-      // console.log(dbUsers);
+      // console.log({dbUsers});
       mLogic.populateScores(dbUsers);
 
       for (var x=0;x<dbUsers.length;x++) {
@@ -30,7 +30,7 @@ module.exports = function(app) {
   // the profile pictures.
   app.get("/api/users/profilepic/:fileid", function(req, res) {
     console.log("get picture API call");
-    var fname = "../private/profpics/" + req.params.fileid + ".jpg"
+    var fname = "../private/profpics/" + req.params.fileid;
     var fpath = path.join(__dirname,fname);
     console.log(fpath);
     res.sendFile(fpath);
@@ -39,7 +39,8 @@ module.exports = function(app) {
 
 
 app.put("/api/login/:email", function(req, res) {
-    db.User.findOne({
+    console.log("login api called");
+    db.user.findOne({
       where: {
         email: req.params.email
       }
@@ -69,7 +70,7 @@ app.put("/api/login/:email", function(req, res) {
 
 
   app.get("/api/user/:id", function(req, res) {
-    db.User.findOne({
+    db.user.findOne({
       where: {
         id: req.params.id
       },
@@ -96,19 +97,11 @@ app.put("/api/login/:email", function(req, res) {
     var newUser=req.body;
       //call sentiment on userSample
     newUser.sentimentScore=sLogic.scoreSample(req.body.userSample);
-    
     newUser=mLogic.matchUser(newUser);
 
     db.user.create(newUser).then(function(dbUser) {
       console.log(dbUser.sentimentScore);
       console.log(dbUser.matches);
-
-      for(var x=0;x<dbUser.matches.length;x++)
-      {
-        mLogic.createMatchObj(dbUser,dbUser.matches[x]);
-      }
-
-
       res.json(dbUser);
     });
   });
@@ -125,7 +118,7 @@ app.put("/api/login/:email", function(req, res) {
 
 
   app.delete("/api/user/:id", function(req, res) {
-    db.User.destroy({
+    db.user.destroy({
       where: {
         id: req.params.id
       }
