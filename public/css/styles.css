@@ -435,14 +435,29 @@ textarea {
 }
 
 /* ----the match info goes here--------------------------- */
+/* ----the match info goes here--------------------------- */
+#matchContentContainer {
+  position: relative;
+  float: none;
+  width: 90%;
+  margin: 0 auto;
+}
+
 #matchColumn {
   margin: 0;
   background: black;
 }
 
+#matchPostContainer {
+  display: flex;
+  height: 85vh;
+  margin-bottom: 0;
+}
+
 #matchPost {
   margin: 0;
   background: rgb(0, 0, 0);
+  max-height: 80%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -507,6 +522,12 @@ textarea {
   );
 }
 
+.matchCard:hover {
+  cursor: pointer;
+  background-color: grey;
+  opacity: 0.8;
+}
+
 .matchHeader {
   display: flex;
   flex-direction: row;
@@ -544,7 +565,7 @@ textarea {
 .chatBody {
   position: relative;
   bottom: 25px;
-  margin-top: 0;
+  margin-top: 10px;
 }
 
 .chatBody p {
@@ -556,7 +577,57 @@ textarea {
   margin-bottom: 0;
 }
 
-#matchColumn {
+.matchModal {
+  text-decoration: none;
+  decoration: none;
+}
+
+#chatCard {
+  width: 100%;
+  background: rgb(192, 185, 185);
+  min-height: 75%;
+  margin: 0;
+  margin-bottom: 5px;
+  border: 2px black solid;
+  border-radius: 0 0 10px 10px;
+  background-image: linear-gradient(
+    to right,
+    rgb(247, 247, 247),
+    rgb(209, 209, 204)
+  );
+}
+
+.chatPic {
+  float: left;
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  margin-top: 0;
+}
+
+.chatPicContainer {
+  width: 125px;
+  height: 125px;
+  border-radius: 50%;
+  margin: 0 auto;
+  float: left;
+  position: relative;
+  overflow: hidden;
+  margin-top: 0;
+}
+
+.chatPicContainer::after {
+  content: "yoooo";
+  font-size: 1em;
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 10px;
+  color: white;
+  background-image: linear-gradient(#df7b35, #ff9345);
+  text-align: center;
+  display: block;
+  margin-top: 0;
 }
 /* -------------------------chat page----------------------------- */
 
