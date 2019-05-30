@@ -97,11 +97,17 @@ app.put("/api/login/:email", function(req, res) {
     var newUser=req.body;
       //call sentiment on userSample
     newUser.sentimentScore=sLogic.scoreSample(req.body.userSample);
-    newUser=mLogic.matchUser(newUser);
+    newUser.matches=mLogic.matchUser(newUser);
+
+    for(var x=0;x<newUser.matches.length;x++)
+    {
+    mLogic.createMatchObj(newUsers, newUser.matches[x]);
+    }
 
     db.user.create(newUser).then(function(dbUser) {
       console.log(dbUser.sentimentScore);
       console.log(dbUser.matches);
+      
       res.json(dbUser);
     });
   });

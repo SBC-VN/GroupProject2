@@ -22,7 +22,6 @@ function createMatchObj(user1,user2){
 
 
 
-
 }
 
 
@@ -119,7 +118,7 @@ function colSpacer(word) {
 }
 
 
-module.exports= {populateScores, calculateMatches, getMatches, colSpacer,matchUser}
+module.exports= {populateScores, calculateMatches, getMatches, colSpacer,matchUser,createMatchObj}
 
 
 
