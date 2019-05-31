@@ -9,6 +9,7 @@ module.exports = function(app) {
   app.get("/api/matches", function(req, res) {
     db.match.findAll({
       
+      
     }).then(function(dbMatches) {
       res.json(dbMatches);
     });
