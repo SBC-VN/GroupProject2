@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var Match = sequelize.define("match", {
+    var match = sequelize.define("match", {
        // A match is 'owned' by one user, but has an association to another.
         deltascore:  
         { 
@@ -27,15 +27,19 @@ module.exports = function(sequelize, DataTypes) {
       ]
     });
   
-    Match.associate = function(models) {
-      Match.belongsTo(models.user, {
+    //
+    // Joseph, do not delete the associations.   You will break the include in the
+    //  matches API and therefore the match page.
+    //
+    match.associate = function(models) {
+      match.belongsTo(models.user, {
         as: 'userInfo1',
         foreignKey: {
           name: 'user1',
           allowNull: false
           }
       });
-      Match.belongsTo(models.user, {
+      match.belongsTo(models.user, {
         as: 'userInfo2',
         foreignKey: {
           name: 'user2',
@@ -44,5 +48,5 @@ module.exports = function(sequelize, DataTypes) {
       });
     }
 
-    return Match;
+    return match;
   };

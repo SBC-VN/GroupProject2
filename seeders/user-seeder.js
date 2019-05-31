@@ -4,7 +4,7 @@ module.exports = {
   up: function(queryInterface, Sequelize) {
     // Add seeded burgers to database
     return queryInterface.bulkInsert(
-      "Users",
+      "users",
       [
         {
           firstname: "Wendy",
