@@ -6,18 +6,17 @@ var path = require('path');
 
 
 module.exports = function(app) {
-  app.get("/api/matches", function(req, res) {
+  app.get("/api/matches/:id", function(req, res) {
+
+
     db.match.findAll({
-      
+      where: { user1: req.params.id },
+      include: [ {model: db.user, as: 'userInfo2'} ]      
     }).then(function(dbMatches) {
       res.json(dbMatches);
     });
   });
 
-
-
-  //    where: user1===req.body.user1
-   
   app.post("/api/match", function(req, res) {
     db.match.create(req.body).then(function(dbMatch) {
       res.json(dbMatch);

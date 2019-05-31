@@ -1,7 +1,11 @@
 {
   "development": {
     "username": "root",
+<<<<<<< HEAD
     "password": "goPackgo!",
+=======
+    "password": "password",
+>>>>>>> ffa05b83e9183eed375a91c2e7ded4e739d8bc58
     "database": "matcherdb_dev",
     "host": "127.0.0.1",
     "port": 3306,

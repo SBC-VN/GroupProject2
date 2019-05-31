@@ -21,12 +21,16 @@ module.exports = function(sequelize, DataTypes) {
     {
       indexes: [
           {
-              unique: true,
+              // unique: true,
               fields: ['user1', 'user2']
           }
       ]
     });
   
+    //
+    // Joseph, do not delete the associations.   You will break the include in the
+    //  matches API and therefore the match page.
+    //
     match.associate = function(models) {
       match.belongsTo(models.user, {
         as: 'userInfo1',
