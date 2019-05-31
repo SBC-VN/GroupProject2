@@ -45,13 +45,35 @@ function signinCheck(signedIn) {
 }
 
 // This function will pull data and populate their profile page
-function updateUserProfile(
-  profilePic,
-  profileSentScore,
-  profileFirstName,
-  profileAge,
-  profileLocation
-) {
+// function updateUserProfile(
+//   profilePic,
+//   profileSentScore,
+//   profileFirstName,
+//   profileAge,
+//   profileLocation
+// ) 
+$.ajax("/api/users/" + email, {
+  type: "POST",
+  data: { 
+    password : password,
+    profilePic: profilepic,
+    profileSentScore: score,
+    profileFirstName: firstname,
+    profileAge: age,
+    profileLocation: locale,
+   }
+  }).then(
+    // This function will pull data and populate their profile page
+  function 
+    updateUserProfile
+    (
+    profilePic,
+    profileSentScore,
+    profileFirstName,
+    profileAge,
+    profileLocation
+  ) 
+{
   console.log("updateUserProfile");
   $("#profilePic").attr({ src: profilePic, alt: "User Profile" });
   $("#profilePicContainer").attr({ "data-text": profileSentScore });
@@ -68,7 +90,7 @@ function updateUserProfile(
       `<h4>Bio: ${profileBio}</h4>
         <p></p>`
     );
-}
+});
 
 // this function will update the matches
 function updateMatches() {}
@@ -78,11 +100,11 @@ function createMatchBox() {}
 
 // declaring functions
 
-updateUserProfile(
-  profilePic,
-  profileSentScore,
-  profileFirstName,
-  profileAge,
-  profileLocation
-);
+// updateUserProfile(
+//   profilePic,
+//   profileSentScore,
+//   profileFirstName,
+//   profileAge,
+//   profileLocation
+// );
 signinCheck(signedIn);

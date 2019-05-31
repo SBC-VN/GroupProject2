@@ -37,7 +37,7 @@
             <div class="col-12-s navItems">
               <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">HOME</a>
+                  <a class="nav-link active" href="index.html">HOME</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="about.html">ABOUT</a>
@@ -71,15 +71,17 @@
               >
                 <img src="./img/icons/matchIconGrey.png" />
               </button>
-              <button
-                type="button"
-                class="icons"
-                data-toggle="modal"
-                data-target="#"
-                id="profile-icon"
-              >
-                <img src="./img/icons/profileIconGrey.png" />
-              </button>
+              <a href="profilePage.html">
+                <button
+                  type="button"
+                  class="icons"
+                  data-toggle="modal"
+                  data-target="#"
+                  id="profile-icon"
+                >
+                  <img src="./img/icons/profileIconGrey.png" />
+                </button>
+              </a>
               -->
               <!-- login and sign-up buttons -->
 
@@ -603,9 +605,8 @@
 
           var fname = textArr[0];
           var lname = textArr[1];
-          if(textArr[2]==="terrific")
-          {
-            var age=30;
+          if (textArr[2] === "terrific") {
+            var age = 30;
           }
           // var age = textArr[2];
           var location = textArr[3];
