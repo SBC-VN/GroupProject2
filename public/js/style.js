@@ -1,4 +1,5 @@
 var signedIn = false;
+var buttonCheck = false;
 
 // profile data--------------------------------
 var profilePic = "http://localhost:8080/api/users/profilepic/burgerpic";
@@ -7,6 +8,7 @@ var profileLocation = "Austin";
 var profileBio = "insert weird bio here";
 var profileFirstName = "Herbert";
 var profileSentScore = 82;
+var userInfo;
 // -----------------------------------------------
 
 // match data---------------------------------------
@@ -24,10 +26,10 @@ $(document).ready(function() {
 });
 
 // This function will check to see if the user is signed in
-function signinCheck(signedIn) {
-  console.log("signinCheck", signedIn);
-  if (signedIn === false) {
-    $("#buttonList")
+function signinCheck(buttonCheck) {
+  console.log("signinCheck", buttonCheck);
+  if (buttonCheck === false) {
+    $(".buttonList")
       .append()
       .html(
         `<div id="welcome">
@@ -39,28 +41,56 @@ function signinCheck(signedIn) {
               id="signUpButton">Sign-Up</button></a>
           </div>`
       );
-  } else {
+  }
+  if (buttonCheck === true) {
+    $(".buttonList")
+      .append()
+      .html(
+        `<a href="chat.html">
+                <button
+                  type="button"
+                  class="icons"
+                  data-toggle="modal"
+                  data-target="#"
+                  id="chat-icon"
+                >
+                  <img src="./img/icons/chatIconGrey.png" />
+                </button>
+              </a>
+              <button
+                type="button"
+                class="icons"
+                data-toggle="modal"
+                data-target="#"
+                id="match-icon"
+              >
+                <img src="./img/icons/matchIconGrey.png" />
+              </button>
+              <button
+                type="button"
+                class="icons"
+                data-toggle="modal"
+                data-target="#"
+                id="profile-icon"
+              >
+                <img src="./img/icons/profileIconGrey.png" />
+              </button>`
+      );
     console.log("cool");
   }
 }
 
 // This function will pull data and populate their profile page
-function updateUserProfile(
-  profilePic,
-  profileSentScore,
-  profileFirstName,
-  profileAge,
-  profileLocation
-) {
+function updateUserProfile(userInfo) {
   console.log("updateUserProfile");
-  $("#profilePic").attr({ src: profilePic, alt: "User Profile" });
-  $("#profilePicContainer").attr({ "data-text": profileSentScore });
+  $("#profilePic").attr({ src: userInfo.profilePic, alt: "User Profile" });
+  $("#profilePicContainer").attr({ "data-text": userInfo.sentimentScore });
   $("#profileInfoCard")
     .append()
     .html(
-      `<h4>Name: ${profileFirstName}</h4>
-        <h4>Age: ${profileAge}</h4>
-        <h4>Location: ${profileLocation}</h4>`
+      `<h4>Name: ${userInfo.firstname}</h4>
+        <h4>Age: ${userInfo.age}</h4>
+        <h4>Location: ${userInfo.locale}</h4>`
     );
   $("#profileBioCard")
     .append()
@@ -85,4 +115,4 @@ updateUserProfile(
   profileAge,
   profileLocation
 );
-signinCheck(signedIn);
+signinCheck(buttonCheck);

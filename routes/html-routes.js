@@ -37,13 +37,18 @@ module.exports = function(app) {
           matchData = new Object;
           matchData.id = element.dataValues.id;
           matchData.userid = element.dataValues.user2;
+          for (fieldName of Object.keys(element.dataValues.userInfo2.dataValues)) {
+            if (fieldName != "password") {
+              matchData[fieldName] = element.dataValues.userInfo2.dataValues[fieldName];
+            }
+          }
           //console.log(element.dataValues.userInfo2.dataValues);
           //console.log(Object.keys(element.dataValues.userInfo2.dataValues));
-          matchData.firstname = element.dataValues.userInfo2.dataValues.firstname;
-          matchData.screenname = element.dataValues.userInfo2.dataValues.screenname;
-          matchData.age = element.dataValues.userInfo2.dataValues.age;
-          matchData.location = element.dataValues.userInfo2.dataValues.location;
-          matchData.profilepic = element.dataValues.userInfo2.dataValues.profilepic;
+          // matchData.firstname = element.dataValues.userInfo2.dataValues.firstname;
+          // matchData.screenname = element.dataValues.userInfo2.dataValues.screenname;
+          // matchData.age = element.dataValues.userInfo2.dataValues.age;
+          // matchData.location = element.dataValues.userInfo2.dataValues.location;
+          // matchData.profilepic = element.dataValues.userInfo2.dataValues.profilepic;
           matchDataArray.push(matchData);
         });
 
