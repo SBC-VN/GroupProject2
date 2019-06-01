@@ -1,4 +1,6 @@
 var userScreenName = null;
+var chatMsg = {};
+var chatcount = 1;
 
 var firebaseConfig = {
     apiKey: "AIzaSyCtZ6hS0x98LSuVmiUiCqfqWAXOalgXRec",
@@ -10,7 +12,6 @@ var firebaseConfig = {
     appId: "1:486622634071:web:7b8197cc3bb0d255"
   };
 
-console.log("firebase init");
 firebase.initializeApp(firebaseConfig);
 
 // Create a variable to reference the database.
@@ -21,12 +22,13 @@ var dbRefUsersList = database.ref("/users");
 var dbConnectionObject = null;
 var dbRefUserChats = null;
 
+// Connect to the firebase object and set the 'presence' object.
 dbIsConnected.on("value", function(snap) {
     if (snap.val()) {
         userScreenName=localStorage.getItem("user-screenname");
         if (userScreenName != null) {
             dbConnectionObject = dbRefUsersList.push(userScreenName);
-            setupChatRef();
+            setupChatRef();            
         }
         else {
             dbConnectionObject = dbRefUsersList.push("temp-name");
@@ -36,44 +38,105 @@ dbIsConnected.on("value", function(snap) {
 });
 
 // screenName variable is defined in main.js
+// Set up a user for chat by their screenname.
 function setupUser(loginScreenName) {
     if (userScreenName == null || userScreenName != loginScreenName)
     {
         userScreenName = loginScreenName;
         localStorage.setItem("user-screenname",userScreenName);
-        signedIn = true;  // variable from 'style.js'
-        console.log("setting up chat",userScreenName);
         dbConnectionObject.set(userScreenName);
         setupChatRef();
     }
 }
 
-function logoutUser() {
-    localStorage.setItem("user-screenname",null);
-    dbRefMessages = null;
+// Debug routine to print out all the recieved messages.
+function dumpMsgData(data)
+{
+    for (sendUser of Object.keys(data)) {
+        // The 'key' is the user that sent the message.
+
+        var msgs = data[sendUser];
+        // The 'msgs' are all the messages that have been sent.
+
+        for (msgId of Object.keys(msgs)) {
+            // The 'key' is the message id.
+
+            console.log('Id',msgId);
+            var msgData = msgs[msgId];
+            console.log(' Sent At',msgData.date);
+            console.log(' Sent By',msgData.from);
+            console.log(' Sent To',msgData.to);
+            console.log('  Viewed',msgData.viewed);
+            console.log('    Text',msgData.msg);
+            console.log(' ');
+        }
+    }
 }
 
+
+// Update the firebase to set all the 'viewed' flags to false for the user's messages.
+function markMsgsRead(sendUser) {
+    // Grab the messages.   Note that the chatMsg object will change as we
+    //  update things here.  The 'msgs' object will stay the same.
+    var msgs = chatMsg[sendUser];
+
+    for (msgId of Object.keys(msgs)) {
+        var msgData = msgs[msgId];
+        if (msgData.viewed != true) {
+            msgData.viewed = true;
+            var refStr = "/chats/" + msgData.to + "/" + msgData.from + "/" + msgId;
+            firebase.database().ref().child(refStr).set(msgData);
+        }
+    }
+}
+
+// Function that either displays an indicator that there are messages waiting
+//  or actually displays the message.
+function postMessage(msgData) {
+}
+
+// Set it up so that all the chats for the user fire a callback.
 function setupChatRef() {
-    console.log("Chat ref set");
+    console.log("setup chat for",userScreenName);
     dbRefMessages = database.ref("/chats/" + userScreenName);
     dbRefMessages.on("value",function(snap) {
         if (snap.val()) {
             // On value will trigger for *any* change -
             //  so initial connect and any subsequent change.
-            // Incoming message.
-            console.log("Incoming message",snap.val());
+            chatMsg = snap.val(); 
+            postMessage(chatMsg);
+            dumpMsgData(chatMsg);
         }
     });
 }
 
 function sendChatMessage(sender,reciever,message) {
+    var msgObject = {date:moment().format("l LTS"),viewed:false,from:sender,to:reciever,msg:message};
+ 
     var chatMsgDbRef = database.ref("/chats/" + reciever + "/" + sender);
-    chatMsgDbRef.set(message);
+    chatMsgDbRef.push(msgObject);
+    var chatMsgDbRef = database.ref("/chats/" + sender + "/" + reciever);
+    chatMsgDbRef.push(msgObject);
 }
 
-$("#msg-submit-btn").on("click",function(event) {
-    event.preventDefault();
-    if ($("#msg-text").val()) {
-        sendChatMessage(userScreenName,userScreenName,$("#msg-text").val());
-    }
+$(".bio-match-chat").on("click",function(event) {
+    var divId = this.id;
+    // will be 'bio-<user>' so we just need to parse the user out.
+    var brk = divId.indexOf('-');
+    var sendUser = divId.substring(brk+1);
+    console.log("display chats from",sendUser);
+
+    var chatBlock = $("#chatMSG");
+    chatBlock.empty();
+
+    // Loop through the messages.  Extract the message data.
+    for (sendUser of Object.keys(chatMsg)) {
+        var msgs = data[sendUser];
+        for (msgId of Object.keys(msgs)) {
+            var msgData = msgs[msgId];
+            var msgStr = "[" + msgData.date + "] " + msgData.msg;
+            //if (msgData.viewed)
+            chatBlock.append(msgStr);
+        }
+    }     
 });
