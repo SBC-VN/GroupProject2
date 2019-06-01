@@ -1,40 +1,40 @@
 <div class="matchHeader">
     <div class="profile matchInfo">
-        <h3><img src="../img/profileIcon.png">{{firstname}}</h3>
+        <h3><img src="../img/icons/profileIconBlack.png">{{firstname}}</h3>
     </div>
     <div class="age matchInfo">
-        <h3><img src="../img/ageicon.png">{{age}}</h3>
-        <div class="location matchInfo">
-            <h3><img src="../img/locationicon.png">{{location}}</h3>
-        </div>
+        <h3><img src="../img/icons/ageiconBlack.png">{{age}}</h3>
     </div>
-    <div class="card matchCard">
-        <div class="card-body matchCardBody">
-            <div class="row">
-                <!-- match -->
-                <div class="col-3">
-                    <div class="matchPicContainer">
-                        <img class="matchPic" src="/api/users/profilepic/{{profilepic}}">
-                    </div>
+    <div class="location matchInfo">
+        <h3><img src="../img/icons/locationIconBlack.png">{{locale}}</h3>
+    </div>
+</div>
+<div class="card matchCard">
+    <div class="card-body matchCardBody">
+        <div class="row">
+            <!-- match -->
+            <div class="col-3">
+                <div class="matchPicContainer">
+                    <img class="matchPic" src="/api/users/profilepic/{{profilepic}}">
                 </div>
-                <div class="col-8">
-                    <div class="chatBody" data-userid={{userid}} id="chatbox-" +{{screenname}}>
-                        <h3>Bio:</h3>
-                        <p>
-                            Vegan fixie hella irony chillwave small batch
-                            chambray squid umami. Drinking vinegar scenester
-                            lo-fi thundercats, crucifix whatever XOXO etsy
-                            jianbing. Portland biodiesel DIY, blog
-                            dreamcatcher disrupt drinking vinegar cold-pressed
-                            brooklyn shabby chic. 3 wolf moon kogi gentrify,
-                            live-edge plaid single-origin coffee tumeric vape.
-                            Church-key viral franzen VHS, four dollar toast
-                            lomo semiotics. Lyft banh mi plaid, brunch next
-                            level enamel pin air plant. Forage gastropub deep
-                            v wolf post-ironic coloring book waistcoat
-                            taxidermy raw denim.
-                        </p>
-                    </div>
+            </div>
+            <div class="col-8">
+                <div class="chatBody">
+                    <h3>Bio:</h3>
+                    <p class="{{bio}} ">
+                        Vegan fixie hella irony chillwave small batch
+                        chambray squid umami. Drinking vinegar scenester
+                        lo-fi thundercats, crucifix whatever XOXO etsy
+                        jianbing. Portland biodiesel DIY, blog
+                        dreamcatcher disrupt drinking vinegar cold-pressed
+                        brooklyn shabby chic. 3 wolf moon kogi gentrify,
+                        live-edge plaid single-origin coffee tumeric vape.
+                        Church-key viral franzen VHS, four dollar toast
+                        lomo semiotics. Lyft banh mi plaid, brunch next
+                        level enamel pin air plant. Forage gastropub deep
+                        v wolf post-ironic coloring book waistcoat
+                        taxidermy raw denim.
+                    </p>
                 </div>
             </div>
         </div>
