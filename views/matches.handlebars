@@ -18,12 +18,13 @@
       </div>
       <div class="card" id="chatCard">
         <div class="card-body">
-          <div class="row">
-            <!-- match -->
+          {{!-- The chats will be appended to this div --}}
+          <div id="chatMSG">
+
           </div>
         </div>
         <div class="input-group mb-3" id="chatInputForm">
-          <input type="text" class="form-control" placeholder="Send Message">
+          <input type="text" class="form-control" id="chatInputText" placeholder="Send Message">
           <div class="input-group-append">
             <button class="btn" id="chatSendBtn" type="button">Send</button>
           </div>
