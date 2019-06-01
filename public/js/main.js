@@ -34,3 +34,23 @@ $(".modal").on("click", "button", function(event) {
     // Call the login api
   }
 });
+
+
+
+function currentUserObj(userRes){
+
+  var currUser = {
+    firstname: userRes.firstname,
+    lastname: userRes.lastname,
+    age: userRes.age,
+    locale: userRes.locale,
+    screenname: userRes.screenname,
+    email: userRes.email,
+    // password: password,
+    profilepic: userRes.profilepic,
+    bio: userRes.bio,
+    userSample: userRes.userSample
+  };
+
+  return currUser;
+}
