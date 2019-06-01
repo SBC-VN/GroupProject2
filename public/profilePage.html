@@ -37,7 +37,7 @@
             <div class="col-12-s navItems">
               <ul class="nav">
                 <li class="nav-item">
-                  <a class="nav-link active" href="#">HOME</a>
+                  <a class="nav-link active" href="index.html">HOME</a>
                 </li>
                 <li class="nav-item">
                   <a class="nav-link" href="about.html">ABOUT</a>
@@ -113,7 +113,7 @@
               <div class="navItems">
                 <ul class="nav">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#">HOME</a>
+                    <a class="nav-link active" href="index.html">HOME</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="about.html">ABOUT</a>
@@ -246,9 +246,12 @@
                                             <p>Vegan fixie hella irony chillwave small batch chambray squid umami. Drinking vinegar scenester lo-fi thundercats, crucifix whatever XOXO etsy jianbing. Portland biodiesel DIY, blog dreamcatcher disrupt drinking vinegar cold-pressed brooklyn shabby chic. 3 wolf moon kogi gentrify, live-edge plaid single-origin coffee tumeric vape. Church-key viral franzen VHS, four dollar toast lomo semiotics. Lyft banh mi plaid, brunch next level enamel pin air plant. Forage gastropub deep v wolf post-ironic coloring book waistcoat taxidermy raw denim.</p>
                                         </div>
                         </div>
-
+                        <a id="updateInfo" href="signup.html">Update User Info</a>
                         </div>
+
                 </div>
+
+
             </div>
     </div>
 
@@ -363,8 +366,33 @@
   <!-- end of wrapper -->
   </div>
         <footer>
-            <h4>Step Match &copy; 2019</h4>
+            <h4>Syndir &copy; 2019</h4>
         </footer>
+
+        <script>
+
+
+          
+          $("updateInfo").onclick()=function(){
+
+            var currUser=getCurrentUserObj();
+            
+            window.location.href="signup.html";
+
+            
+
+
+
+          };
+
+        // $(document).ready(function(){
+
+        //   $("#updateInfo").on
+
+        // });
+        
+        
+        </script>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>

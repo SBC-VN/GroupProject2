@@ -83,7 +83,7 @@
               <div class="navItems">
                 <ul class="nav">
                   <li class="nav-item">
-                    <a class="nav-link active" href="#">HOME</a>
+                    <a class="nav-link active" href="index.html">HOME</a>
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="about.html">ABOUT</a>
@@ -309,15 +309,21 @@
             <br />
             <!-- this is the profile pic -->
             <h4>Profile Image Upload</h4>
-            <div class="input-group">
-              <input
-                id="formImage"
-                class="form-control"
-                type="text"
-                name="image"
-                placeholder="Upload an image from your desktop"
-              />
-              <span class="input-group-addon"></span>
+            <div
+              class="form-group"
+              id="picture-form"
+              formtarget="/api/uploadfile"
+            >
+              <form
+                action="/api/uploadfile"
+                enctype="multipart/form-data"
+                method="POST"
+                id="upload-picture"
+                formtarget="/api/uploadfile"
+              >
+                <input type="file" name="myFile" id="survey-picture" />
+                <input type="submit" value="Upload Image" name="submit" />
+              </form>
             </div>
             <br />
             <!-- Bio section -->
@@ -327,9 +333,7 @@
               cols=""
               placeholder="Write a brief bio about yourself."
             >
-  Write a brief bio about yourself.
-  </textarea
-            >
+            </textarea>
           </div>
         </div>
 
@@ -556,6 +560,30 @@
       // Global Variable Declaration (scoping fix)
       var allFieldsCompleted;
 
+      // this is the picture upload function
+      $("#picture-form").submit(function(event) {
+        event.preventDefault();
+
+        var data = new FormData();
+        $.each($("#survey-picture")[0].files, function(i, file) {
+          console.log("file", file);
+          data.append("file-" + i, file);
+        });
+
+        $.ajax({
+          url: "/api/uploadfile",
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          method: "POST",
+          type: "POST", // For jQuery < 1.9
+          success: function(data) {
+            console.log("success", data);
+          }
+        });
+      });
+
       $(document).ready(function() {
         $("#submitButton").on("click", function(event) {
           var textArr = [];
@@ -573,7 +601,7 @@
 
           var fname = textArr[0];
           var lname = textArr[1];
-          if (textArr[2] === "terrific") {
+          if (textArr[2] === "terrific"||"") {
             var age = 30;
           }
           // var age = textArr[2];
@@ -640,7 +668,5 @@
         return isValid;
       }
     </script>
-
-
   </body>
 </html>
