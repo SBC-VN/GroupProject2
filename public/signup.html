@@ -202,7 +202,7 @@
             <div class="row">
               <div class="col-6">
                 <input
-                  id="formFirstName"
+                  id="form1"
                   class="form-control"
                   type="text"
                   name="name"
@@ -212,7 +212,7 @@
               </div>
               <div class="col-6">
                 <input
-                  id="formLastName"
+                  id="form2"
                   class="form-control"
                   type="text"
                   name="name"
@@ -231,7 +231,7 @@
             <div class="row">
               <div class="col-6">
                 <input
-                  id="formFirstName"
+                  id="form3"
                   class="form-control"
                   type="text"
                   name="name"
@@ -241,7 +241,7 @@
               </div>
               <div class="col-6">
                 <input
-                  id="formLastName"
+                  id="form4"
                   class="form-control"
                   type="text"
                   name="name"
@@ -259,7 +259,7 @@
             <div class="row">
               <div class="col-6">
                 <input
-                  id="formFirstName"
+                  id="form5"
                   class="form-control"
                   type="text"
                   name="name"
@@ -269,7 +269,7 @@
               </div>
               <div class="col-6">
                 <input
-                  id="formLastName"
+                  id="form6"
                   class="form-control"
                   type="text"
                   name="name"
@@ -329,6 +329,8 @@
             <!-- Bio section -->
             <h4>Bio</h4>
             <textarea
+              id="form7"
+            
               rows="4"
               cols=""
               placeholder="Write a brief bio about yourself."
@@ -349,8 +351,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample1"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -367,8 +369,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample2"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -388,8 +390,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample3"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -406,8 +408,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample4"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -424,8 +426,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample5"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -442,8 +444,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample6"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -460,8 +462,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample7"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -478,8 +480,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample8"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -496,8 +498,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample9"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -514,8 +516,8 @@
               <div class="col-12">
                 <div class="input-group">
                   <input
-                    id="formName"
-                    class="form-control input-lg"
+                    id="sample10"
+                    class="form-control sample input-lg"
                     type="text"
                     name="questionnaire"
                     placeholder="Write Something!"
@@ -587,7 +589,9 @@
       $(document).ready(function() {
         $("#submitButton").on("click", function(event) {
           var textArr = [];
-          $(".form-control").each(function() {
+
+
+          $(".sample").each(function(){
             var tempString = $(this)
               .val()
               .trim();
@@ -595,42 +599,86 @@
               tempString = "terrific";
             }
             textArr.push(tempString);
+
           });
 
-          console.log(textArr);
 
-          var fname = textArr[0];
-          var lname = textArr[1];
-          if (textArr[2] === "terrific"||"") {
-            var age = 30;
+          // console.log(textArr);
+
+          // var fname = textArr[0];
+          // var lname = textArr[1];
+          // if (textArr[2] === "terrific"||"") {
+          //   var age = 30;
+          // }
+          // // var age = textArr[2];
+          // var location = textArr[3];
+          // var uname = textArr[4];
+          // var email = textArr[5];
+          // var password = textArr[7];
+          // var userimage = textArr[8];
+          // var biotext = textArr[9];
+          var pwd= function validatePassword(){            
+            var fp1=$("#formPassword1").val().trim();
+            var fp2=$("#formPassword2").val().trim();
+          if(fp1===fp2){
+           var pword=$("#formPassword2").val().trim(); 
+          return pword;
+          }else{
+            alert("Passwords must match.");
+            return;
+          }          
           }
-          // var age = textArr[2];
-          var location = textArr[3];
-          var uname = textArr[4];
-          var email = textArr[5];
-          var password = textArr[7];
-          var userimage = textArr[8];
-          var biotext = textArr[9];
-          textArr = textArr.slice(10);
-          console.log(textArr);
+
+         var firstname= $("#form1").val().trim();
+          var  lastname= $("#form2").val().trim();
+           var age= $("#form3").val().trim();
+           var locale= $("#form4").val().trim();
+           var screenname= $("#form5").val().trim();
+           var email= $("#form6").val().trim();
+          var password=pwd;
+           var profilepic= $("#survey-picture").val().trim();
+           var bio= $("#form7").val().trim();
+            var userSample= textArr;
 
           var newUser = {
-            firstname: fname,
-            lastname: lname,
+            firstname: firstname,
+            lastname: lastname,
             age: age,
-            locale: location,
-            screenname: uname,
+            locale: locale,
+            screenname: screenname,
             email: email,
-            password: password,
-            profilepic: userimage,
-            bio: biotext,
-            userSample: textArr
+            password:password,
+            // profilepic: profilepic,
+            bio: bio,
+            userSample: userSample
           };
+
+          var dummyUser={
+            firstname: "John",
+            lastname: "Smith",
+            age: 30,
+            locale: "Richmond",
+            screenname: "dingdong",
+            email: "weemail@weemail.com",
+            password: "secret",
+            bio: "I'm a little stinker",
+            userSample:textArr,
+
+          }
+
+          if(validateForm())
+          {
+            user=newUser;
+          }
+          else{
+            user=dummyUser;
+          }
+
 
           $.ajax({
             method: "POST",
             url: "/api/users",
-            data: newUser
+            data: user
           }).then(function(data) {
             console.log(data);
             alert("Adding user...");
@@ -670,3 +718,4 @@
     </script>
   </body>
 </html>
+
