@@ -35,10 +35,7 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false,
           defaultValue: 0,
         },
-        matches:{
-          type:DataTypes.JSON,
-        },
-        
+       
         email: 
           { type: DataTypes.STRING,
             allowNull: false,
@@ -70,16 +67,16 @@ module.exports = function(sequelize, DataTypes) {
           { type: DataTypes.STRING,
             allowNull: true
           },
-          createdAt:
-        {
-          type: DataTypes.DATE,
-          allowNull:true},
+        createdAt:
+          {
+            type: DataTypes.DATE,
+            allowNull:true
+          },
         updatedAt:
-      {
-        type: DataTypes.DATE,
-        allowNull:true
-      }
-
+          {
+            type: DataTypes.DATE,
+            allowNull:true
+          }
       });
  
   return user;

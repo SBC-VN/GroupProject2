@@ -24,6 +24,7 @@ $(".modal").on("click", "button", function(event) {
         // Reload the page to get the updated list
         // 5/24 VN - Don't reload.  This resets connection to firebase.
         //location.reload();
+
       })
       .catch(function(res, info, code) {
         console.log("error status", res.status);
@@ -34,3 +35,27 @@ $(".modal").on("click", "button", function(event) {
     // Call the login api
   }
 });
+
+
+
+function getCurrentUserObj(){
+
+  var currUser = {
+    firstname: userInfo.firstname,
+    lastname: userInfo.lastname,
+    age: userInfo.age,
+    locale: userInfo.locale,
+    screenname: userInfo.screenname,
+    email: userInfo.email,
+    // password: password,
+    profilepic: userInfo.profilepic,
+    bio: userInfo.bio,
+    userSample: userInfo.userSample,
+    sentimentScore:userInfo.sentimentScore,
+    matches:userInfo.matches
+  };
+
+  return currUser;
+}
+
+
