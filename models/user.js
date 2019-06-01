@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-    var User = sequelize.define("User", {
+    var user = sequelize.define("user", {
       // Information about the user.
         firstname: 
           { type: DataTypes.STRING,
@@ -20,8 +20,9 @@ module.exports = function(sequelize, DataTypes) {
             allowNull: false,
             validate: {
               len: [6]
-              }
-            },
+              },
+            // unique: true
+          },
         password:  
           { type: DataTypes.STRING,
             allowNull: false,
@@ -29,19 +30,54 @@ module.exports = function(sequelize, DataTypes) {
               len: [6]
               }
             },
-        score: {type:DataTypes.INTEGER},
-        matches: {type:DataTypes.JSON},
+        sentimentScore: {
+          type:DataTypes.INTEGER,
+          allowNull: false,
+          defaultValue: 0,
+        },
+       
         email: 
           { type: DataTypes.STRING,
             allowNull: false,
             validate: {
               len: [6]
-              }
-            },
-        score: DataTypes.INTEGER,
-    });
+              },
+            // unique: true
+          }, 
+        age: 
+          { type: DataTypes.INTEGER,
+            allowNull: false,
+            validate: {
+              min: 18,
+              max: 116
+              },
+          },
+        locale: 
+          { type: DataTypes.STRING,
+            allowNull: true,
+            // validate: {
+            //   len: [6]
+            //   },
+          },
+        profilepic: 
+          { type: DataTypes.STRING,
+            allowNull: true
+          },
+          bio: 
+          { type: DataTypes.STRING,
+            allowNull: true
+          },
+        createdAt:
+          {
+            type: DataTypes.DATE,
+            allowNull:true
+          },
+        updatedAt:
+          {
+            type: DataTypes.DATE,
+            allowNull:true
+          }
+      });
  
-    return User;
-  };
-
-
+  return user;
+};

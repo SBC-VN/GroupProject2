@@ -1,130 +1,44 @@
 var db = require("../models");
-var friendScores = [];
-var users = [];
-var Sentiment = require('sentiment');
-var sentiment = new Sentiment();
+var mLogic=require("../routes/match-logic.js");
+var sLogic=require("../routes/score-logic.js");
+var users=[];
+var path = require('path');
 
 module.exports = function(app) {
+  
   app.get("/api/users", function(req, res) {
-    //   db.User.findAll({}).then(function(dbUsers) {
-    //   dbUsers.forEach(element => {
-    //   element.password = "****";
-    //   });
-    //   populateScores(dbUsers);
-    //   res.json(dbUsers);
-    //   });
 
-    db.User.findAll({}).then(function(dbUsers) {
+    db.user.findAll({}).then(function(dbUsers) {
       //initialize scores
+      
       // console.log({dbUsers});
-      users = dbUsers;
-      populateScores();
+      mLogic.populateScores(dbUsers);
+
       for (var x=0;x<dbUsers.length;x++) {
-        console.log(
-          "First Name: " + dbUsers[x].firstname + " Score:" + dbUsers[x].score
-        ); //+"\n")
-        // friendScores.push(dbUsers[x].score);
-        // calculateUser(dbUsers[x]);
-        var closeArr = calculateMatches(dbUsers[x]);
-        var matches = getMatches(closeArr);
-        // console.log(matches);
-        tempMatches = JSON.stringify(matches);
-        dbUsers[x].matches = JSON.parse(tempMatches);
-        // console.log("Matches: ");
-        // console.log(dbUsers[x].matches);
-        // dbUsers[x].matches=users[x].matches;
+        mLogic.matchUser(dbUsers[x]);
       }
 
       res.json(dbUsers);
     });
-  });
 
-  function populateScores() {
-    for (x in users) {
-      friendScores.push(users[x].score);
-    }
-  }
-
-  function calculateMatches(newfriend) {
-    var copyScores = friendScores;
-    var goal = newfriend.score;
-    console.log("Current User's Score: " + goal); //+"\n");
-    // var currIndex=copyScores.indexOf(newfriend.score);
-    //FILTER
-    //use goal
-    //percentages too imprecise without empirical statistics
-    // var point20=parseInt(goal*.20);
-    var lowCheck = parseInt(goal - 25);
-    var highCheck = parseInt(goal + 25);
-    function checkDelta(value) {
-      return value > lowCheck && value < highCheck;
-    }
-    // var closestArr=parseInt(copyScores.filter(checkDelta));
-    var closestArr = copyScores.filter(checkDelta);
-    // console.log("Closest Scores: "+closestArr)
-    delete closestArr[closestArr.indexOf(goal)];
-    // console.log("Closest Scores: "+closestArr)
-    closestArr = closestArr.filter(Number);
-    console.log("Closest Scores: " + closestArr);
-    return closestArr;
-  }
-
-  function getMatches(closestArr) {
-    var closestMatches = [];
-    // console.log(users);
-    closestMatches = users.filter(function(item) {
-      return closestArr.includes(item.score);
     });
-    //WORKS -Filters ENTIRE USER
-    // console.log(closestMatches);
-
-    var matchLabels = [];
-    for (x in closestMatches) {
-      //  console.log(closestMatches[x].firstname);
-      matchLabels.push(
-        "Match Name: " +
-          closestMatches[x].firstname +
-          " ".repeat(colSpacer(closestMatches[x].firstname)) +
-          "Score:" +
-          closestMatches[x].score
-      );
-
-      // console.log(colSpacer(closestMatches[x].firstname))
-    }
-    console.log(matchLabels);
-    console.log("\n");
-    closestMatches.matches = "[]";
-    return closestMatches;
-  }
-
-  function colSpacer(word) {
-    return parseInt(20 - word.length);
-  }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+  // Returns the profile picture - when given the 'correct' file name (id) - from 
+  // the non-public storage location.    
+  // This should prevent a random user from navigating to /public/images and see ALL
+  // the profile pictures.
+  app.get("/api/users/profilepic/:fileid", function(req, res) {
+    console.log("get picture API call");
+    var fname = "../private/profpics/" + req.params.fileid;
+    var fpath = path.join(__dirname,fname);
+    console.log(fpath);
+    res.sendFile(fpath);
+  });
 
 
 
 app.put("/api/login/:email", function(req, res) {
-    console.log("Login attempt",req.params.email);
-    db.User.findOne({
+    console.log("login api called");
+    db.user.findOne({
       where: {
         email: req.params.email
       }
@@ -138,6 +52,7 @@ app.put("/api/login/:email", function(req, res) {
       else if (req.body.password === dbUser.password) {
         console.log("User login ",dbUser.screenname);
         dbUser.password = "****";
+        updateUserProfile(dbUser);
         res.status(200);
         res.json(dbUser);
       }
@@ -154,7 +69,7 @@ app.put("/api/login/:email", function(req, res) {
 
 
   app.get("/api/user/:id", function(req, res) {
-    db.User.findOne({
+    db.user.findOne({
       where: {
         id: req.params.id
       },
@@ -167,23 +82,28 @@ app.put("/api/login/:email", function(req, res) {
 
 
 
+  app.post("/api/users", function(req, res) {
+    console.log(req.body);
+    var newUser=req.body;
+    //call sentiment on userSample
+    newUser.sentimentScore=sLogic.scoreSample(req.body.userSample);
+    
+    //RETURNS ENTIRE USER
+    newUser=mLogic.matchUser(newUser);
 
-
-
-
-
-
-
-
-  app.post("/api/user", function(req, res) {
-    db.User.create(req.body).then(function(dbUser) {
-      //just working with score
-      console.log(req.body);
-      // dbUser=req.body;
-      
-
-      
+    db.user.create(newUser).then(function(dbUser) {
+      console.log(dbUser.sentimentScore);
+      console.log(dbUser.matches);      
       res.json(dbUser);
+    }).catch(function (errors) {
+      console.log("Error on user insert");
+      res.status(411);
+      var errtxt = [];
+      for (var i=0; i<errors.length; i++) {
+        errtxt.push(errmsg[i].message);
+        console.log(" ",errmsg[i].message);
+      }
+      res.json(errtxt);
     });
   });
 
@@ -199,7 +119,7 @@ app.put("/api/login/:email", function(req, res) {
 
 
   app.delete("/api/user/:id", function(req, res) {
-    db.User.destroy({
+    db.user.destroy({
       where: {
         id: req.params.id
       }
@@ -207,9 +127,67 @@ app.put("/api/login/:email", function(req, res) {
       res.json(dbUser);
     });
   });
-};
+}
 
-//********************************************************* */
+
+//**************************************************************************************************** */
+        //   console.log(
+      //     "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].sentimentScore
+      //   ); //+"\n")
+      //   var closeArr = mLogic.calculateMatches(dbUsers[x]);
+      //   var matches = mLogic.getMatches(closeArr);
+      //   // console.log(matches);
+      //   tempMatches = JSON.stringify(matches);
+      //   dbUsers[x].matches = JSON.parse(tempMatches);
+      //   // console.log(dbUsers[x].matches);
+      //   // dbUsers[x].matches=users[x].matches;
+
+
+  // Returns a list of all the registered users.  Blanks out the passwords - 
+  //  so that anyone calling the API will NOT get to see the user's passwords.
+  // In fact, this API might not even be needed.
+
+
+  // // Add a new user.
+  // app.put("/api/users", function(req, res) {
+  //   console.log("New User:",req.body);
+  // });
+
+
+
+    // Matches should be computed when a user is added, and maybe updated.  
+
+    // db.User.findAll({}).then(function(dbUsers) {
+    //   //initialize scores
+    //   users=dbUsers;
+    //   // console.log({dbUsers});
+    //   mLogic.populateScores(dbUsers);
+
+    //   // This is the wrong place to do this: 
+    //   //  1. This API is just returning user info, like for the user's profile page.
+    //   //  2. The matches should be *stored* in the database - not computed every time a 
+    //   //     user's information is provided.
+
+    //   for (var x=0;x<dbUsers.length;x++) {
+    //     console.log(
+    //       "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].score
+    //     ); //+"\n")
+    //     var closeArr = mLogic.calculateMatches(dbUsers[x]);
+    //     var matches = mLogic.getMatches(closeArr);
+    //     // console.log(matches);
+    //     tempMatches = JSON.stringify(matches);
+    //     dbUsers[x].matches = JSON.parse(tempMatches);
+    //     // console.log(dbUsers[x].matches);
+    //     // dbUsers[x].matches=users[x].matches;
+    //   }
+    //   res.json(dbUsers);
+    // });
+
+
+
+
+        // friendScores.push(dbUsers[x].score);
+        // calculateUser(dbUsers[x]);
 // console.log(array1); // [ 'a', 'c', 'e' ]
 // console.log(array2); // [ 'b', 'd', 'f' ]
 

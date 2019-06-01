@@ -1,0 +1,34 @@
+<div class="matchHeader">
+    <div class="profile matchInfo">
+        <h3><img src="../img/icons/profileIconBlack.png">{{firstname}}</h3>
+    </div>
+    <div class="age matchInfo">
+        <h3><img src="../img/icons/ageiconBlack.png">{{age}}</h3>
+    </div>
+    <div class="location matchInfo">
+        <h3><img src="../img/icons/locationIconBlack.png">{{locale}}</h3>
+    </div>
+</div>
+<div class="card matchCard">
+    <div class="card-body matchCardBody bio-match-chat" id="bio-{{screenname}}">
+        <div class="row">
+            <!-- match -->
+            <div class="col-3">
+                <div class="matchPicContainer">
+                    <img class="matchPic" src="/api/users/profilepic/{{profilepic}}">
+                </div>
+            </div>
+            <div class="col-8">
+                <div class="chatBody">
+                    <h3>Bio:</h3>
+                    <p>
+                        {{bio}}
+                    </p>
+                </div>
+            </div>
+            <div class="col-1">
+                <img id="chatAlert{{username}}" src="../img/icons/chatIconOrange.png">
+            </div>
+        </div>
+    </div>
+</div>
