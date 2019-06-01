@@ -618,6 +618,40 @@ textarea {
   margin-top: 0;
 }
 
+#chatSendBtn {
+  decoration: none;
+  background-color: #ff9345;
+  border: none;
+  color: white;
+  padding: 5px 10px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin-bottom: 2px;
+}
+
+#chatInputForm {
+  margin-left: 8px;
+  margin-bottom: 5px;
+  width: 97%;
+}
+
+#chatHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+  border: 2px black solid;
+  border-radius: 10px 10px 0 0;
+  background-image: linear-gradient(#df7b35, #ff9345);
+  color: black;
+  font-size: 22px;
+}
+
+#chatHeader h3 {
+  margin-left: 3px;
+  margin-top: 3px;
+}
 /* -------------------------chat page----------------------------- */
 
 #chat-container {

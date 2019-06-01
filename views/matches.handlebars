@@ -13,22 +13,8 @@
     </div>
     <!--- CHAT BOX --->
     <div class="col-5">
-      <div class="matchHeader">
-        <div class="profile matchInfo">
-          <h3>
-            <img src="../img/icons/profileIconBlack.png" />
-            Herbert
-          </h3>
-        </div>
-        <div class="age matchInfo">
-          <h3><img src="../img/icons/ageiconBlack.png" /> 42</h3>
-        </div>
-        <div class="location matchInfo">
-          <h3>
-            <img src="../img/icons/locationIconBlack.png" /> San
-            Francisco
-          </h3>
-        </div>
+      <div id="chatHeader">
+        <h3><img src="../img/icons/profileIconBlack.png">Chat</h3>
       </div>
       <div class="card" id="chatCard">
         <div class="card-body">
@@ -36,11 +22,10 @@
             <!-- match -->
           </div>
         </div>
-        <div class="input-group mb-3">
-          <input type="text" class="form-control" placeholder="Recipient's username" aria-label="Recipient's username"
-            aria-describedby="basic-addon2">
+        <div class="input-group mb-3" id="chatInputForm">
+          <input type="text" class="form-control" placeholder="Send Message">
           <div class="input-group-append">
-            <button class="btn btn-outline-secondary" type="button">Send</button>
+            <button class="btn" id="chatSendBtn" type="button">Send</button>
           </div>
         </div>
       </div>
