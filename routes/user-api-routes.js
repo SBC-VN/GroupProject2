@@ -7,7 +7,7 @@ var path = require('path');
 module.exports = function(app) {
   
   app.get("/api/users", function(req, res) {
-      
+
     db.user.findAll({}).then(function(dbUsers) {
       //initialize scores
       
@@ -82,17 +82,7 @@ app.put("/api/login/:email", function(req, res) {
 
 
 
-
-
-
-
-
-
-
-
   app.post("/api/users", function(req, res) {
-
-
     console.log(req.body);
     var newUser=req.body;
     //call sentiment on userSample
@@ -103,9 +93,17 @@ app.put("/api/login/:email", function(req, res) {
 
     db.user.create(newUser).then(function(dbUser) {
       console.log(dbUser.sentimentScore);
-      console.log(dbUser.matches);
-      
+      console.log(dbUser.matches);      
       res.json(dbUser);
+    }).catch(function (errors) {
+      console.log("Error on user insert");
+      res.status(411);
+      var errtxt = [];
+      for (var i=0; i<errors.length; i++) {
+        errtxt.push(errmsg[i].message);
+        console.log(" ",errmsg[i].message);
+      }
+      res.json(errtxt);
     });
   });
 
