@@ -53,6 +53,7 @@ app.put("/api/login/:email", function(req, res) {
       else if (req.body.password === dbUser.password) {
         console.log("User login ",dbUser.screenname);
         dbUser.password = "****";
+        updateUserProfile(dbUser);
         res.status(200);
         res.json(dbUser);
       }
