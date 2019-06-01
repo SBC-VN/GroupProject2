@@ -141,16 +141,16 @@ header h1 {
 
 #showcaseCard1 {
   background: url(../img/friends1.jpg);
-  background-size: 400px auto;
+  background-size: 700px auto;
   background-position: 0;
   background-repeat: none;
   margin: 15px;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 450px;
   border-radius: 1.5em;
 }
 
-#showcaseCard1 h2 {
+#showcaseCard1 h1 {
   color: white;
   font-weight: bolder;
   text-shadow: 2px 2px 4px #030303;
@@ -160,11 +160,39 @@ header h1 {
   font-size: 20px;
   color: white;
   position: relative;
-  width: 250px;
+  width: 350px;
   right: 21px;
   padding-left: 5px;
-  top: 100px;
+  top: 300px;
   background: linear-gradient(-90deg, rgb(1, 1, 1), #ff670f);
+}
+
+#index-greeting {
+  margin-left: 20px;
+  margin-top: 5px;
+}
+
+#index-greeting h1 {
+  text-align: center;
+  font-size: 60px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#index-greeting h3 {
+  text-align: center;
+  font-size: 27px;
+  margin-bottom: 30px;
+}
+
+#index-greeting h2 {
+  text-align: center;
+  font-size: 49px;
+  margin-bottom: 40px;
+}
+
+#index-greeting p {
+  font-size: 20px;
 }
 
 #showcaseCard2 {
@@ -203,6 +231,7 @@ header h1 {
 
 #infoHeading {
   color: white;
+  margin-left: 20px;
 }
 
 .aboutModal {
@@ -229,7 +258,8 @@ header h1 {
   background-size: 400px auto;
   background-position: -25px;
   background-repeat: none;
-  margin: 15px;
+  margin: 20px;
+  margin-right: 70px;
   width: 300px;
   height: 300px;
 }
@@ -239,7 +269,8 @@ header h1 {
   background-size: 500px auto;
   background-position: -115px;
   background-repeat: none;
-  margin: 15px;
+  margin: 20px;
+  margin-right: 70px;
   width: 300px;
   height: 300px;
 }
@@ -249,7 +280,7 @@ header h1 {
   background-size: 400px auto;
   background-position: -35px;
   background-repeat: none;
-  margin: 15px;
+  margin: 20px;
   width: 300px;
   height: 300px;
 }
@@ -281,59 +312,84 @@ header h1 {
 }
 
 #poweredBy {
-  margin-top: 100px;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
 
 .poweredByCard {
-  height: 150px;
-  width: 150px;
-  margin: 15px;
+  height: 100px;
+  width: 100px;
+  margin: 20px;
 }
 
 #poweredByCard1 {
-  background: url(../img/boostrap-logo.png);
+  background: url(../img/html-logo.png);
   background-color: rgba(209, 203, 203, 0.205);
-  background-size: 150px auto;
+  background-size: 100px auto;
   background-position: 0;
   background-repeat: none;
 }
 
 #poweredByCard2 {
-  background: url(../img/html-logo.png);
+  background: url(../img/css-logo.png);
   background-color: rgba(209, 203, 203, 0.205);
-  background-size: 150px auto;
+  background-size: 100px auto;
   background-position: 0;
   background-repeat: none;
 }
 
 #poweredByCard3 {
-  background: url(../img//css-logo.png);
+  background: url(../img//javascript-logo.png);
   background-color: rgba(209, 203, 203, 0.205);
-  background-size: 150px auto;
+  background-size: 100px auto;
   background-position: 0;
   background-repeat: none;
 }
 
 #poweredByCard4 {
-  background: url(../img/javascript-logo.png);
+  background: url(../img/boostrap-logo.png);
   background-color: rgba(209, 203, 203, 0.205);
-  background-size: 150px auto;
+  background-size: 100px auto;
   background-position: 0;
   background-repeat: none;
 }
 
 #poweredByCard5 {
-  background: url(../img/node-logo.png);
+  background: url(../img/node-js-2-1174936.png);
   background-color: rgba(209, 203, 203, 0.205);
-  background-size: 150px auto;
+  background-size: 100px auto;
   background-position: 0;
   background-repeat: none;
 }
 
+#poweredByCard6 {
+  background: url(../img/MySQL-Database-512.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 100px auto;
+  background-position: 0;
+  background-repeat: none;
+}
+
+#poweredByCard7 {
+  background: url(../img/firebase.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 100px auto;
+  background-position: 0;
+  background-repeat: none;
+}
+
+#poweredByCard8 {
+  background: url(../img/heroku.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 100px auto;
+  background-position: 0;
+  background-repeat: none;
+}
 /*--- contact page css ------------------------------------------------------------------*/
 
 .contactCard {
   background: rgba(226, 223, 226, 0.795);
+  margin: 10px;
 }
 
 .contactCard p {
