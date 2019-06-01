@@ -654,8 +654,7 @@ textarea {
 }
 
 #chatAlert {
-  right: 50%;
-  position: relative;
+  margin-top: 0;
 }
 /* -------------------------chat page----------------------------- */
 
