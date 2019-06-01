@@ -12,7 +12,6 @@ var firebaseConfig = {
     appId: "1:486622634071:web:7b8197cc3bb0d255"
   };
 
-console.log("firebase init");
 firebase.initializeApp(firebaseConfig);
 
 // Create a variable to reference the database.
@@ -98,20 +97,15 @@ function postMessage(msgData) {
 
 // Set it up so that all the chats for the user fire a callback.
 function setupChatRef() {
+    console.log("setup chat for",userScreenName);
     dbRefMessages = database.ref("/chats/" + userScreenName);
     dbRefMessages.on("value",function(snap) {
         if (snap.val()) {
             // On value will trigger for *any* change -
             //  so initial connect and any subsequent change.
             chatMsg = snap.val(); 
-
-            // Loop through the messages.  Extract the message data.
-            for (sendUser of Object.keys(chatMsg)) {
-                var msgs = data[sendUser];
-                for (msgId of Object.keys(msgs)) {
-                    postMsg(msgs[msgId]);
-                }
-            }             
+            postMessage(chatMsg);
+            dumpMsgData(chatMsg);
         }
     });
 }
@@ -125,8 +119,24 @@ function sendChatMessage(sender,reciever,message) {
     chatMsgDbRef.push(msgObject);
 }
 
-$("#msg-submit-btn").on("click",function(event) {
-    setupUser("user1");
-    event.preventDefault();
-    sendChatMessage("second","user1","test message " + chatcount++);
+$(".bio-match-chat").on("click",function(event) {
+    var divId = this.id;
+    // will be 'bio-<user>' so we just need to parse the user out.
+    var brk = divId.indexOf('-');
+    var sendUser = divId.substring(brk+1);
+    console.log("display chats from",sendUser);
+
+    var chatBlock = $("#chatMSG");
+    chatBlock.empty();
+
+    // Loop through the messages.  Extract the message data.
+    for (sendUser of Object.keys(chatMsg)) {
+        var msgs = data[sendUser];
+        for (msgId of Object.keys(msgs)) {
+            var msgData = msgs[msgId];
+            var msgStr = "[" + msgData.date + "] " + msgData.msg;
+            //if (msgData.viewed)
+            chatBlock.append(msgStr);
+        }
+    }     
 });
