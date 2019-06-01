@@ -652,6 +652,11 @@ textarea {
   margin-left: 3px;
   margin-top: 3px;
 }
+
+#chatAlert {
+  right: 50%;
+  position: relative;
+}
 /* -------------------------chat page----------------------------- */
 
 #chat-container {
