@@ -309,15 +309,21 @@
             <br />
             <!-- this is the profile pic -->
             <h4>Profile Image Upload</h4>
-            <div class="input-group">
-              <input
-                id="formImage"
-                class="form-control"
-                type="text"
-                name="image"
-                placeholder="Upload an image from your desktop"
-              />
-              <span class="input-group-addon"></span>
+            <div
+              class="form-group"
+              id="picture-form"
+              formtarget="/api/uploadfile"
+            >
+              <form
+                action="/api/uploadfile"
+                enctype="multipart/form-data"
+                method="POST"
+                id="upload-picture"
+                formtarget="/api/uploadfile"
+              >
+                <input type="file" name="myFile" id="survey-picture" />
+                <input type="submit" value="Upload Image" name="submit" />
+              </form>
             </div>
             <br />
             <!-- Bio section -->
@@ -555,6 +561,30 @@
 
       // Global Variable Declaration (scoping fix)
       var allFieldsCompleted;
+
+      // this is the picture upload function
+      $("#picture-form").submit(function(event) {
+        event.preventDefault();
+
+        var data = new FormData();
+        $.each($("#survey-picture")[0].files, function(i, file) {
+          console.log("file", file);
+          data.append("file-" + i, file);
+        });
+
+        $.ajax({
+          url: "/api/uploadfile",
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          method: "POST",
+          type: "POST", // For jQuery < 1.9
+          success: function(data) {
+            console.log("success", data);
+          }
+        });
+      });
 
       $(document).ready(function() {
         $("#submitButton").on("click", function(event) {
