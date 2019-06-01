@@ -6,8 +6,9 @@ var path = require('path');
 
 
 module.exports = function(app) {
+  
+  
   app.get("/api/matches/:id", function(req, res) {
-
 
     db.match.findAll({
       where: { user1: req.params.id },

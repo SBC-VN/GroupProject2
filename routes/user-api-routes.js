@@ -6,7 +6,6 @@ var path = require('path');
 
 module.exports = function(app) {
   
-
   app.get("/api/users", function(req, res) {
       
     db.user.findAll({}).then(function(dbUsers) {
@@ -92,6 +91,7 @@ app.put("/api/login/:email", function(req, res) {
 
   app.post("/api/users", function(req, res) {
 
+
     console.log(req.body);
     var newUser=req.body;
     //call sentiment on userSample
@@ -100,15 +100,10 @@ app.put("/api/login/:email", function(req, res) {
     //RETURNS ENTIRE USER
     newUser=mLogic.matchUser(newUser);
 
-
-
     db.user.create(newUser).then(function(dbUser) {
       console.log(dbUser.sentimentScore);
       console.log(dbUser.matches);
       
-      
-
-
       res.json(dbUser);
     });
   });
