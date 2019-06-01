@@ -334,6 +334,7 @@ header h1 {
 
 .contactCard {
   background: rgba(226, 223, 226, 0.795);
+  margin-bottom: 10px;
 }
 
 .contactCard p {
@@ -605,30 +606,6 @@ textarea {
   margin-top: 0;
 }
 
-.chatPicContainer {
-  width: 125px;
-  height: 125px;
-  border-radius: 50%;
-  margin: 0 auto;
-  float: left;
-  position: relative;
-  overflow: hidden;
-  margin-top: 0;
-}
-
-.chatPicContainer::after {
-  content: "yoooo";
-  font-size: 1em;
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 10px;
-  color: white;
-  background-image: linear-gradient(#df7b35, #ff9345);
-  text-align: center;
-  display: block;
-  margin-top: 0;
-}
 /* -------------------------chat page----------------------------- */
 
 #chat-container {
