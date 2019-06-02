@@ -1,0 +1,584 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <title>Syndir</title>
+  </head>
+  <body>
+    <div class="wrapper" id="pageContainer">
+      <header>
+        <!-- This header is only visibile on mobile -->
+        <div class="wrapper d-lg-none">
+          <!-- This is the syndir match title -->
+          <div class="row">
+            <div class="col-12 ">
+              <h1 id="mainTitle">
+                <span class="highlighter">Syndir Match</span>
+              </h1>
+            </div>
+          </div>
+          <!-- These are the nav items -->
+          <div class="row">
+            <div class="col-12-s navItems">
+              <ul class="nav">
+                <li class="nav-item">
+                  <a class="nav-link active" href="index.html">HOME</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="about.html">ABOUT</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">CONTACT</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <!-- These are the buttons -->
+          <div class="row ">
+            <div class="col-s-12 buttonList">
+              <a href="chat.html">
+                <button
+                  type="button"
+                  class="icons"
+                  data-toggle="modal"
+                  data-target="#"
+                  id="chat-icon"
+                >
+                  <img src="./img/icons/chatIconGrey.png" />
+                </button>
+              </a>
+              <button
+                type="button"
+                class="icons"
+                data-toggle="modal"
+                data-target="#"
+                id="match-icon"
+              >
+                <img src="./img/icons/matchIconGrey.png" />
+              </button>
+              <a href="profilePage.html">
+                <button
+                  type="button"
+                  class="icons"
+                  data-toggle="modal"
+                  data-target="#"
+                  id="profile-icon"
+                >
+                  <img src="./img/icons/profileIconGrey.png" />
+                </button>
+              </a>
+              -->
+              <!-- login and sign-up buttons -->
+
+              <button
+                type="button"
+                class="hot"
+                data-toggle="modal"
+                data-target="#loginModal"
+                id="login"
+              >
+                Login
+              </button>
+              <button class="button cancel" data-dismiss="modal">
+                Cancel
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- This header is only visibile on large screens -->
+        <div class="container d-none d-lg-block">
+          <!-------- Main title ------------------------------------------------------------------------------------------------------------------------------>
+          <div class="row">
+            <div class="col-6">
+              <h1 id="mainTitle">
+                <span class="highlighter">Syndir Match</span>
+              </h1>
+            </div>
+            <!----------- navs -------------------------------------------------------------------------------------------------------------------------------->
+            <div class="col-6">
+              <div class="navItems">
+                <ul class="nav">
+                  <li class="nav-item">
+                    <a class="nav-link active" href="index.html">HOME</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="about.html">ABOUT</a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" href="contact.html">CONTACT</a>
+                  </li>
+                </ul>
+
+                <!-------- login/sign up buttons ------------------------------------------------------------------------------------------------------------------->
+                <div class="row">
+                  <div class="col-md-12 buttonList">
+                    <!--New Nav Icons-->
+                    <a href="chat.html">
+                      <button
+                        type="button"
+                        class="icons"
+                        data-toggle="modal"
+                        data-target="#"
+                        id="chat-icon"
+                      >
+                        <img src="./img/icons/chatIconGrey.png" />
+                      </button>
+                    </a>
+                    <button
+                      type="button"
+                      class="icons"
+                      data-toggle="modal"
+                      data-target="#"
+                      id="match-icon"
+                    >
+                      <img src="./img/icons/matchIconGrey.png" />
+                    </button>
+                    <button
+                      type="button"
+                      class="icons"
+                      data-toggle="modal"
+                      data-target="#"
+                      id="profile-icon"
+                    >
+                      <img src="./img/icons/profileIconGrey.png" />
+                    </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- ------------- Modals --------------------------------------------------------------------------------------------------------------------------->
+        <div
+          class="modal fade bd-example-modal-lg"
+          tabindex="-1"
+          role="dialog"
+          aria-labelledby="myLargeModalLabel"
+          aria-hidden="true"
+          id="loginModal"
+        >
+          <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h1 id="mainTitle">
+                  <span class="highlighter">Syndir Match</span>
+                </h1>
+              </div>
+              <div class="modal-body">
+                <h3>User Login</h3>
+                <label for="searchTerm">Email Adress</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  id="emailInputLogin"
+                  placeholder="ex. jsmith@example.com"
+                />
+                <label for="searchTerm">Password</label>
+                <input
+                  type="password"
+                  class="form-control"
+                  id="passwordLogin"
+                />
+              </div>
+              <div class="modal-footer">
+                <button
+                  type="button"
+                  class="hot"
+                  data-toggle="modal"
+                  data-target="#loginModal"
+                  id="login"
+                >
+                  <a href="/matches"></a>
+                  Login
+                </button>
+                <button class="button cancel" data-dismiss="modal">
+                  Cancel
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <div class="container" id="mainContainer">
+        <!-- This will be the main body of the page------------------------------------------------------------------------------------------------------>
+        <div class="row">
+          <h2 id="infoHeading">Sign-Up Form</h2>
+        </div>
+        <div class="card surveyBlock">
+          <h5 class="card-header">User Information</h5>
+          <div class="card-body">
+            <!-- User inputs go here----------------------------->
+            <!-- first name and last name -->
+            <h4>Full Name</h4>
+            <div class="row">
+              <div class="col-6"><h6>First Name</h6></div>
+              <div class="col-6"><h6>Last Name</h6></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  id="form1"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="John"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+              <div class="col-6">
+                <input
+                  id="form2"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="Smith"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <br />
+            <!-- Age and location -->
+            <h4>User Info</h4>
+            <div class="row">
+              <div class="col-6"><h6>Age</h6></div>
+              <div class="col-6"><h6>Location (city)</h6></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  id="form3"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="25"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+              <div class="col-6">
+                <input
+                  id="form4"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="San Francisco"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <br />
+            <!-- Username/password -->
+            <div class="row">
+              <div class="col-6"><h6>Username</h6></div>
+              <div class="col-6"><h6>Email</h6></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  id="form5"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="Username"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+              <div class="col-6">
+                <input
+                  id="form6"
+                  class="form-control"
+                  type="text"
+                  name="name"
+                  placeholder="john@mymail.com"
+                />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <br />
+            <h4>Password</h4>
+            <div class="row">
+              <div class="col-6"><h6>Type Once</h6></div>
+              <div class="col-6"><h6>Re-Type</h6></div>
+            </div>
+            <div class="row">
+              <div class="col-6">
+                <input
+                  id="formPassword1"
+                  class="form-control"
+                  type="password"
+                  name="name"
+                  placeholder=""
+                />
+                <span class="input-group-addon"></span>
+              </div>
+              <div class="col-6">
+                <input
+                  id="formPassword2"
+                  class="form-control"
+                  type="password"
+                  name="name"
+                  placeholder=""
+                />
+                <span class="input-group-addon"></span>
+              </div>
+            </div>
+            <br />
+            <!-- this is the profile pic -->
+            <h4>Profile Image Upload</h4>
+            <div
+              class="form-group"
+              id="picture-form"
+              formtarget="/api/uploadfile"
+            >
+              <form
+                action="/api/uploadfile"
+                enctype="multipart/form-data"
+                method="POST"
+                id="upload-picture"
+                formtarget="/api/uploadfile"
+              >
+                <input type="file" name="myFile" id="survey-picture" />
+                <input type="submit" value="Upload Image" name="submit" />
+              </form>
+            </div>
+            <br />
+            <!-- Bio section -->
+            <h4>Bio</h4>
+            <textarea
+              id="form7"
+            
+              rows="4"
+              cols=""
+              placeholder="Write a brief bio about yourself."
+            >
+            </textarea>
+          </div>
+        </div>
+
+        <!-------- This will be where the sentiment survey will be -------------------------------------------------------------->
+        <div class="card surveyBlock" id="sentimentForm">
+          
+            <button type="button" id="submitButton">Submit</button>
+          </div>
+        </div>
+
+        <!-- ---------this is the end of the fluid container------------------------------------------------------------------------------------------------------------------------------ -->
+      </div>
+      <!-- end of wrapper -->
+    </div>
+    <footer>
+      <h4>Syndir &copy; 2019</h4>
+    </footer>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+    <script src="js/style.js"></script>
+    <script src="js/chat.js"></script>
+    <script src="js/main.js"></script>
+    <script>
+      //CANT CALL CLIENT SIDE NPM!!!
+
+      // Global Variable Declaration (scoping fix)
+      var allFieldsCompleted;
+
+      // this is the picture upload function
+      $("#picture-form").submit(function(event) {
+        event.preventDefault();
+
+        var data = new FormData();
+        $.each($("#survey-picture")[0].files, function(i, file) {
+          console.log("file", file);
+          data.append("file-" + i, file);
+        });
+
+        $.ajax({
+          url: "/api/uploadfile",
+          data: data,
+          cache: false,
+          contentType: false,
+          processData: false,
+          method: "POST",
+          type: "POST", // For jQuery < 1.9
+          success: function(data) {
+            console.log("success", data);
+          }
+        });
+      });
+
+      $(document).ready(function() {
+
+        // var main=require("./js/main.js");
+        var currentUser=getCurrentUserObj();
+        console.log(currentUser);
+
+        $("#form1").val()=currentUser.firstname;
+        $("#form2").val()=currentUser.lastname;
+        $("#form3").val()=currentUser.age;
+        $("#form4").val()=currentUser.locale;
+        $("#form5").val()=currentUser.screenname;
+        $("#form6").val()=currentUser.email;
+        $("#formPassword1").val()=currentUser.password;
+        $("#survey-picture").val()=currentUser.profilepic;
+        $("#form7").val()=currentUser.bio;
+
+
+
+        $("#submitButton").on("click", function(event) {
+
+
+
+          var textArr = [];
+
+
+          $(".sample").each(function(){
+            var tempString = $(this)
+              .val()
+              .trim();
+            if (tempString === "") {
+              tempString = "terrific";
+            }
+            textArr.push(tempString);
+
+          });
+
+
+          // console.log(textArr);
+
+          // var fname = textArr[0];
+          // var lname = textArr[1];
+          // if (textArr[2] === "terrific"||"") {
+          //   var age = 30;
+          // }
+          // // var age = textArr[2];
+          // var location = textArr[3];
+          // var uname = textArr[4];
+          // var email = textArr[5];
+          // var password = textArr[7];
+          // var userimage = textArr[8];
+          // var biotext = textArr[9];
+          var pwd= function validatePassword(){            
+            var fp1=$("#formPassword1").val().trim();
+            var fp2=$("#formPassword2").val().trim();
+          if(fp1===fp2){
+           var pword=$("#formPassword2").val().trim(); 
+          return pword;
+          }else{
+            alert("Passwords must match.");
+            return;
+          }          
+          }
+
+         var firstname= $("#form1").val().trim();
+          var  lastname= $("#form2").val().trim();
+           var age= $("#form3").val().trim();
+           var locale= $("#form4").val().trim();
+           var screenname= $("#form5").val().trim();
+           var email= $("#form6").val().trim();
+          var password=pwd;
+           var profilepic= $("#survey-picture").val().trim();
+           var bio= $("#form7").val().trim();
+            var userSample= textArr;
+
+          var newUser = {
+            firstname: firstname,
+            lastname: lastname,
+            age: age,
+            locale: locale,
+            screenname: screenname,
+            email: email,
+            password:password,
+            // profilepic: profilepic,
+            bio: bio,
+            userSample: userSample
+          };
+
+          var dummyUser={
+            firstname: "John",
+            lastname: "Smith",
+            age: 30,
+            locale: "Richmond",
+            screenname: "username345",
+            email: "yeemail@yeemail.com",
+            password: "secret",
+            bio: "Stuff, stuff, stuff.",
+            userSample:textArr,
+
+          }
+
+          if(validateForm())
+          {
+            user=newUser;
+          }
+          else{
+            user=dummyUser;
+          }
+
+
+          $.ajax({
+            method: "POST",
+            url: "/api/users",
+            data: user
+          }).then(function(data) {
+            console.log(data);
+            alert("Adding user...");
+            //redirect to profile
+            //how to make sure correct user is displayed?
+
+            // // Grab the result from the AJAX post so that the best match's name and photo are displayed.
+            // $("#matchName").text(data.name);
+            //          $('#matchImg').attr("src", data.photo);
+            //          // Show the modal with the best match
+            //          $("#resultsModal").modal('toggle');
+          });
+
+          //empties fields after submission
+          $(".form-control").each(function() {
+            $(this).val("");
+          });
+
+          //redirect to profile page
+          //JAVASCRITP IS ASYNCRHOINUOUS
+          //  window.location= "profilePage.html";
+        });
+      });
+
+      // Form validation
+      function validateForm() {
+        var isValid = true;
+        $(".form-control").each(function() {
+          if ($(this).val() === "") {isValid = false};
+        });
+
+        return isValid;
+      }
+    </script>
+
+  </body>
+</html>
+

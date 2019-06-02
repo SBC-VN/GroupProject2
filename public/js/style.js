@@ -98,7 +98,7 @@ function updateUserProfile(userInfo) {
       `<h4>Bio: ${profileBio}</h4>
         <p></p>`
     );
-});
+};
 
 // this function will update the matches
 function updateMatches() {}
