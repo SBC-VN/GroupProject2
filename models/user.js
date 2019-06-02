@@ -35,7 +35,10 @@ module.exports = function(sequelize, DataTypes) {
           allowNull: false,
           defaultValue: 0,
         },
-       
+       matches:
+       {
+         type:DataTypes.JSON,
+       },
         email: 
           { type: DataTypes.STRING,
             allowNull: false,

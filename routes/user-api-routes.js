@@ -7,12 +7,11 @@ var path = require('path');
 module.exports = function(app) {
   
   app.get("/api/users", function(req, res) {
-
     db.user.findAll({}).then(function(dbUsers) {
       //initialize scores
       
       // console.log({dbUsers});
-      mLogic.populateScores(dbUsers);
+      // mLogic.populateScores();
 
       for (var x=0;x<dbUsers.length;x++) {
         mLogic.matchUser(dbUsers[x]);

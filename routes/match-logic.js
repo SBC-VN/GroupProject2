@@ -30,7 +30,7 @@ function createMatchObj(user1,user2){
 
 
 function matchUser(theUser){
-
+  populateScores();
   console.log(
     "First Name: "+theUser.firstname +   " ".repeat(colSpacer(theUser.firstname))  + " Score:" + theUser.sentimentScore
   ); //+"\n")
@@ -59,15 +59,22 @@ function matchUser(theUser){
 
 
 
-function populateScores(dbUsers) 
+function populateScores() 
 {
-users=dbUsers; 
-friendScores=[];
-  for (var x=0;x<dbUsers.length;x++) 
-  {
-    // console.log(dbUsers[x].score);
-  friendScores.push(dbUsers[x].sentimentScore);
-  }
+      //HAVE TO POPULATE SCORES IN MEMORY TO MATCH
+      db.user.findAll({}).then(function(dbUsers) {
+        //initialize scores
+        users=dbUsers; 
+        friendScores=[];
+          for (var x=0;x<dbUsers.length;x++) 
+          {
+            // console.log(dbUsers[x].score);
+          friendScores.push(dbUsers[x].sentimentScore);
+          }        
+
+      });
+  
+
 }
 
 function calculateMatches(newfriend) {
