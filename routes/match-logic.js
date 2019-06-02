@@ -64,8 +64,8 @@ function populateScores()
       //HAVE TO POPULATE SCORES IN MEMORY TO MATCH
       db.user.findAll({}).then(function(dbUsers) {
         //initialize scores
-        users=dbUsers; 
-        friendScores=[];
+        // users=dbUsers; 
+        // friendScores=[];
           for (var x=0;x<dbUsers.length;x++) 
           {
             // console.log(dbUsers[x].score);
