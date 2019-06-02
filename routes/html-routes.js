@@ -14,13 +14,19 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
+  // profpage brings up the profile page.
   app.get("/profpage", function(req, res) {
     res.sendFile(path.join(__dirname, "../private/profilePage.html"));
   });
 
-  app.get("/matches", function(req, res) {
+  //
+  // Note this route is the route that gets fired when requesting the 'matches' html page.
+  //   The page is generated using handlebars - based on data that we retrieve from the
+  //   database (by this api).
+  //
+  app.get("/matches/:id", function(req, res) {
     console.log("/matches");
-    var myId = 1;
+    var myId = req.params.id;
     db.match.findAll({
                       where: {
                         user1: myId},
@@ -33,7 +39,6 @@ module.exports = function(app) {
         var matchDataArray = [];
         var matchData;
         dbMatches.forEach(element => {
-          //console.log(element.dataValues);
           matchData = new Object;
           matchData.id = element.dataValues.id;
           matchData.userid = element.dataValues.user2;
@@ -42,22 +47,13 @@ module.exports = function(app) {
               matchData[fieldName] = element.dataValues.userInfo2.dataValues[fieldName];
             }
           }
-          //console.log(element.dataValues.userInfo2.dataValues);
-          //console.log(Object.keys(element.dataValues.userInfo2.dataValues));
-          // matchData.firstname = element.dataValues.userInfo2.dataValues.firstname;
-          // matchData.screenname = element.dataValues.userInfo2.dataValues.screenname;
-          // matchData.age = element.dataValues.userInfo2.dataValues.age;
-          // matchData.location = element.dataValues.userInfo2.dataValues.location;
-          // matchData.profilepic = element.dataValues.userInfo2.dataValues.profilepic;
           matchDataArray.push(matchData);
         });
 
-        console.log("Records found",matchDataArray);
-        var hbsObject = {
-          matches: matchDataArray
-          };
-      //console.log(hbsObject);
-      res.render("matches", hbsObject);
+        //  Now tell handlebars to render the records by passing it an object with the 
+        //  match property (required by the coded format, not by handelbars library) and
+        //  the array of data objects.
+        res.render("matches", {matches: matchDataArray });
     });
   });
 };
