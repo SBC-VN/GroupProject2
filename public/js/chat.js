@@ -76,6 +76,9 @@ function dumpMsgData(data)
 
 // Update the firebase to set all the 'viewed' flags to false for the user's messages.
 function markMsgsRead(sendUser) {
+    if (sendUser == null || sendUser == undefined || msgs == null) {
+        return;
+    }
     // Grab the messages.   Note that the chatMsg object will change as we
     //  update things here.  The 'msgs' object will stay the same.
     var msgs = chatMsg[sendUser];
@@ -93,6 +96,39 @@ function markMsgsRead(sendUser) {
 // Function that either displays an indicator that there are messages waiting
 //  or actually displays the message.
 function postMessage(msgData) {
+    var chatBlock = $("#chatMSG");
+    var currentChatUser = chatBlock.attr("chat-with-name");
+    //chatAlert<ScreenName>
+
+    // Check if there are any unread messages for the user.
+    for (sendUser of Object.keys(msgData)) {
+        var msgs = msgData[sendUser];
+        var unread = false;
+        for (msgId of Object.keys(msgs)) {
+            if (msgs[msgId].viewed != true) {
+                unread = true;
+                break;
+            }
+        }
+
+        if (currentChatUser == sendUser) {
+            if (unread) {
+                markMsgsRead(sendUser);  // This will initiate a display of the messages.
+            }
+        }
+        else 
+        {
+            var indicator = $("#chatAlert"+sendUser);
+            if (indicator) {
+                if (unread) {
+                    indicator.css("visibility", "visible");
+                }
+                else {
+                    indicator.css("visibility", "hidden");
+                }
+            }
+        }
+    }
 }
 
 // Set it up so that all the chats for the user fire a callback.
@@ -112,7 +148,7 @@ function setupChatRef() {
 
 function sendChatMessage(sender,reciever,message) {
     var msgObject = {date:moment().format("l LTS"),viewed:false,from:sender,to:reciever,msg:message};
- 
+    console.log("Chat reference","/chats/" + reciever + "/" + sender);
     var chatMsgDbRef = database.ref("/chats/" + reciever + "/" + sender);
     chatMsgDbRef.push(msgObject);
     var chatMsgDbRef = database.ref("/chats/" + sender + "/" + reciever);
@@ -125,18 +161,36 @@ $(".bio-match-chat").on("click",function(event) {
     var brk = divId.indexOf('-');
     var sendUser = divId.substring(brk+1);
     console.log("display chats from",sendUser);
+    markMsgsRead(sendUser);  // This will cause a recursion...
 
     var chatBlock = $("#chatMSG");
-    chatBlock.empty();
+    console.log("empty block");
+    $("#chatMSG").empty();
+    chatBlock.attr("chat-with-name",sendUser);
+    $("#chatInputText").attr("chat-with-name",sendUser);
 
-    // Loop through the messages.  Extract the message data.
-    for (sendUser of Object.keys(chatMsg)) {
-        var msgs = data[sendUser];
-        for (msgId of Object.keys(msgs)) {
-            var msgData = msgs[msgId];
-            var msgStr = "[" + msgData.date + "] " + msgData.msg;
-            //if (msgData.viewed)
-            chatBlock.append(msgStr);
+    if (chatMsg != null) {
+
+        // Loop through the messages.  Extract the message data.
+        for (sendUser of Object.keys(chatMsg)) {
+            console.log(sendUser);
+            var msgs = chatMsg[sendUser];
+            for (msgId of Object.keys(msgs)) {
+                var msgData = msgs[msgId];
+                var msgStr = "[" + msgData.date + "] " + msgData.msg;
+                //if (msgData.viewed)
+                chatBlock.append(msgStr);
+            }
         }
-    }     
+    }
+});
+
+$("#chatSendBtn").on("click",function(event) {
+    var chatTextField = $("#chatInputText");
+    var otherUser = chatTextField.attr("chat-with-name");
+    if (otherUser == null || otherUser == undefined) {
+        return;
+    }
+    console.log(chatTextField.val());
+    sendChatMessage(userScreenName,otherUser,chatTextField.val());
 });

@@ -81,7 +81,39 @@ function signinCheck(buttonCheck) {
 }
 
 // This function will pull data and populate their profile page
+<<<<<<< HEAD
+// function updateUserProfile(
+//   profilePic,
+//   profileSentScore,
+//   profileFirstName,
+//   profileAge,
+//   profileLocation
+// ) 
+$.ajax("/api/users/" + email, {
+  type: "POST",
+  data: { 
+    password : password,
+    profilePic: profilepic,
+    profileSentScore: score,
+    profileFirstName: firstname,
+    profileAge: age,
+    profileLocation: locale,
+   }
+  }).then(
+    // This function will pull data and populate their profile page
+  function 
+    updateUserProfile
+    (
+    profilePic,
+    profileSentScore,
+    profileFirstName,
+    profileAge,
+    profileLocation
+  ) 
+{
+=======
 function updateUserProfile(userInfo) {
+>>>>>>> ffa05b83e9183eed375a91c2e7ded4e739d8bc58
   console.log("updateUserProfile");
   $("#profilePic").attr({ src: userInfo.profilePic, alt: "User Profile" });
   $("#profilePicContainer").attr({ "data-text": userInfo.sentimentScore });
@@ -98,7 +130,7 @@ function updateUserProfile(userInfo) {
       `<h4>Bio: ${profileBio}</h4>
         <p></p>`
     );
-}
+});
 
 // this function will update the matches
 function updateMatches() {}
@@ -108,6 +140,16 @@ function createMatchBox() {}
 
 // declaring functions
 
+<<<<<<< HEAD
+// updateUserProfile(
+//   profilePic,
+//   profileSentScore,
+//   profileFirstName,
+//   profileAge,
+//   profileLocation
+// );
+signinCheck(signedIn);
+=======
 updateUserProfile(
   profilePic,
   profileSentScore,
@@ -116,3 +158,4 @@ updateUserProfile(
   profileLocation
 );
 signinCheck(buttonCheck);
+>>>>>>> ffa05b83e9183eed375a91c2e7ded4e739d8bc58
