@@ -1,3 +1,10 @@
+// The 'user' table contains information specific to a user.
+// Each record represents a single user.   We don't want duplicate records for the
+// same user, so users are tied to 'email' addresses (which are therefore unique as
+// only one user can have the email address.   Likewise screen names are also 
+// tied to specific users - two users cannot have the same screen name and therefore
+// they are unique as well.
+
 module.exports = function(sequelize, DataTypes) {
     var user = sequelize.define("user", {
       // Information about the user.
@@ -21,7 +28,9 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
               len: [6]
               },
-            // unique: true
+            // Screen name must be unique in the database.  If you do not understand why,
+            // close this file and back away from the data model.
+            unique: true
           },
         password:  
           { type: DataTypes.STRING,
@@ -42,7 +51,9 @@ module.exports = function(sequelize, DataTypes) {
             validate: {
               len: [6]
               },
-            // unique: true
+            // eMail must be unique in the database.  If you do not understand why,
+            // close this file and back away from the data model.
+            unique: true
           }, 
         age: 
           { type: DataTypes.INTEGER,
@@ -54,28 +65,25 @@ module.exports = function(sequelize, DataTypes) {
           },
         locale: 
           { type: DataTypes.STRING,
-            allowNull: true,
-            // validate: {
-            //   len: [6]
-            //   },
+            allowNull: false,        // People should not register with no location.
           },
         profilepic: 
           { type: DataTypes.STRING,
-            allowNull: true
+            allowNull: true          // Profile pics are added a bit differently.
           },
           bio: 
           { type: DataTypes.STRING,
-            allowNull: true
+            allowNull: false          // A user should say at least *a little* about themselves.
           },
         createdAt:
           {
             type: DataTypes.DATE,
-            allowNull:true
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP'),
           },
         updatedAt:
           {
             type: DataTypes.DATE,
-            allowNull:true
+            defaultValue: sequelize.literal('CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP')
           }
       });
  

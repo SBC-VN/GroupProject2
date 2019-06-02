@@ -141,7 +141,7 @@ function setupChatRef() {
             //  so initial connect and any subsequent change.
             chatMsg = snap.val(); 
             postMessage(chatMsg);
-            dumpMsgData(chatMsg);
+            //dumpMsgData(chatMsg);
         }
     });
 }

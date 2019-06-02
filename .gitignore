@@ -68,3 +68,4 @@ b.sh
 /b.sh
 /public/.DS_Store
 /package-lock.json
+*.bak
