@@ -98,10 +98,13 @@ function markMsgsRead(sendUser) {
 function postMessage(msgData) {
     var chatBlock = $("#chatMSG");
     var currentChatUser = chatBlock.attr("chat-with-name");
+    console.log('currentChatUser',currentChatUser);
     //chatAlert<ScreenName>
 
     // Check if there are any unread messages for the user.
     for (sendUser of Object.keys(msgData)) {
+        console.log("Send User",sendUser);
+
         var msgs = msgData[sendUser];
         var unread = false;
         for (msgId of Object.keys(msgs)) {
@@ -141,7 +144,7 @@ function setupChatRef() {
             //  so initial connect and any subsequent change.
             chatMsg = snap.val(); 
             postMessage(chatMsg);
-            dumpMsgData(chatMsg);
+            //dumpMsgData(chatMsg);
         }
     });
 }
@@ -170,16 +173,17 @@ $(".bio-match-chat").on("click",function(event) {
     $("#chatInputText").attr("chat-with-name",sendUser);
 
     if (chatMsg != null) {
-
-        // Loop through the messages.  Extract the message data.
-        for (sendUser of Object.keys(chatMsg)) {
-            console.log(sendUser);
-            var msgs = chatMsg[sendUser];
+        var msgs = chatMsg[sendUser];
+        if (msgs != null) {
             for (msgId of Object.keys(msgs)) {
                 var msgData = msgs[msgId];
+                var msgP = $("<p>");     
+                if (msgData.viewed) {
+                    msgP.attr("css","font-weight: bold");
+                }
                 var msgStr = "[" + msgData.date + "] " + msgData.msg;
-                //if (msgData.viewed)
-                chatBlock.append(msgStr);
+                msgP.append(msgStr);
+                chatBlock.append(msgP);
             }
         }
     }
