@@ -13,10 +13,9 @@ module.exports = function(app) {
   // This should prevent a random user from navigating to /public/images and see ALL
   // the profile pictures.
   app.get("/api/users/profilepic/:fileid", function(req, res) {
-    console.log("get picture API call");
     var fname = "../private/profpics/" + req.params.fileid;
     var fpath = path.join(__dirname,fname);
-    console.log(fpath);
+    //console.log(fpath);
     res.sendFile(fpath);
   });
 
@@ -25,7 +24,7 @@ module.exports = function(app) {
     var form = new formidable.IncomingForm();
     form.parse(req);
 
-    console.log(__dirname + '/../private/profpics/');
+    //console.log(__dirname + '/../private/profpics/');
     form.on('fileBegin', function (name, file){
         file.path = __dirname + '/../private/profpics/' + file.name;
     });
