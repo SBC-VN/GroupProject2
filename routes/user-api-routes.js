@@ -47,19 +47,24 @@ module.exports = function(app) {
 
   // Create / update user.
   app.post("/api/users", function(req, res) {
-    var newUser=req.body;
-    console.log('User Info',newUser);
-    return;
-    //call sentiment on userSample
-    //newUser.sentimentScore=scoreCalculator.scoreSample(req.body.userSample);
-    
-    db.user.create(newUser).then(function(dbUser) {
+    console.log(" ");
+    console.log("add/update user");
+
+    var userInfo=req.body;
+
+    var surveyAnswers=userInfo.surveyAnswers;
+    if (surveyAnswers != null && surveyAnswers != undefined) {
+      delete userInfo.surveyAnswers;
+      userInfo.sentimentScore=scoreCalculator.scoreSample(surveyAnswers);
+    }
+   
+    db.user.create(userInfo).then(function(dbUser) {
       console.log("Added user to database");
       // call routine to generate user's matches.
       // generateMatches(newUser);
       res.json(dbUser);
     }).catch(function (errors) {
-      console.log("Error on user insert");
+      console.log("Error on user insert",errors);
       res.status(411);
       var errtxt = [];
       for (var i=0; i<errors.length; i++) {
