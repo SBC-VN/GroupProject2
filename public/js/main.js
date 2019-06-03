@@ -40,20 +40,21 @@ $(".modal").on("click", "button", function(event) {
 
 function getCurrentUserObj(){
 
-  var currUser = {
-    firstname: userInfo.firstname,
-    lastname: userInfo.lastname,
-    age: userInfo.age,
-    locale: userInfo.locale,
-    screenname: userInfo.screenname,
-    email: userInfo.email,
-    // password: password,
-    profilepic: userInfo.profilepic,
-    bio: userInfo.bio,
-    userSample: userInfo.userSample,
-    sentimentScore:userInfo.sentimentScore,
-    matches:userInfo.matches
-  };
+  var currUser = JSON.parse(JSON.stringify(userInfo));
+  // var currUser = {
+  //   firstname: userInfo.firstname,
+  //   lastname: userInfo.lastname,
+  //   age: userInfo.age,
+  //   locale: userInfo.locale,
+  //   screenname: userInfo.screenname,
+  //   email: userInfo.email,
+  //   // password: password,
+  //   profilepic: userInfo.profilepic,
+  //   bio: userInfo.bio,
+  //   userSample: userInfo.userSample,
+  //   sentimentScore:userInfo.sentimentScore,
+  //   matches:userInfo.matches
+  // };
 
   return currUser;
 }
