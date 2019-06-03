@@ -7,12 +7,11 @@ var path = require('path');
 
 module.exports = function(app) {
   
-  
+  // Just returns a simple list of matches for a user.
   app.get("/api/matches/:id", function(req, res) {
 
     db.match.findAll({
-      where: { user1: req.params.id },
-      include: [ {model: db.user, as: 'userInfo2'} ]      
+      where: { user1: req.params.id }  
     }).then(function(dbMatches) {
       res.json(dbMatches);
     });
@@ -33,18 +32,4 @@ module.exports = function(app) {
       res.json(dbMatch);
     });
   });
-
 };
-
-
-//*************************************************************************************************************** */
-        //   console.log(
-      //     "First Name: "+dbUsers[x].firstname +   " ".repeat(mLogic.colSpacer(dbUsers[x].firstname))  + " Score:" + dbUsers[x].sentimentScore
-      //   ); //+"\n")
-      //   var closeArr = mLogic.calculateMatches(dbUsers[x]);
-      //   var matches = mLogic.getMatches(closeArr);
-      //   // console.log(matches);
-      //   tempMatches = JSON.stringify(matches);
-      //   dbUsers[x].matches = JSON.parse(tempMatches);
-      //   // console.log(dbUsers[x].matches);
-      //   // dbUsers[x].matches=users[x].matches;
