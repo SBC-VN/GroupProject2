@@ -2,6 +2,7 @@ var db = require("../models");
 var path = require('path');
 
 scoreCalculator = require("../routes/score-logic.js");
+matchFinder = require("../routes/match-logic.js");
 
 module.exports = function(app) {
   
@@ -60,8 +61,8 @@ module.exports = function(app) {
    
     db.user.create(userInfo).then(function(dbUser) {
       console.log("Added user to database");
-      // call routine to generate user's matches.
-      // generateMatches(newUser);
+      // call routine to find user's matches.
+      matchFinder.findMatches(dbUser);
       res.json(dbUser);
     }).catch(function (errors) {
       console.log("Error on user insert",errors);

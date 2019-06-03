@@ -76,8 +76,25 @@ $(document).ready(function() {
         // use jquery to get them all and put them into an array.
         // Blank answers are... blank.
         $(".sample").each(function(){
-        userInfo.surveyAnswers.push($(this).val().trim());
+            userInfo.surveyAnswers.push($(this).val().trim());
         });
+
+        // Comment this out when live.
+        if (userInfo.firstname == "test") {
+            userindex = parseInt(userInfo.lastname);
+            userInfo.lastname = "user";
+            userInfo.password = "password" + userindex;
+            userInfo.screenname = "screenname" + userindex;
+            userInfo.email = "email" + userindex;
+            userInfo.profilepic = "bearhead.jpg";
+            userInfo.locale = "here";
+            userInfo.age = 33;
+            userInfo.bio = "Never argue with a fool.  They will pull you down to their level ";
+            userInfo.bio += "and beat you with experience.";
+            for (var i=0; i<10; i++) {
+                userInfo.surveyAnswers[i] = "terrific";
+            }
+        }
 
         console.log(userInfo);
 
