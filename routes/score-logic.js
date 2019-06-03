@@ -3,16 +3,15 @@
 var Sentiment = require('sentiment');
 var sentiment = new Sentiment();
 
-
 //pass in entire object or just sample
 
 function scoreSample(usersample){
   var scoreArr=[];
   var scoreTotal=0;
 
-          console.log("*".repeat(process.stdout.columns));
-        console.log("SENTIMENT SCORING ANALYSIS")
-        console.log("*".repeat(process.stdout.columns));
+  console.log("*".repeat(process.stdout.columns));
+  console.log("SENTIMENT SCORING ANALYSIS")
+  console.log("*".repeat(process.stdout.columns));
 
   for(var x=0;x<usersample.length;x++)
     {

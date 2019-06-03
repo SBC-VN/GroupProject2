@@ -1,6 +1,8 @@
 var db = require("../models");
 var path = require('path');
 
+scoreCalculator = require("../routes/score-logic.js");
+
 module.exports = function(app) {
   
   // Returns the profile picture - when given the 'correct' file name (id) - from 
@@ -15,7 +17,10 @@ module.exports = function(app) {
     res.sendFile(fpath);
   });
 
-app.put("/api/login/:email", function(req, res) {
+  //
+  //  Login user - returns user information in structure.  Login is by email address + password.
+  //
+  app.put("/api/login/:email", function(req, res) {
     console.log("login api called");
     db.user.findOne({
       where: {
@@ -40,23 +45,13 @@ app.put("/api/login/:email", function(req, res) {
     });
   });
 
-  app.get("/api/user/:id", function(req, res) {
-    db.user.findOne({
-      where: {
-        id: req.params.id
-      },
-      include: [db.Match]
-    }).then(function(dbUser) {
-      dbUser.password = "****";
-      res.json(dbUser);
-    });
-  });
-
+  // Create / update user.
   app.post("/api/users", function(req, res) {
-    console.log(req.body);
     var newUser=req.body;
+    console.log('User Info',newUser);
+    return;
     //call sentiment on userSample
-    //newUser.sentimentScore=sLogic.scoreSample(req.body.userSample);
+    //newUser.sentimentScore=scoreCalculator.scoreSample(req.body.userSample);
     
     db.user.create(newUser).then(function(dbUser) {
       console.log("Added user to database");
