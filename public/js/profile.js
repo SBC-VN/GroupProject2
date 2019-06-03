@@ -16,7 +16,7 @@ $("#form-picture").submit(function(event) {
     });
 
     $.ajax({
-        url: "/api/uploadfile",
+        url: "/api/users/uploadprofilepic",
         data: data,
         cache: false,
         contentType: false,
@@ -67,7 +67,16 @@ $(document).ready(function() {
         userInfo.bio = $("#form-bio").val().trim();
     
         userInfo.password = $("#formPassword1").val().trim();
-        userInfo.profilepic = $("#survey-picture").val().trim();
+        var uploadFilePath = $("#survey-picture").val().trim();
+        if (uploadFilePath != null && uploadFilePath != undefined) {
+            var pathEnd = uploadFilePath.lastIndexOf('\\');
+            if (pathEnd > 0) {
+                userInfo.profilepic = uploadFilePath.substring(pathEnd,uploadFilePath.length);
+            }
+            else {
+                userInfo.profilepic = uploadFilePath;
+            }
+        }
         userInfo.sentimentScore = 0;   // Calculated on the back side.
         
         userInfo.surveyAnswers = []

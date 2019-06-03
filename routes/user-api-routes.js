@@ -1,5 +1,7 @@
 var db = require("../models");
 var path = require('path');
+var fs = require("fs");
+var formidable = require('formidable');
 
 scoreCalculator = require("../routes/score-logic.js");
 matchFinder = require("../routes/match-logic.js");
@@ -18,6 +20,22 @@ module.exports = function(app) {
     res.sendFile(fpath);
   });
 
+  // API to upload the profile picture.
+  app.post('/api/users/uploadprofilepic', function(req,res) {
+    var form = new formidable.IncomingForm();
+    form.parse(req);
+
+    console.log(__dirname + '/../private/profpics/');
+    form.on('fileBegin', function (name, file){
+        file.path = __dirname + '/../private/profpics/' + file.name;
+    });
+
+    form.on('file', function (name, file){
+        console.log('Uploaded ' + file.name);
+    });
+
+    res.status(200);
+});
   //
   //  Login user - returns user information in structure.  Login is by email address + password.
   //
