@@ -80,4 +80,16 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/img/icons/" + imgName));
   });
 
+  app.get("/chatconfig", function(req, res) {
+    var firebaseConfig = {
+      apiKey: process.env.FIREBASE_APIKEY,
+      authDomain: "synderchat.firebaseapp.com",
+      databaseURL: "https://synderchat.firebaseio.com",
+      projectId: "synderchat",
+      storageBucket: "synderchat.appspot.com",
+      messagingSenderId: process.env.FIREBASE_SENDERID,
+      appId: process.env.FIREBASE_APPID
+    };
+    res.json(firebaseConfig);
+  });
 };
