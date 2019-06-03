@@ -1,40 +1,35 @@
 var userScreenName = null;
 var chatMsg = {};
 var chatcount = 1;
-
-var firebaseConfig = {
-    apiKey: "AIzaSyCtZ6hS0x98LSuVmiUiCqfqWAXOalgXRec",
-    authDomain: "synderchat.firebaseapp.com",
-    databaseURL: "https://synderchat.firebaseio.com",
-    projectId: "synderchat",
-    storageBucket: "synderchat.appspot.com",
-    messagingSenderId: "486622634071",
-    appId: "1:486622634071:web:7b8197cc3bb0d255"
-  };
-
-firebase.initializeApp(firebaseConfig);
-
-// Create a variable to reference the database.
-var database = firebase.database();
-
-var dbIsConnected = database.ref(".info/connected");
-var dbRefUsersList = database.ref("/users");
+var database = null;
+var dbIsConnected = null;
+var dbRefUsersList = null;
 var dbConnectionObject = null;
 var dbRefUserChats = null;
 
-// Connect to the firebase object and set the 'presence' object.
-dbIsConnected.on("value", function(snap) {
-    if (snap.val()) {
-        userScreenName=localStorage.getItem("user-screenname");
-        if (userScreenName != null) {
-            dbConnectionObject = dbRefUsersList.push(userScreenName);
-            setupChatRef();            
+// To hide the firebase config, we get it from the back end using an ajax call.
+// All the rest of the database setup has to be done after we have the init infor,
+// so needs to be done in the context of the successful return.
+
+$.getJSON("/chatconfig", function(firebaseConfig) {
+    firebase.initializeApp(firebaseConfig);
+    database = firebase.database();
+    dbIsConnected = database.ref(".info/connected");
+    dbRefUsersList = database.ref("/users");
+    // Connect to the firebase object and set the 'presence' object.
+    dbIsConnected.on("value", function(snap) {
+        if (snap.val()) {
+            userScreenName=localStorage.getItem("user-screenname");
+            if (userScreenName != null) {
+                dbConnectionObject = dbRefUsersList.push(userScreenName);
+                setupChatRef();            
+            }
+            else {
+                dbConnectionObject = dbRefUsersList.push("temp-name");
+            }
+            dbConnectionObject.onDisconnect().remove();
         }
-        else {
-            dbConnectionObject = dbRefUsersList.push("temp-name");
-        }
-        dbConnectionObject.onDisconnect().remove();
-    }
+    });
 });
 
 // screenName variable is defined in main.js

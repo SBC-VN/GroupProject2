@@ -24,6 +24,8 @@ $(".modal").on("click", "button", function(event) {
         // Reload the page to get the updated list
         // 5/24 VN - Don't reload.  This resets connection to firebase.
         //location.reload();
+        // 6/3 VN - take the user directly to the matches screen.
+        window.location.replace("/matches/" + res.id);
 
       })
       .catch(function(res, info, code) {
