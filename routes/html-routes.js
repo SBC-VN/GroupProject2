@@ -14,9 +14,15 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/index.html"));
   });
 
-  // profpage brings up the profile page.
-  app.get("/profpage", function(req, res) {
-    res.sendFile(path.join(__dirname, "../private/profilePage.html"));
+  // a get signUp brings a user to the new signup screen..
+  app.get("/signup", function(req, res) {
+    res.sendFile(path.join(__dirname, "../private/signup.html"));
+  });
+
+  // a put signup brings the user to an 'edit the data' page.
+  app.put("/signup", function(req, res) {
+    var userInfo=req.body;
+    res.sendFile(path.join(__dirname, "../private/signup.html"));
   });
 
   //
@@ -56,4 +62,22 @@ module.exports = function(app) {
         res.render("matches", {matches: matchDataArray });
     });
   });
+
+  app.get("/matches/js/main.js", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/js/main.js"));
+  });
+
+  app.get("/matches/js/chat.js", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/js/chat.js"));
+  });
+
+  app.get("/matches/js/style.js", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/js/style.js"));
+  });
+
+  app.get("/matches/img/icons/:imgname", function(req, res) {
+    var imgName = req.params.imgname;
+    res.sendFile(path.join(__dirname, "../public/img/icons/" + imgName));
+  });
+
 };

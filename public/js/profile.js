@@ -114,8 +114,11 @@ $(document).ready(function() {
                 data: userInfo
               }).then(function(data) {
                 console.log(data);
-                alert("Adding user...");
+                // 6/3 VN - take the user directly to the matches screen.
+                window.location.replace("/matches/" + data.id);
                 });
+
+
 
     //empties fields after submission
         $(".form-control").each(function() {

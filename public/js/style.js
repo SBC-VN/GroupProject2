@@ -37,7 +37,7 @@ function signinCheck(buttonCheck) {
               id="loginButton">
               Login
             </button>
-            <a href= "signup.html"><button type="button" class="hot"
+            <a href= "signup"><button type="button" class="hot"
               id="signUpButton">Sign-Up</button></a>
           </div>`
       );
