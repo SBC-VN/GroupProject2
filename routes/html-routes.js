@@ -20,9 +20,13 @@ module.exports = function(app) {
   });
 
   // a put signup brings the user to an 'edit the data' page.
-  app.put("/signup", function(req, res) {
-    var userInfo=req.body;
-    res.sendFile(path.join(__dirname, "../private/signup.html"));
+  app.get("/profile/:id", function(req, res) {
+    var myId = req.params.id;
+    db.user.findAll({
+        where: {id: myId}
+      }).then(function(dbMatches) {
+          res.render("profile", dbMatches[0].dataValues);
+        });
   });
 
   //
@@ -63,6 +67,7 @@ module.exports = function(app) {
     });
   });
 
+  // Routes to get things that the matches page needs.
   app.get("/matches/js/main.js", function(req, res) {
     res.sendFile(path.join(__dirname, "../public/js/main.js"));
   });
@@ -80,6 +85,27 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/img/icons/" + imgName));
   });
 
+  // Routes to get the things that the profile page needs.
+  app.get("/profile/js/main.js", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/js/main.js"));
+  });
+
+  app.get("/profile/js/chat.js", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/js/chat.js"));
+  });
+
+  app.get("/profile/js/style.js", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/js/style.js"));
+  });
+
+  app.get("/profile/img/icons/:imgname", function(req, res) {
+    var imgName = req.params.imgname;
+    res.sendFile(path.join(__dirname, "../public/img/icons/" + imgName));
+  });
+
+  // Route to get the firebase config from the backend to the front end
+  //  This allows us to use an environment variable to get the data, so it isn't
+  //  stored in the open.
   app.get("/chatconfig", function(req, res) {
     var firebaseConfig = {
       apiKey: process.env.FIREBASE_APIKEY,
