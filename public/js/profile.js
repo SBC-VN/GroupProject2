@@ -137,6 +137,9 @@ function validateForm() {
     return isValid;
 }
 
+
+
+// Validation begins here
 $(function () {
     // these are the hidden error messages
     $("#firstname-error").hide();
