@@ -289,12 +289,12 @@ $(function () {
         var password2 = $("#formPassword2").val();
 
 
-        if (password1 != password2) {
+        if (password2 != password1) {
             $("#formPassword2-error").html("*Passwords do NOT match.");
             $("#formPassword2-error").show();
             error_password2 = true;
         } else {
-            ("#formPassword2-error").hide();
+            $("#formPassword2-error").hide();
         }
     }
 
