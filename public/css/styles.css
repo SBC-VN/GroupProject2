@@ -36,6 +36,12 @@ a:link {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
+.hot {
+  color: #ff670f;
+}
+>>>>>>> 1387bc9208f556473745598d57b181c899037c7f
 
 /* -----scrollbar ----------------------------------------------------------*/
 body::-webkit-scrollbar {
@@ -142,60 +148,69 @@ header h1 {
 
 #showcaseCard1 {
   background: url(../img/friends1.jpg);
-  background-size: 400px auto;
+  background-size: 800px auto;
   background-position: 0;
   background-repeat: none;
   margin: 15px;
-  width: 250px;
-  height: 250px;
+  width: 350px;
+  height: 420px;
   border-radius: 1.5em;
 }
 
 #showcaseCard1 h2 {
   color: white;
+  font-size: 45px;
   font-weight: bolder;
   text-shadow: 2px 2px 4px #030303;
 }
 
 #showcaseCard1 p {
-  font-size: 20px;
+  font-size: 24px;
   color: white;
   position: relative;
-  width: 250px;
+  width: 350px;
+  height: 35px;
   right: 21px;
   padding-left: 5px;
-  top: 100px;
+  top: 270px;
   background: linear-gradient(-90deg, rgb(1, 1, 1), #ff670f);
 }
 
-#showcaseCard2 {
+#sign-up-on-screen-link {
+  margin-top: 20px;
+  text-align: center;
+ 
+}
+
+#sign-up-card {
+  display: inline-block;
   background: url(../img/friends4.jpg);
-  background-size: 400px auto;
-  background-position: -65px;
+  background-size: 300px auto;
+  background-position: 0;
   background-repeat: none;
   margin: 15px;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 150px;
   border-radius: 1.5em;
 }
-#showcaseCard2 h2 {
-  color: rgb(224, 222, 218);
-  font-weight: bolder;
-  text-shadow: 2px 2px 2px #030303;
-  stroke: 1px;
+
+#sign-up-card:hover {
+  opacity: 0.5;
 }
 
-#showcaseCard2 p {
-  font-size: 20px;
-  color: white;
+#sign-up-card-text {
   position: relative;
-  width: 250px;
-  right: 21px;
-  padding-left: 5px;
+  text-decoration: none;
   top: 100px;
+  color: white;
   background: linear-gradient(-90deg, rgb(1, 1, 1), #ff670f);
+  text-align: center;
+  padding-bottom: 3px;
 }
+
 .text {
+  width: 70%;
+  word-wrap: break-word;
   color: rgb(204, 191, 191);
   mix-blend-mode: difference;
 }
@@ -383,6 +398,10 @@ header h1 {
   margin-bottom: 25px;
 }
 
+.error-form {
+  color: red;
+  font-size: 14px;
+}
 /* #upload-picture {
   background-color: #ff9345;
   border: none;
@@ -489,8 +508,10 @@ textarea {
 }
 
 #matchColumn {
-  margin: 0;
+  margin-bottom: 0;
   background: black;
+  height: 80%;
+  padding: 0;
 }
 
 #matchPostContainer {
@@ -500,9 +521,9 @@ textarea {
 }
 
 #matchPost {
-  margin: 0;
+  margin-bottom: 0;
   background: rgb(0, 0, 0);
-  max-height: 80%;
+  max-height: 100%;
   overflow-x: hidden;
   overflow-y: scroll;
 }
@@ -539,7 +560,6 @@ textarea {
 }
 
 .matchPicContainer::after {
-  content: "yoooo";
   font-size: 1em;
   position: absolute;
   left: 0;
@@ -627,6 +647,8 @@ textarea {
   decoration: none;
 }
 
+
+/* -------------------------chat page----------------------------- */
 #chatCard {
   width: 100%;
   background: rgb(192, 185, 185);
@@ -688,30 +710,30 @@ textarea {
 #chatAlert {
   margin-top: 0;
 }
-/* -------------------------chat page----------------------------- */
 
-#chat-container {
-  min-width: 90%;
-  min-height: 500px;
-  background: rgb(194, 194, 194);
-  border-radius: 5px;
+#chatMSG {
+  margin: 0;
+  max-height: 80%;
+
+}
+#chatMSGContainer {
+  height: 500px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+
+
 }
 
-#chat-header {
-  text-align: center;
-  margin: 10px;
+#chatMSGContainer::-webkit-scrollbar {
+  width: 1em;
+  background-color: #ff670f;
 }
-
-#chat-mate {
-  margin: 10px;
+#chatMSGContainer::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+  background-color: #f5f5f5;
 }
-
-#chat-box {
-  margin: 10px;
-  min-width: 90%;
-  min-height: 500px;
-  background: rgb(255, 255, 255);
-  border-radius: 5px;
+#chatMSGContainer::-webkit-scrollbar-thumb {
+  background-color: #ff670f;
 }
 
 /* Contains the profile picture */
