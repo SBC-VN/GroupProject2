@@ -165,16 +165,17 @@ $(".bio-match-chat").on("click",function(event) {
     $("#chatInputText").attr("chat-with-name",sendUser);
 
     if (chatMsg != null) {
-
-        // Loop through the messages.  Extract the message data.
-        for (sendUser of Object.keys(chatMsg)) {
-            console.log(sendUser);
-            var msgs = chatMsg[sendUser];
+        var msgs = chatMsg[sendUser];
+        if (msgs != null) {
             for (msgId of Object.keys(msgs)) {
                 var msgData = msgs[msgId];
+                var msgP = $("<p>");     
+                if (msgData.viewed) {
+                    msgP.attr("css","font-weight: bold");
+                }
                 var msgStr = "[" + msgData.date + "] " + msgData.msg;
-                //if (msgData.viewed)
-                chatBlock.append(msgStr);
+                msgP.append(msgStr);
+                chatBlock.append(msgP);
             }
         }
     }
