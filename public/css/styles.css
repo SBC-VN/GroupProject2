@@ -36,9 +36,12 @@ a:link {
   text-decoration: none;
 }
 
+<<<<<<< HEAD
+=======
 .hot {
   color: #ff670f;
 }
+>>>>>>> 1387bc9208f556473745598d57b181c899037c7f
 
 /* -----scrollbar ----------------------------------------------------------*/
 body::-webkit-scrollbar {
@@ -224,8 +227,12 @@ header h1 {
   left: 400px;
 }
 
+.aboutModalHeading {
+  color: #ff670f;
+}
+
 .aboutModalContent {
-  background: linear-gradient(rgb(19, 18, 18), rgb(0, 0, 0));
+  background: linear-gradient( rgb(255, 255, 255), rgb(173, 169, 169));
 }
 
 .modal-header {
@@ -293,14 +300,17 @@ header h1 {
   top: 25px;
 }
 
-#poweredBy {
-  margin-top: 100px;
+.powerd-by-cards {
+  align-items: center;
+  justify-content: center;
+  
 }
 
 .poweredByCard {
   height: 150px;
   width: 150px;
-  margin: 15px;
+  margin-left: 45px;
+  margin-top: 15px;
 }
 
 #poweredByCard1 {
@@ -336,7 +346,31 @@ header h1 {
 }
 
 #poweredByCard5 {
-  background: url(../img/node-logo.png);
+  background: url(../img/node-js-2-1174936.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 150px auto;
+  background-position: 0;
+  background-repeat: none;
+}
+
+#poweredByCard6 {
+  background: url(../img/MySQL-Database-512.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 150px auto;
+  background-position: 0;
+  background-repeat: none;
+}
+
+#poweredByCard7 {
+  background: url(../img/firebase.png);
+  background-color: rgba(209, 203, 203, 0.205);
+  background-size: 150px auto;
+  background-position: 0;
+  background-repeat: none;
+}
+
+#poweredByCard8 {
+  background: url(../img/heroku.png);
   background-color: rgba(209, 203, 203, 0.205);
   background-size: 150px auto;
   background-position: 0;
