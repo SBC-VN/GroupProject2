@@ -16,7 +16,7 @@ body {
 }
 
 #pageContainer {
-  min-height: 90%;
+  min-height: 95%;
   padding-bottom: 10px;
 }
 
@@ -28,7 +28,7 @@ footer {
   height: 35px; /* Footer height */
   border-top: 10px solid;
   border-color: #ff670f;
-  height: 10%;
+  height: 5%;
   overflow: auto;
 }
 
@@ -36,12 +36,9 @@ a:link {
   text-decoration: none;
 }
 
-<<<<<<< HEAD
-=======
 .hot {
   color: #ff670f;
 }
->>>>>>> 1387bc9208f556473745598d57b181c899037c7f
 
 /* -----scrollbar ----------------------------------------------------------*/
 body::-webkit-scrollbar {
@@ -73,14 +70,13 @@ header h1 {
 }
 
 .highlighter {
-  background: #ff9345;
+  background-image: linear-gradient(#df7b35, #ff9345);
   width: auto;
   padding-bottom: 3px;
   padding-left: 3px;
   padding-right: 3px;
   border-radius: 0.5ex;
 }
-
 .navItems {
   float: none;
   margin: 0 auto;
