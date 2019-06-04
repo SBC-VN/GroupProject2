@@ -1,9 +1,4 @@
 var db = require("../models");
-var mLogic=require("../routes/match-logic.js");
-var sLogic=require("../routes/score-logic.js");
-var userAPI=require("../routes/user-api-routes.js");
-var path = require('path');
-
 
 module.exports = function(app) {
   
