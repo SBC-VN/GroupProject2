@@ -36,6 +36,10 @@ a:link {
   text-decoration: none;
 }
 
+.hot {
+  color: #ff670f;
+}
+
 /* -----scrollbar ----------------------------------------------------------*/
 body::-webkit-scrollbar {
   width: 1em;
@@ -146,7 +150,7 @@ header h1 {
   background-repeat: none;
   margin: 15px;
   width: 350px;
-  height: 450px;
+  height: 420px;
   border-radius: 1.5em;
 }
 
@@ -165,39 +169,44 @@ header h1 {
   height: 35px;
   right: 21px;
   padding-left: 5px;
-  top: 300px;
+  top: 270px;
   background: linear-gradient(-90deg, rgb(1, 1, 1), #ff670f);
 }
 
-#showcaseCard2 {
+#sign-up-on-screen-link {
+  margin-top: 20px;
+  text-align: center;
+ 
+}
+
+#sign-up-card {
+  display: inline-block;
   background: url(../img/friends4.jpg);
-  background-size: 400px auto;
-  background-position: -65px;
+  background-size: 300px auto;
+  background-position: 0;
   background-repeat: none;
   margin: 15px;
-  width: 250px;
-  height: 250px;
+  width: 300px;
+  height: 150px;
   border-radius: 1.5em;
 }
-#showcaseCard2 h2 {
-  color: rgb(224, 222, 218);
-  font-weight: bolder;
-  text-shadow: 2px 2px 2px #030303;
-  stroke: 1px;
+
+#sign-up-card:hover {
+  opacity: 0.5;
 }
 
-#showcaseCard2 p {
-  font-size: 20px;
-  color: white;
+#sign-up-card-text {
   position: relative;
-  width: 250px;
-  right: 21px;
-  padding-left: 5px;
+  text-decoration: none;
   top: 100px;
+  color: white;
   background: linear-gradient(-90deg, rgb(1, 1, 1), #ff670f);
+  text-align: center;
+  padding-bottom: 3px;
 }
+
 .text {
-  width: 60%;
+  width: 70%;
   word-wrap: break-word;
   color: rgb(204, 191, 191);
   mix-blend-mode: difference;
