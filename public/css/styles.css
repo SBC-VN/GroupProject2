@@ -509,7 +509,6 @@ textarea {
 }
 
 .matchPicContainer::after {
-  content: "yoooo";
   font-size: 1em;
   position: absolute;
   left: 0;
