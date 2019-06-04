@@ -10,18 +10,20 @@
 
         <!-- this is the profile pic -->
         <h4>Profile Image</h4>
-        <img class="matchPic" src="/api/users/profilepic/{{profilepic}}">
-        <div class="form-group" id="form-picture" formtarget="/api/users/uploadprofilepic">
-            <form
-            action="/api/uploadfile"
-            enctype="multipart/form-data"
-            method="POST"
-            id="upload-picture"
-            formtarget="/api/uploadfile"
-            >
-                <input type="file" name="myFile" id="survey-picture"/>
-                <input type="submit" value="Upload Image" name="submit" />
-            </form>
+        <div class="profPicBlock">
+            <img class="matchPic" src="/api/users/profilepic/{{profilepic}}">
+            <div class="form-group" id="form-picture" formtarget="/api/users/uploadprofilepic">
+                <form
+                action="/api/uploadfile"
+                enctype="multipart/form-data"
+                method="POST"
+                id="upload-picture"
+                formtarget="/api/uploadfile"
+                >
+                    <input type="file" name="myFile" id="survey-picture"/>
+                    <input type="submit" value="Upload Image" name="submit" />
+                </form>
+            </div>
         </div>
         <br>
 

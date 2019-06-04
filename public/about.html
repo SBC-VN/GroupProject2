@@ -1,40 +1,68 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Syndir</title>
-  </head>
-  <body>
-    <div class="wrapper" id="pageContainer">
-      <header>
-        <!-- This header is only visibile on mobile -->
-        <div class="wrapper d-lg-none">
-          <!-- This is the syndir match title -->
-          <div class="row">
-            <div class="col-12 ">
-              <h1 id="mainTitle">
-                <span class="highlighter">Syndir Match</span>
-              </h1>
-            </div>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Syndir</title>
+</head>
+
+<body>
+  <div class="wrapper" id="pageContainer">
+    <header>
+      <!-- This header is only visibile on mobile -->
+      <div class="wrapper d-lg-none">
+        <!-- This is the syndir match title -->
+        <div class="row">
+          <div class="col-12 ">
+            <h1 id="mainTitle">
+              <span class="highlighter">Syndir</span>Match
+            </h1>
           </div>
-          <!-- These are the nav items -->
-          <div class="row">
-            <div class="col-12-s navItems">
+        </div>
+        <!-- These are the nav items -->
+        <div class="row">
+          <div class="col-12-s navItems">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="index.html">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">CONTACT</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- These are the buttons -->
+        <div class="row ">
+          <div class="col-s-12 buttonList">
+
+          </div>
+        </div>
+      </div>
+
+      <!-- This header is only visibile on large screens -->
+      <div class="container d-none d-lg-block">
+        <!-------- Main title ------------------------------------------------------------------------------------------------------------------------------>
+        <div class="row">
+          <div class="col-6">
+            <h1 id="mainTitle">
+              <span class="highlighter">Syndir</span>Match
+            </h1>
+          </div>
+          <!----------- navs -------------------------------------------------------------------------------------------------------------------------------->
+          <div class="col-6">
+            <div class="navItems">
               <ul class="nav">
                 <li class="nav-item">
                   <a class="nav-link active" href="index.html">HOME</a>
@@ -46,220 +74,174 @@
                   <a class="nav-link" href="contact.html">CONTACT</a>
                 </li>
               </ul>
-            </div>
-          </div>
-          <!-- These are the buttons -->
-          <div class="row ">
-            <div class="col-s-12 buttonList">
 
+              <!-------- login/sign up buttons ------------------------------------------------------------------------------------------------------------------->
+              <div class="row">
+                <div class="col-md-12 buttonList">
+
+                </div>
+              </div>
             </div>
           </div>
         </div>
+      </div>
 
-        <!-- This header is only visibile on large screens -->
-        <div class="container d-none d-lg-block">
-          <!-------- Main title ------------------------------------------------------------------------------------------------------------------------------>
-          <div class="row">
-            <div class="col-6">
+      <!-- ------------- Modals --------------------------------------------------------------------------------------------------------------------------->
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="loginModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
               <h1 id="mainTitle">
-                <span class="highlighter">Syndir Match</span>
+                <span class="highlighter">Syndir</span>Match
               </h1>
             </div>
-            <!----------- navs -------------------------------------------------------------------------------------------------------------------------------->
-            <div class="col-6">
-              <div class="navItems">
-                <ul class="nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="index.html">HOME</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="#">ABOUT</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">CONTACT</a>
-                  </li>
-                </ul>
-
-                <!-------- login/sign up buttons ------------------------------------------------------------------------------------------------------------------->
-                <div class="row">
-                  <div class="col-md-12 buttonList">
-
-                  </div>
-                </div>
-              </div>
+            <div class="modal-body">
+              <h3>User Login</h3>
+              <label for="searchTerm">Email Adress</label>
+              <input type="text" class="form-control" id="emailInputLogin" placeholder="ex. jsmith@example.com" />
+              <label for="searchTerm">Password</label>
+              <input type="password" class="form-control" id="passwordLogin" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="hot" data-toggle="modal" data-target="#loginModal" id="login">
+                Login
+              </button>
+              <button class="button cancel" data-dismiss="modal">
+                Cancel
+              </button>
             </div>
           </div>
         </div>
-
-        <!-- ------------- Modals --------------------------------------------------------------------------------------------------------------------------->
-        <div
-          class="modal fade bd-example-modal-lg"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="myLargeModalLabel"
-          aria-hidden="true"
-          id="loginModal"
-        >
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 id="mainTitle">
-                  <span class="highlighter">Syndir Match</span>
-                </h1>
-              </div>
-              <div class="modal-body">
-                <h3>User Login</h3>
-                <label for="searchTerm">Email Adress</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="emailInputLogin"
-                  placeholder="ex. jsmith@example.com"
-                />
-                <label for="searchTerm">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="passwordLogin"
-                />
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="hot"
-                  data-toggle="modal"
-                  data-target="#loginModal"
-                  id="login"
-                >
-                  Login
-                </button>
-                <button class="button cancel" data-dismiss="modal">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
-
-
-    <div class="container" id= "mainContainer">   
-<!-- This will be the main body of the page ------------------------------------------------------------------------------------------------------->
-  <div class = row>
-    <div class= "col-12-lg">
-      <h2 id="infoHeading">About Syndir Match</h2>
-    </div>
-  </div>
-    <div class = row>
-        <div class= "col-4-lg">
-            <div class="card aboutCard" data-toggle="modal" data-target="#aboutModal1" id = "aboutCard1">
-                <div class="card-body">
-                  <div class="textBlock">
-                    <h3>General Info</h3>
-                  </div>
-                </div>
-              </div>    
-        </div>
-      <div class= "col-4-lg">
-          <div class="card aboutCard" data-toggle="modal" data-target="#aboutModal2"  id = "aboutCard2">
-              <div class="card-body">
-                  <div class="textBlock">
-                      <h3>Sentiment Scan</h3>
-                  </div>
-              </div>
-            </div>
       </div>
-    <div class= "col-4-lg">
-        <div class="card aboutCard" data-toggle="modal" data-target="#aboutModal3"  id = "aboutCard3">
+    </header>
+
+
+    <div class="container" id="mainContainer">
+      <!-- This will be the main body of the page ------------------------------------------------------------------------------------------------------->
+      <div class="row">
+        <div class="col-12-lg">
+          <h2 id="infoHeading">About Syndir Match</h2>
+        </div>
+      </div>
+      <div class="row powerd-by-cards">
+        <div class="col-4-lg">
+          <div class="card aboutCard" data-toggle="modal" data-target="#aboutModal1" id="aboutCard1">
             <div class="card-body">
-                <div class="textBlock">
-                    <h3>Social</h3>
-                </div>
+              <div class="textBlock">
+                <h3>General Info</h3>
+              </div>
             </div>
           </div>
-    </div>
-  </div>
-
-  <!-- this is the "powered by" section ----------------------------------------------------------------------------------------->
-  <div class ="row" id= "poweredBy">
-      <h2 id="infoHeading">Powered By:</h2>
-  </div>
-  <div class ="row">
-    <div class = "col-2-md">
-      <div class="card poweredByCard" id= "poweredByCard1">
-          <div class="card-body">
+        </div>
+        <div class="col-4-lg">
+          <div class="card aboutCard" data-toggle="modal" data-target="#aboutModal2" id="aboutCard2">
+            <div class="card-body">
+              <div class="textBlock">
+                <h3>Sentiment Scan</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-4-lg">
+          <div class="card aboutCard" data-toggle="modal" data-target="#aboutModal3" id="aboutCard3">
+            <div class="card-body">
+              <div class="textBlock">
+                <h3>Social</h3>
+              </div>
+            </div>
           </div>
         </div>
       </div>
-      <div class = "col-2-md">
-          <div class="card poweredByCard" id= "poweredByCard2">
-              <div class="card-body">
-              </div>
+
+      <!-- this is the "powered by" section ----------------------------------------------------------------------------------------->
+      <div class="row" id="poweredBy">
+        <h2 id="infoHeading">Powered By:</h2>
+      </div>
+      <div class="row powerd-by-cards">
+        <div class="col-2-md">
+          <div class="card poweredByCard" id="poweredByCard1">
+            <div class="card-body">
             </div>
           </div>
-          <div class = "col-2-md">
-              <div class="card poweredByCard" id= "poweredByCard3">
-                  <div class="card-body">
-                  </div>
-                </div>
-              </div>
-              <div class = "col-2-md">
-                  <div class="card poweredByCard" id= "poweredByCard4">
-                      <div class="card-body">
-                      </div>
-                    </div>
-                  </div>
-                  <div class = "col-2-md">
-                      <div class="card poweredByCard" id= "poweredByCard5">
-                          <div class="card-body">
-                          </div>
-                        </div>
-                      </div>
-  </div>
+        </div>
+        <div class="col-2-md">
+          <div class="card poweredByCard" id="poweredByCard2">
+            <div class="card-body">
+            </div>
+          </div>
+        </div>
+        <div class="col-2-md">
+          <div class="card poweredByCard" id="poweredByCard3">
+            <div class="card-body">
+            </div>
+          </div>
+        </div>
+        <div class="col-2-md">
+          <div class="card poweredByCard" id="poweredByCard4">
+            <div class="card-body">
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row powerd-by-cards">
+        <div class=" col-2-md">
+          <div class="card poweredByCard" id="poweredByCard5">
+            <div class="card-body">
+            </div>
+          </div>
+        </div>
+        <div class="col-2-md">
+          <div class="card poweredByCard" id="poweredByCard6">
+            <div class="card-body">
+            </div>
+          </div>
+        </div>
+        <div class="col-2-md">
+          <div class="card poweredByCard" id="poweredByCard7">
+            <div class="card-body">
+            </div>
+          </div>
+        </div>
+        <div class="col-2-md">
+          <div class="card poweredByCard" id="poweredByCard8">
+            <div class="card-body">
+            </div>
+          </div>
+        </div>
+      </div>
 
-<!-- ---------this is the end of the main container------------------------------------------------------------------------------------------------------------------------------ -->
+      <!-- ---------this is the end of the main container------------------------------------------------------------------------------------------------------------------------------ -->
     </div>
     <!-- end of wrapper -->
-    </div>
-    <footer>
-        <h4>Syndir &copy; 2019</h4>
-    </footer>
-<!-- modals are stored here ------------------------------------------------------------------------------------------------------------------------------------------------------------>
-<!-- modal 1 --------------------------------------------------------------------------------------------------------------->
-<div class="modal fade aboutModal" tabindex="-1" role="dialog" id="aboutModal1">
-    <div class="modal-dialog" role="document">
-      <div class="modal-content aboutModalContent">
-        <div class="modal-header">
-            <h1 id="mainTitle">
-                <span class="highlighter">Syndir Match</span>
-              </h1>
-        </div>
-        <div class="modal-body">
-            <h2 id="infoHeading">General Info: </h2>
-            <p>Photo booth typewriter cliche pop-up, cold-pressed austin small batch wayfarers. Quinoa kickstarter health goth, meh banjo activated charcoal hella salvia. Polaroid authentic disrupt dreamcatcher blue bottle. Blog paleo chillwave raw denim before they sold out mixtape, banjo kale chips farm-to-table blue bottle swag cred pickled brooklyn.</p>
-            <p>DIY artisan taxidermy mustache. Shabby chic chillwave squid tilde 8-bit. Blue bottle cliche meggings you probably haven't heard of them. Yuccie whatever adaptogen, cloud bread williamsburg twee green juice. Gastropub blog put a bird on it portland, +1 single-origin coffee disrupt iceland affogato keffiyeh distillery occupy jean shorts dreamcatcher.</p>
-            <p>Shoreditch literally meditation, messenger bag lyft flannel leggings keytar celiac authentic kickstarter mustache scenester. Woke tofu kale chips unicorn tbh chicharrones pour-over cold-pressed hell of hot chicken. Vinyl gochujang mumblecore street art vice butcher, williamsburg kickstarter DIY kale chips plaid prism squid tacos church-key. Church-key enamel pin cloud bread asymmetrical, artisan pok pok blog lomo pabst la croix chicharrones viral.</p>
-          </div>
-        <div class="modal-footer">
-          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        </div>
-      </div>
-    </div>
   </div>
-<!-- modal 2 --------------------------------------------------------------------------------------------------------------->
-<div class="modal fade aboutModal" tabindex="-1" role="dialog" id="aboutModal2">
+  <footer>
+    <h4>Syndir &copy; 2019</h4>
+  </footer>
+  <!-- modals are stored here ------------------------------------------------------------------------------------------------------------------------------------------------------------>
+  <!-- modal 1 --------------------------------------------------------------------------------------------------------------->
+  <div class="modal fade aboutModal" tabindex="-1" role="dialog" id="aboutModal1">
     <div class="modal-dialog" role="document">
       <div class="modal-content aboutModalContent">
         <div class="modal-header">
-            <h1 id="mainTitle">
-                <span class="highlighter">Syndir Match</span>
-              </h1>
+          <h1 id="mainTitle">
+            <span class="highlighter">Syndir Match</span>
+          </h1>
         </div>
         <div class="modal-body">
-            <h2 id="infoHeading">How Sentiment Scan Works: </h2>
-            <p>Photo booth typewriter cliche pop-up, cold-pressed austin small batch wayfarers. Quinoa kickstarter health goth, meh banjo activated charcoal hella salvia. Polaroid authentic disrupt dreamcatcher blue bottle. Blog paleo chillwave raw denim before they sold out mixtape, banjo kale chips farm-to-table blue bottle swag cred pickled brooklyn.</p>
-            <p>DIY artisan taxidermy mustache. Shabby chic chillwave squid tilde 8-bit. Blue bottle cliche meggings you probably haven't heard of them. Yuccie whatever adaptogen, cloud bread williamsburg twee green juice. Gastropub blog put a bird on it portland, +1 single-origin coffee disrupt iceland affogato keffiyeh distillery occupy jean shorts dreamcatcher.</p>
-            <p>Shoreditch literally meditation, messenger bag lyft flannel leggings keytar celiac authentic kickstarter mustache scenester. Woke tofu kale chips unicorn tbh chicharrones pour-over cold-pressed hell of hot chicken. Vinyl gochujang mumblecore street art vice butcher, williamsburg kickstarter DIY kale chips plaid prism squid tacos church-key. Church-key enamel pin cloud bread asymmetrical, artisan pok pok blog lomo pabst la croix chicharrones viral.</p>
+          <h2 class="aboutModalHeading">General Info: </h2>
+          <p>
+            Filling out the survey enables the application to match you with people who think, speak or feel similar to
+            you based on your responses to the survey. It's a new take on putting like minded people together, and
+            weeding out those who you may not prefer.
+          </p>
+          <p>
+            In essence, it is the process of determining the emotional tone behind a series of words, used to gain an
+            understanding of the the attitudes, opinions and emotions expressed within an online mention.</p>
+          <p>
+            All in all, sentiment analysis boils down to one thing: It's the process of analyzing online pieces of
+            writing to determine the emotional tone they carry. Sentiment analysis is used to find the author's attitude
+            towards something. Tools categorize pieces of writing as positive, neutral, or negative.</p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -267,20 +249,44 @@
       </div>
     </div>
   </div>
-<!-- modal 3 --------------------------------------------------------------------------------------------------------------->
-<div class="modal fade aboutModal" tabindex="-1" role="dialog" id="aboutModal3">
+  <!-- modal 2 --------------------------------------------------------------------------------------------------------------->
+  <div class="modal fade aboutModal" tabindex="-1" role="dialog" id="aboutModal2">
     <div class="modal-dialog" role="document">
       <div class="modal-content aboutModalContent">
         <div class="modal-header">
-            <h1 id="mainTitle">
-                <span class="highlighter">Syndir Match</span>
-              </h1>
+          <h1 id="mainTitle">
+            <span class="highlighter">Syndir Match</span>
+          </h1>
         </div>
         <div class="modal-body">
-            <h2 id="infoHeading">How to Interact with Other Users:  </h2>
-            <p>Photo booth typewriter cliche pop-up, cold-pressed austin small batch wayfarers. Quinoa kickstarter health goth, meh banjo activated charcoal hella salvia. Polaroid authentic disrupt dreamcatcher blue bottle. Blog paleo chillwave raw denim before they sold out mixtape, banjo kale chips farm-to-table blue bottle swag cred pickled brooklyn.</p>
-            <p>DIY artisan taxidermy mustache. Shabby chic chillwave squid tilde 8-bit. Blue bottle cliche meggings you probably haven't heard of them. Yuccie whatever adaptogen, cloud bread williamsburg twee green juice. Gastropub blog put a bird on it portland, +1 single-origin coffee disrupt iceland affogato keffiyeh distillery occupy jean shorts dreamcatcher.</p>
-            <p>Shoreditch literally meditation, messenger bag lyft flannel leggings keytar celiac authentic kickstarter mustache scenester. Woke tofu kale chips unicorn tbh chicharrones pour-over cold-pressed hell of hot chicken. Vinyl gochujang mumblecore street art vice butcher, williamsburg kickstarter DIY kale chips plaid prism squid tacos church-key. Church-key enamel pin cloud bread asymmetrical, artisan pok pok blog lomo pabst la croix chicharrones viral.</p>
+          <h2 class="aboutModalHeading">How Sentiment Scan Works: </h2>
+          <p>
+            Syndir a thought experiment on social networking. Psychological assements on users,
+            performed by companies such as Facebook and Cambridge Analytica in secret,
+            have become a highly controversial subject. If these privacy-violating metrics are a natural byproduct of
+            providing psychological samples online, is there a way we can harness them for some good to use to our
+            advantage?
+            Syndir uses a basic sentiment-analysis wordlist to match users on their pyschological inclinations.
+            <p>
+              <p>
+                Sentiment analysis (also known as opinion mining or emotion AI)
+                refers to the use of natural language processing, text analysis, computational linguistics, and
+                biometrics
+                to systematically identify, extract, quantify, and study affective states and subjective information.
+                Sentiment analysis is widely applied to voice of the customer materials such as reviews and survey
+                responses,
+                online and social media, and healthcare materials for applications
+                that range from marketing to customer service to clinical medicine.
+              </p>
+              <p>
+                Sentiment analysis is the process of scoring a text sample to gague
+                determining the tone of a text sample by analyzing online pieces of writing to
+                determine the emotional content they carry. It is used to gain an understanding of the the attitudes and
+                opinions
+                expressed within an online mention. It is used to find the author's position towards an issue;
+                it can be used gauge public opinion on policy announcements, brand messaging, stock market activity,
+                and other complex tasks.
+              </p>
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -288,17 +294,45 @@
       </div>
     </div>
   </div>
-  </div>
-<!-- end of modals ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+  <!-- modal 3 --------------------------------------------------------------------------------------------------------------->
+  <div class="modal fade aboutModal" tabindex="-1" role="dialog" id="aboutModal3">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content aboutModalContent">
+        <div class="modal-header">
+          <h1 id="mainTitle">
+            <span class="highlighter">Syndir Match</span>
+          </h1>
+        </div>
+        <div class="modal-body">
+          <h2 class="aboutModalHeading">Interacting with Other Users: </h2>
+          <p>Syndir allows users to chat with their matches in real-time with firebase chat. Simply click on one of your
+            matches and start chatting.</p>
+          <p>Your matches were chosen based on similar writing, mannerisms of speach, and word choice. So you already
+            have that much in common.</p>
 
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <script src="js/style.js"></script>
-    <script src="js/chat.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- end of modals ----------------------------------------------------------------------------------------------------------------------------------------------------------------->
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+  <script src="js/style.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>
