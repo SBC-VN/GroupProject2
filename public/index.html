@@ -1,40 +1,87 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1, shrink-to-fit=no"
-    />
 
-    <!-- Bootstrap CSS -->
-    <link
-      rel="stylesheet"
-      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
-      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
-      crossorigin="anonymous"
-    />
-    <link rel="stylesheet" href="css/styles.css" />
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
 
-    <title>Syndir</title>
-  </head>
-  <body>
-    <div class="wrapper" id="pageContainer">
-      <header>
-        <!-- This header is only visibile on mobile -->
-        <div class="wrapper d-lg-none">
-          <!-- This is the syndir match title -->
-          <div class="row">
-            <div class="col-12 ">
-              <h1 id="mainTitle">
-                <span class="highlighter">Syndir Match</span>
-              </h1>
-            </div>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
+  <link rel="stylesheet" href="css/styles.css" />
+
+  <title>Syndir</title>
+</head>
+
+<body>
+  <div class="wrapper" id="pageContainer">
+    <header>
+      <!-- This header is only visibile on mobile -->
+      <div class="wrapper d-lg-none">
+        <!-- This is the syndir match title -->
+        <div class="row">
+          <div class="col-12 ">
+            <h1 id="mainTitle">
+              <span class="highlighter">Syndir Match</span>
+            </h1>
           </div>
-          <!-- These are the nav items -->
-          <div class="row">
-            <div class="col-12-s navItems">
+        </div>
+        <!-- These are the nav items -->
+        <div class="row">
+          <div class="col-12-s navItems">
+            <ul class="nav">
+              <li class="nav-item">
+                <a class="nav-link active" href="#">HOME</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="about.html">ABOUT</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="contact.html">CONTACT</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <!-- These are the buttons -->
+        <div class="row ">
+          <div class="col-s-12 buttonList">
+            <a href="chat.html">
+              <button type="button" class="icons" data-toggle="modal" data-target="#" id="chat-icon">
+                <img src="./img/icons/chatIconGrey.png" />
+              </button>
+            </a>
+            <button type="button" class="icons" data-toggle="modal" data-target="#" id="match-icon">
+              <img src="./img/icons/matchIconGrey.png" />
+            </button>
+            <button type="button" class="icons" data-toggle="modal" data-target="#" id="profile-icon">
+              <img src="./img/icons/profileIconGrey.png" />
+            </button>
+            -->
+            <!-- login and sign-up buttons -->
+
+            <button type="button" class="hot" data-toggle="modal" data-target="#loginModal" id="login">
+              Login
+            </button>
+            <button class="button cancel" data-dismiss="modal">
+              Cancel
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- This header is only visibile on large screens -->
+      <div class="container d-none d-lg-block">
+        <!-------- Main title ------------------------------------------------------------------------------------------------------------------------------>
+        <div class="row">
+          <div class="col-6">
+            <h1 id="mainTitle">
+              <span class="highlighter">Syndir Match</span>
+            </h1>
+          </div>
+          <!----------- navs -------------------------------------------------------------------------------------------------------------------------------->
+          <div class="col-6">
+            <div class="navItems">
               <ul class="nav">
                 <li class="nav-item">
                   <a class="nav-link active" href="#">HOME</a>
@@ -46,50 +93,48 @@
                   <a class="nav-link" href="contact.html">CONTACT</a>
                 </li>
               </ul>
+
+              <!-------- login/sign up buttons ------------------------------------------------------------------------------------------------------------------->
+              <div class="row">
+                <div class="col-md-12 buttonList">
+                  <!--New Nav Icons-->
+                  <a href="chat.html">
+                    <button type="button" class="icons" data-toggle="modal" data-target="#" id="chat-icon">
+                      <img src="./img/icons/chatIconGrey.png" />
+                    </button>
+                  </a>
+                  <button type="button" class="icons" data-toggle="modal" data-target="#" id="match-icon">
+                    <img src="./img/icons/matchIconGrey.png" />
+                  </button>
+                  <button type="button" class="icons" data-toggle="modal" data-target="#" id="profile-icon">
+                    <img src="./img/icons/profileIconGrey.png" />
+                  </button>
+                </div>
+              </div>
             </div>
           </div>
-          <!-- These are the buttons -->
-          <div class="row ">
-            <div class="col-s-12 buttonList">
-              <a href="chat.html">
-                <button
-                  type="button"
-                  class="icons"
-                  data-toggle="modal"
-                  data-target="#"
-                  id="chat-icon"
-                >
-                  <img src="./img/icons/chatIconGrey.png" />
-                </button>
-              </a>
-              <button
-                type="button"
-                class="icons"
-                data-toggle="modal"
-                data-target="#"
-                id="match-icon"
-              >
-                <img src="./img/icons/matchIconGrey.png" />
-              </button>
-              <button
-                type="button"
-                class="icons"
-                data-toggle="modal"
-                data-target="#"
-                id="profile-icon"
-              >
-                <img src="./img/icons/profileIconGrey.png" />
-              </button>
-              -->
-              <!-- login and sign-up buttons -->
+        </div>
+      </div>
 
-              <button
-                type="button"
-                class="hot"
-                data-toggle="modal"
-                data-target="#loginModal"
-                id="login"
-              >
+      <!-- ------------- Modals --------------------------------------------------------------------------------------------------------------------------->
+      <div class="modal fade bd-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+        aria-hidden="true" id="loginModal">
+        <div class="modal-dialog modal-lg">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 id="mainTitle">
+                <span class="highlighter">Syndir Match</span>
+              </h1>
+            </div>
+            <div class="modal-body">
+              <h3>User Login</h3>
+              <label for="searchTerm">Email Adress</label>
+              <input type="text" class="form-control" id="emailInputLogin" placeholder="ex. jsmith@example.com" />
+              <label for="searchTerm">Password</label>
+              <input type="password" class="form-control" id="passwordLogin" />
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="hot" data-toggle="modal" data-target="#loginModal" id="login">
                 Login
               </button>
               <button class="button cancel" data-dismiss="modal">
@@ -98,196 +143,75 @@
             </div>
           </div>
         </div>
-
-        <!-- This header is only visibile on large screens -->
-        <div class="container d-none d-lg-block">
-          <!-------- Main title ------------------------------------------------------------------------------------------------------------------------------>
-          <div class="row">
-            <div class="col-6">
-              <h1 id="mainTitle">
-                <span class="highlighter">Syndir Match</span>
-              </h1>
-            </div>
-            <!----------- navs -------------------------------------------------------------------------------------------------------------------------------->
-            <div class="col-6">
-              <div class="navItems">
-                <ul class="nav">
-                  <li class="nav-item">
-                    <a class="nav-link active" href="#">HOME</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="about.html">ABOUT</a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="contact.html">CONTACT</a>
-                  </li>
-                </ul>
-
-                <!-------- login/sign up buttons ------------------------------------------------------------------------------------------------------------------->
-                <div class="row">
-                  <div class="col-md-12 buttonList">
-                    <!--New Nav Icons-->
-                    <a href="chat.html">
-                      <button
-                        type="button"
-                        class="icons"
-                        data-toggle="modal"
-                        data-target="#"
-                        id="chat-icon"
-                      >
-                        <img src="./img/icons/chatIconGrey.png" />
-                      </button>
-                    </a>
-                    <button
-                      type="button"
-                      class="icons"
-                      data-toggle="modal"
-                      data-target="#"
-                      id="match-icon"
-                    >
-                      <img src="./img/icons/matchIconGrey.png" />
-                    </button>
-                    <button
-                      type="button"
-                      class="icons"
-                      data-toggle="modal"
-                      data-target="#"
-                      id="profile-icon"
-                    >
-                      <img src="./img/icons/profileIconGrey.png" />
-                    </button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <!-- ------------- Modals --------------------------------------------------------------------------------------------------------------------------->
-        <div
-          class="modal fade bd-example-modal-lg"
-          tabindex="-1"
-          role="dialog"
-          aria-labelledby="myLargeModalLabel"
-          aria-hidden="true"
-          id="loginModal"
-        >
-          <div class="modal-dialog modal-lg">
-            <div class="modal-content">
-              <div class="modal-header">
-                <h1 id="mainTitle">
-                  <span class="highlighter">Syndir Match</span>
-                </h1>
-              </div>
-              <div class="modal-body">
-                <h3>User Login</h3>
-                <label for="searchTerm">Email Adress</label>
-                <input
-                  type="text"
-                  class="form-control"
-                  id="emailInputLogin"
-                  placeholder="ex. jsmith@example.com"
-                />
-                <label for="searchTerm">Password</label>
-                <input
-                  type="password"
-                  class="form-control"
-                  id="passwordLogin"
-                />
-              </div>
-              <div class="modal-footer">
-                <button
-                  type="button"
-                  class="hot"
-                  data-toggle="modal"
-                  data-target="#loginModal"
-                  id="login"
-                >
-                  Login
-                </button>
-                <button class="button cancel" data-dismiss="modal">
-                  Cancel
-                </button>
-              </div>
-            </div>
-          </div>
-        </div>
-      </header>
+      </div>
+    </header>
 
 
-    <div class="container" id= "mainContainer">   
-<!-- This will be the main body of the page
+    <div class="container" id="mainContainer">
+      <!-- This will be the main body of the page
         this will be split into two sections 1/3 & 2/3 sections ------------------------------------------------------------------------------------------------------->
-        <div class="row showcase">
-          <div class ="col-4-md col-2-xs">
-            <div class="card" id="showcaseCard1">
-              <div class="card-body showcaseCardBody">
-                <h2>Syndir Match</h2>
-                  <p>A new way to network online.</p>
-              </div>
-            </div>
-          </div>
-          <div class ="col-8-md col-2-xs">
-            <div class="wrapper">
-                <div class="text">
-                  <h3>HOW IT WORKS</h3>
-                    <p>
-                      In essence, it is the process of determining the emotional tone behind a series of words, used to gain an 
-                      understanding of the the attitudes, opinions and emotions expressed within an online mention.</p>
-                    <p>
-                      All in all, sentiment analysis boils down to one thing: It's the process of analyzing online pieces of writing to 
-                      determine the emotional tone they carry. In simple words, sentiment analysis is used to find the author's attitude 
-                      towards something. Tools categorize pieces of writing as positive, neutral, or negative.</p>
-                    <p>
-                      Presidential campaigns have used sentiment analysis to gauge public opinion to policy announcements and campaign 
-                      messages ahead of elections. Being able to quickly see the sentiment behind everything from 
-                      forum posts to news articles means being better able to strategise and plan for the future.
-                    </p>
-                </div>
+      <div class="row showcase">
+        <div class="col-4">
+          <div class="card" id="showcaseCard1">
+            <div class="card-body showcaseCardBody">
+              <h2>Syndir Match</h2>
+              <p>A new way to network online.</p>
             </div>
           </div>
         </div>
-<!----- end of row 1 ---------------------------------------------------------------------------------------------------------------------------------------------->
-<!-- <div class="row showcase">
-        <div class ="col-4-md">
-                <div class="card" id="showcaseCard2">
-                        <div class="card-body showcaseCardBody">
-                          <h2>Syndir Match</h2>
-                          <p>A new way to network online.</p>
-                        </div>
-                </div>
-        </div>
-        <div class ="col-8-md">
-                <div class="wrapper">
-                    <div class="bg">
-                        <div class="text">
-                          <h3>HOW IT WORKS</h3>
-                          <p>Lorem ipsum dolor amet next level yuccie lo-fi squid trust fund, meggings kinfolk unicorn aesthetic poke disrupt. Tbh offal marfa craft beer, vaporware vape godard.</p>
-                          <p>Distillery iceland waistcoat XOXO viral thundercats, polaroid succulents farm-to-table unicorn blue bottle. Pug mumblecore typewriter, synth blog iceland tote bag YOLO plaid. Humblebrag pinterest kale chips glossier hell of semiotics, messenger bag +1 williamsburg meggings pok pok tbh organic skateboard.</p>
-                          <p>Lorem ipsum dolor amet next level yuccie lo-fi squid trust fund, meggings kinfolk unicorn aesthetic poke disrupt. Tbh offal marfa craft beer, vaporware vape godard.</p>
-                    </div>
-                </div>
+        <div class="col-8">
+          <div class="wrapper">
+            <div class="text">
+              <h1 class="hot">HOW IT WORKS</h1>
+              <h4>
+                Syndir helps users find matches based on more than just looks.</h4>
+              <p>
+                Syndir uses a sentiment algorythm to match users based on their unique responses to questions. When
+                filling out our sign-up form, users will be asked a series of open ended questions. Our algorthms will
+                interpret these responses and math you with like minded users. </p>
+              <br>
+              <h3 class="hot">Get Matching in Minutes</h3>
+              <h4>
+                Start finding matches in as little as 5 minutes.</h4>
+              <p>
+                All you have to do is fill out a small sign-up form, and answer 10 questions. Don't worry about crafting
+                elaborate responses. Syndir works best with simple, natural responses. </p>
             </div>
+          </div>
         </div>
-</div> -->
-</div>
-
-
-<!-- ---------this is the end of the fluid container------------------------------------------------------------------------------------------------------------------------------ -->
+      </div>
+      <!----- end of row 1 ---------------------------------------------------------------------------------------------------------------------------------------------->
+      <div class="row">
+        <div class="col-12" id="sign-up-on-screen-link">
+          <a id="sign-up-card" href="signup.html">
+            <h4 id="sign-up-card-text">Sign-Up Now!</h4>
+          </a>
+        </div>
+      </div>
+      <!-- end of page container -->
     </div>
-    <!-- end of wrapper -->
+
+
+    <!-- ---------this is the end of the fluid container------------------------------------------------------------------------------------------------------------------------------ -->
   </div>
-        <footer>
-            <h4>Syndir &copy; 2019</h4>
-        </footer>
-    <!-- Optional JavaScript -->
-    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-    <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
-    <script src="js/style.js"></script>
-    <script src="js/chat.js"></script>
-    <script src="js/main.js"></script>
-  </body>
+  <!-- end of wrapper -->
+  </div>
+  <footer>
+    <h4>Syndir &copy; 2019</h4>
+  </footer>
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script src="https://www.gstatic.com/firebasejs/5.9.1/firebase.js"></script>
+  <script src="js/style.js"></script>
+  <script src="js/chat.js"></script>
+  <script src="js/main.js"></script>
+</body>
+
 </html>
