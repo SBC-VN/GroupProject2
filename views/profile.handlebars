@@ -1,0 +1,172 @@
+<div class="container" id="mainContainer">
+    <!-- This will be the main body of the page------------------------------------------------------------------------------------------------------>
+    <div class="row">
+        <h2 id="infoHeading">Profile Form</h2>
+    </div>
+
+    <div class="card surveyBlock">
+        <h5 class="card-header">User Information</h5>
+        <div class="card-body">
+
+        <!-- this is the profile pic -->
+        <h4>Profile Image</h4>
+        <img class="matchPic" src="/api/users/profilepic/{{profilepic}}">
+        <div class="form-group" id="form-picture" formtarget="/api/users/uploadprofilepic">
+            <form
+            action="/api/uploadfile"
+            enctype="multipart/form-data"
+            method="POST"
+            id="upload-picture"
+            formtarget="/api/uploadfile"
+            >
+                <input type="file" name="myFile" id="survey-picture"/>
+                <input type="submit" value="Upload Image" name="submit" />
+            </form>
+        </div>
+        <br>
+
+        <!-- User inputs go here----------------------------->
+        <!-- first name and last name -->
+        <h4>Full Name</h4>
+        <div class="row">
+            <div class="col-6"><h6>First Name</h6></div>
+            <div class="col-6"><h6>Last Name</h6></div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <input
+                    id="form-firstname"
+                    class="form-control"
+                    type="text"
+                    name="firstname"
+                    placeholder="John"
+                    value={{firstname}}
+                />
+                <span class="input-group-addon"></span>
+            </div>
+            <div class="col-6">
+                <input
+                    id="form-lastname"
+                    class="form-control"
+                    type="text"
+                    name="lastname"
+                    placeholder="Smith"
+                    value={{lastname}}
+                />
+                <span class="input-group-addon"></span>
+            </div>
+        </div>
+        <br />
+
+        <!-- Age and location -->
+        <h4>User Info</h4>
+        <div class="row">
+            <div class="col-6"><h6>Age</h6></div>
+            <div class="col-6"><h6>Location (city)</h6></div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <input
+                    id="form-age"
+                    class="form-control"
+                    type="text"
+                    name="age"
+                    placeholder="25"
+                    value={{age}}
+                />
+                <span class="input-group-addon"></span>
+            </div>
+            <div class="col-6">
+                <input
+                    id="form-locale"
+                    class="form-control"
+                    type="text"
+                    name="locale"
+                    placeholder="LostAndFoundLand"
+                    value={{locale}}
+                />
+                <span class="input-group-addon"></span>
+            </div>
+        </div>
+        <br />
+
+        <!-- Username/password -->
+        <div class="row">
+            <div class="col-6"><h6>Username</h6></div>
+            <div class="col-6"><h6>Email</h6></div>
+        </div>
+
+        <div class="row">
+            <div class="col-6">
+                <input
+                    id="form-screenname"
+                    class="form-control"
+                    type="text"
+                    name="screenname"
+                    placeholder="Username"
+                    value={{screenname}}
+                />
+                <span class="input-group-addon"></span>
+            </div>
+            <div class="col-6">
+                <input
+                    id="form-email"
+                    class="form-control"
+                    type="text"
+                    name="email"
+                    placeholder="john@mymail.com"
+                    value={{email}}
+                />
+                <span class="input-group-addon"></span>
+            </div>
+        </div>
+
+        <br />
+        <h4>Password</h4>
+        <div class="row">
+            <div class="col-6"><h6>Type Once</h6></div>
+            <div class="col-6"><h6>Re-Type</h6></div>
+        </div>
+        <div class="row">
+            <div class="col-6">
+                <input
+                    id="formPassword1"
+                    class="form-control"
+                    type="password"
+                    name="password1"
+                    placeholder=""
+                    value={{password}}
+                />
+                <span class="input-group-addon"></span>
+            </div>
+            <div class="col-6">
+                <input
+                    id="formPassword2"
+                    class="form-control"
+                    type="password"
+                    name="password2"
+                    placeholder=""
+                    value={{password}}
+                />
+                <span class="input-group-addon"></span>
+            </div>
+        </div>
+        <br />
+
+        <!-- Bio section -->
+        <h4>Bio</h4>
+        <textarea
+            id="form-bio"            
+            rows="4"
+            cols=""
+            placeholder="Write a brief bio about yourself."
+        >
+            {{bio}}
+        </textarea>
+        </div>
+    </div>
+
+<!-- ---------this is the end of the fluid container------------------------------------------------------------------------------------------------------------------------------ -->
+</div>
