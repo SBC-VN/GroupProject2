@@ -686,6 +686,11 @@ textarea {
   border-radius: 5px;
 }
 
+/* Contains the profile picture */
+.profPicBlock {
+  display: inline-block;
+}
+
 /* *******Media Queries************************************ */
 /* ************************************************************ */
 @media (min-width: 992px) {
