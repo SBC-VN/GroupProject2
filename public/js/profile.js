@@ -303,7 +303,7 @@ $(function () {
     function check_bio() {
         var bio_length = $("#form-bio").val().length;
 
-        if (locale_length < 1 || locale_length > 250) {
+        if (bio_length < 1 || bio_length > 250) {
             $("#bio-error").html("*Should be between 1 and 250 characters.");
             $("#bio-error").show();
             error_bio = true;
